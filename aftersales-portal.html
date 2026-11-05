@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Hong Seh Customer Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: same header language as the main site; signed-in area is a two-column workspace
+   (fleet list left, selected vehicle's repair detail right) that stacks on phones. */
+:root{
+  --ink:#000;--body:#5c5c5c;--mute:#767676;--line:#e3e3e3;--paper:#fff;--soft:#f5f6f7;
+  --link:#026e9f;--teal:#0f8a9a;--teal-bg:#e7f6f8;--orange:#fd6e4f;--orange-ink:#c2410c;
+  --good:#13795b;--good-bg:#e6f4ee;--warn:#b45309;--warn-bg:#fff7ed;--bad:#b91c1c;
+  --font:"Montserrat","Helvetica Neue",Arial,sans-serif;--shadow:0 10px 30px rgba(0,0,0,.08);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;background:var(--soft);color:var(--body);font-family:var(--font);font-size:14px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+[hidden]{display:none!important}
+h1,h2,h3,h4{color:var(--ink);font-weight:600;text-transform:uppercase;margin:0;letter-spacing:.01em;text-wrap:balance}
+.num{font-variant-numeric:tabular-nums}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.concept{background:#111;color:#f1f1f1;font-size:12px}
+.concept .wrap{display:flex;gap:8px 16px;align-items:center;flex-wrap:wrap;padding-block:8px}
+.concept strong{color:#fff;text-transform:uppercase;letter-spacing:.08em}
+.concept a{color:#9fe3ec}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:8px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand svg{width:46px;height:auto}
+.brand span{font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.brand small{display:block;font-weight:500;color:var(--mute);letter-spacing:.06em;font-size:11px}
+.hdr-actions{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 12.5px var(--font);letter-spacing:.08em;text-transform:uppercase;border-radius:3px;padding:11px 18px;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:background .2s,color .2s}
+.btn-orange{background:var(--orange);color:#fff}.btn-orange:hover{background:#e85a3b}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover{background:#333}
+.btn-line{background:#fff;color:var(--ink);border-color:var(--ink)}.btn-line:hover{background:var(--ink);color:#fff}
+.btn-sm{padding:8px 12px;font-size:11px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);background:var(--teal-bg);border:1px dashed var(--teal);border-radius:3px;padding:3px 8px}
+.ph{background:var(--warn-bg);color:#9a3412;border-radius:2px;padding:0 3px}
+.illus{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);background:var(--warn-bg);border:1px solid #fed7aa;border-radius:3px;padding:2px 6px;white-space:nowrap}
+
+/* ---------- Login ---------- */
+.login{min-height:calc(100vh - 160px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:var(--paper)}
+.login-art{background:#cfd8dc url(assets/t3ev.jpg) center/cover no-repeat;position:relative;min-height:320px}
+.login-art figure{position:absolute;left:24px;right:24px;bottom:24px;margin:0;background:rgba(255,255,255,.95);padding:18px 20px;max-width:420px}
+.login-art blockquote{margin:0 0 8px;color:var(--ink);font-weight:500;font-size:14.5px}
+.login-art figcaption{font-size:12px;color:var(--mute)}
+.login-form{display:grid;align-content:center;padding:48px max(24px,env(safe-area-inset-right,0px)) 48px 48px;max-width:520px;width:100%;gap:18px}
+.login-form h1{font-size:24px}
+.field{display:grid;gap:6px}
+.field label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+input{width:100%;font:500 14px var(--font);color:var(--ink);background:#fff;border:1px solid #cfcfcf;border-radius:3px;padding:11px 12px}
+.or{display:flex;align-items:center;gap:12px;font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.1em}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.fine{font-size:12px;color:var(--mute);margin:0}
+@media (max-width:860px){.login{grid-template-columns:1fr}.login-art{min-height:260px;order:2}.login-form{padding:32px max(16px,env(safe-area-inset-right,0px)) 32px max(16px,env(safe-area-inset-left,0px));max-width:none}}
+
+/* ---------- Dashboard ---------- */
+.dash{padding-block:28px 64px;display:grid;gap:20px}
+.welcome{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.welcome h1{font-size:22px}
+.welcome p{margin:2px 0 0;font-size:13px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:20px;min-width:0}
+.card-h{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.card-h h2,.card-h h3{font-size:13px;letter-spacing:.08em}
+.tiles{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.tile{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:14px 16px;display:grid;gap:2px}
+.tile b{font-size:26px;color:var(--ink);font-weight:600;line-height:1.2;font-variant-numeric:tabular-nums}
+.tile span{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+@media (max-width:760px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.adv{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.avatar{width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;flex:none}
+.adv .who{flex:1 1 180px;min-width:0}
+.adv .who b{color:var(--ink);display:block}
+.adv .who span{font-size:12px;color:var(--mute)}
+.work{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:960px){.work{grid-template-columns:1fr}}
+.fleet{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.veh{width:100%;text-align:left;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;align-items:center;background:#fff;border:1px solid var(--line);border-left:4px solid transparent;border-radius:3px;padding:12px 14px;cursor:pointer;font:inherit;color:inherit;transition:border-color .2s}
+.veh:hover{border-color:#bbb}
+.veh[aria-current=true]{border-color:var(--ink);border-left-color:var(--orange)}
+.veh b{color:var(--ink);font-size:13.5px}
+.veh .plate{font-size:12px;color:var(--mute);font-variant-numeric:tabular-nums}
+.pill{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:3px 9px;white-space:nowrap;grid-row:1/3;grid-column:2}
+.pill.road{background:var(--good-bg);color:var(--good)}
+.pill.shop{background:#ffe8e0;color:var(--orange-ink)}
+.pill.wait{background:var(--warn-bg);color:var(--warn)}
+.pill.due{background:var(--teal-bg);color:var(--teal)}
+.pill.loan{background:#eef0ff;color:#3446a8}
+
+/* progress */
+.prog{list-style:none;margin:6px 0 4px;padding:0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.prog li{display:grid;gap:6px;font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--mute);line-height:1.3}
+.prog li::before{content:"";height:6px;border-radius:3px;background:var(--line)}
+.prog li.done{color:var(--ink)}.prog li.done::before{background:var(--teal)}
+.prog li.now{color:var(--orange-ink)}.prog li.now::before{background:var(--orange)}
+@media (max-width:640px){.prog{grid-template-columns:repeat(4,minmax(0,1fr));row-gap:10px}}
+.eta{display:flex;gap:20px;flex-wrap:wrap;font-size:12.5px;margin:12px 0 0}
+.eta div{display:grid}
+.eta dt{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.eta dd{margin:0;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+@media (max-width:760px){.grid2{grid-template-columns:1fr}}
+.feed{list-style:none;margin:0;padding:0;display:grid}
+.feed li{display:grid;grid-template-columns:14px minmax(0,1fr);gap:12px;padding-bottom:16px;position:relative}
+.feed li:not(:last-child)::after{content:"";position:absolute;left:6px;top:16px;bottom:0;width:2px;background:var(--line)}
+.feed i{width:14px;height:14px;border-radius:50%;background:var(--teal);margin-top:3px;border:3px solid var(--teal-bg)}
+.feed li.latest i{background:var(--orange);border-color:#ffe6df}
+.feed .t{font-size:11.5px;color:var(--mute);font-variant-numeric:tabular-nums}
+.feed b{color:var(--ink);font-size:13px;display:block}
+.feed p{margin:2px 0 0;font-size:13px}
+.photo{margin-top:8px;height:84px;max-width:150px;border-radius:3px;background:repeating-linear-gradient(45deg,#eceff1 0 8px,#e2e6e8 8px 16px);display:grid;place-items:center;font-size:10.5px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
+.tbl-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding:0 10px 8px 0;border-bottom:2px solid var(--ink);white-space:nowrap}
+td{padding:10px 10px 10px 0;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink)}
+td.r,th.r{text-align:right}
+.status{display:inline-flex;align-items:center;gap:6px;font-weight:600;font-size:12px;white-space:nowrap}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+.s-ok{color:var(--good)}.s-wait{color:var(--warn)}.s-order{color:var(--orange-ink)}
+.approve{margin-top:14px;border:1px dashed var(--orange);background:#fff8f5;padding:14px;display:grid;gap:10px}
+.approve p{margin:0;font-size:13px;color:var(--ink)}
+.approve .row{display:flex;gap:8px;flex-wrap:wrap}
+.approved{color:var(--good);font-weight:600;font-size:13px}
+.loan{display:grid;gap:10px}
+.loan dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;margin:0;font-size:13px}
+.loan dt{color:var(--mute)}
+.loan dd{margin:0;color:var(--ink);font-weight:500}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:6px;font-size:12.5px}
+.checks li{display:grid;grid-template-columns:18px minmax(0,1fr);gap:6px;color:var(--ink)}
+.checks li::before{content:"✓";color:var(--good);font-weight:700}
+.wbar{display:grid;gap:4px;margin-bottom:12px}
+.wbar .top{display:flex;justify-content:space-between;gap:10px;font-size:12.5px;color:var(--ink)}
+.wbar .top span:last-child{color:var(--mute);font-variant-numeric:tabular-nums}
+.wbar .track{height:8px;background:var(--line);border-radius:4px;overflow:hidden}
+.wbar .fill{height:100%;background:var(--teal)}
+.empty{display:grid;gap:8px;justify-items:start}
+footer{border-top:1px solid var(--line);background:var(--paper);font-size:12px;color:var(--mute)}
+footer .wrap{padding-block:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#111;color:#fff;font-size:13px;padding:10px 16px;border-radius:4px;z-index:70;max-width:calc(100% - 32px);text-align:center}
+</style>
+</head>
+<body>
+
+<div class="concept" role="note"><div class="wrap"><strong>Concept prototype</strong><span>Proposed new page: customer aftersales portal. Demo data only.</span><a href="index.html#ownership">Back to the main site</a></div></div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Hong Seh Group home">
+      <svg viewBox="0 0 120 100" aria-hidden="true"><polygon points="4,4 116,4 60,96" fill="#d7272f"/><polygon points="14,10 106,10 60,86" fill="none" stroke="#fff" stroke-width="2.4"/><text x="60" y="34" text-anchor="middle" font-family="Montserrat,Arial" font-size="15" font-weight="600" fill="#fff">HONG</text><text x="60" y="52" text-anchor="middle" font-family="Montserrat,Arial" font-size="15" font-weight="600" fill="#fff">SEH</text></svg>
+      <span>Aftersales<small>Customer portal</small></span>
+    </a>
+    <div class="hdr-actions">
+      <a class="btn btn-line btn-sm" href="index.html">Main site</a>
+      <button class="btn btn-dark btn-sm" id="signOut" type="button" hidden>Sign out</button>
+    </div>
+  </div>
+</header>
+
+<!-- =================== LOGIN =================== -->
+<main id="loginView" class="login">
+  <form class="login-form" id="loginForm" novalidate>
+    <span class="tag">Proposed · New page</span>
+    <h1>Log in to your fleet account</h1>
+    <p class="fine" style="font-size:13.5px;color:var(--body)">Follow every repair as it happens, check parts and replacement vehicles, and see warranty cover for your whole fleet.</p>
+    <div class="field"><label for="liEmail">Work email or account ID</label><input id="liEmail" type="text" autocomplete="off" placeholder="e.g. HS-C-0213"></div>
+    <div class="field"><label for="liPass">Password</label><input id="liPass" type="password" autocomplete="off" placeholder="Your portal password"></div>
+    <button class="btn btn-orange" type="submit">Log in</button>
+    <div class="or">or</div>
+    <button class="btn btn-line" type="button" id="demoBtn">Open the demo account</button>
+    <p class="fine">Concept prototype: any entry opens the demo account. Nothing is sent or stored. First-time customers get their login from their service advisor at vehicle handover.</p>
+  </form>
+  <div class="login-art" role="img" aria-label="SRM T3EV electric lorry">
+    <figure>
+      <blockquote>“I can see every step of the repair on my phone, including when the part arrives. No more calling the workshop for updates.”</blockquote>
+      <figcaption>Owner, moving company · 3 vehicles <span class="illus">Sample</span></figcaption>
+    </figure>
+  </div>
+</main>
+
+<!-- =================== DASHBOARD =================== -->
+<main id="dashView" hidden>
+  <div class="wrap dash">
+    <div class="welcome">
+      <div>
+        <h1>Good morning, Demo Logistics</h1>
+        <p>Account HS-C-0213 · 6 vehicles · Customer since 2023 <span class="illus">Demo data</span></p>
+      </div>
+      <button class="btn btn-orange" type="button" data-toast="Concept prototype: service booking opens here on the live site.">Book a service</button>
+    </div>
+
+    <div class="tiles">
+      <div class="tile"><b>6</b><span>Vehicles</span></div>
+      <div class="tile"><b style="color:var(--orange-ink)">2</b><span>In the workshop</span></div>
+      <div class="tile"><b style="color:#3446a8">1</b><span>Replacement on loan</span></div>
+      <div class="tile"><b>12 Nov</b><span>Next service due</span></div>
+    </div>
+
+    <div class="card adv">
+      <div class="avatar" aria-hidden="true">SA</div>
+      <div class="who"><b><span class="ph">[Advisor name]</span>, your service advisor</b><span>Replies within 2 working hours · Mon to Fri 8:30 am to 6 pm, Sat to 1 pm</span></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn btn-line btn-sm" type="button" data-toast="Concept prototype: opens a WhatsApp chat with your advisor on the live site.">WhatsApp advisor</button>
+        <button class="btn btn-line btn-sm" type="button" data-toast="24-hour breakdown line: +65 6xxx xxxx (placeholder)">Breakdown line</button>
+      </div>
+    </div>
+
+    <div class="work">
+      <section class="card" aria-labelledby="fleetH">
+        <div class="card-h"><h2 id="fleetH">Your fleet</h2></div>
+        <ul class="fleet" id="fleet"></ul>
+      </section>
+      <section id="detail" aria-live="polite" style="display:grid;gap:20px;min-width:0"></section>
+    </div>
+  </div>
+</main>
+
+<footer><div class="wrap"><span>Concept prototype by SMU MGMT319 Group 2. Not the official Hong Seh website. Demo data only.</span><a href="index.html">hongsehgroup.com mockup</a></div></footer>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s);
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  function toast(m){const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(t._h);t._h=setTimeout(()=>t.hidden=true,2800)}
+  document.addEventListener('click',e=>{const b=e.target.closest('[data-toast]');if(b)toast(b.dataset.toast)});
+
+  const STAGES=['Checked in','Diagnosed','Quote approval','Parts','Repair','Quality check','Ready'];
+
+  /* Demo fleet. All data illustrative. */
+  const FLEET=[
+    {id:'v1',model:'SRM T3EV',plate:'SNB 4417 X',status:'shop',statusText:'In workshop',km:58210,delivered:'Mar 2024',
+     job:{no:'HS-24817',where:'Hong Seh workshop',stage:4,ready:'Thu 7 Nov, 2:00 pm',in:'Mon 4 Nov, 9:12 am',fault:'Brake booster pump fault',
+       feed:[
+        ['Wed 6 Nov, 10:40 am','Repair in progress','Technician is fitting the new brake booster pump. On track for Thursday.',false],
+        ['Tue 5 Nov, 4:05 pm','Quote approved','You approved S$186 for front wiper blades (outside warranty).',false],
+        ['Tue 5 Nov, 10:05 am','Parts reserved','Brake booster pump in stock at Hong Seh. Reserved for your job.',false],
+        ['Mon 4 Nov, 1:40 pm','Diagnosed','Brake booster pump fault confirmed. Covered by vehicle warranty.',true],
+        ['Mon 4 Nov, 9:12 am','Checked in','Received at Hong Seh workshop. Estimated ready: Thu 2:00 pm.',false]],
+       parts:[['Brake booster pump','Hong Seh stock','ok','In stock','Fitted Wed','Warranty'],['Brake fluid (1 L)','Hong Seh stock','ok','In stock','Fitted Wed','Warranty'],['Front wiper blades','Hong Seh stock','ok','In stock','Thu','S$186']],
+       quote:null,
+       loan:{veh:'SRM T3EV · SNB 5521 K',since:'Mon 4 Nov, 3:10 pm',ret:'Within 2 working days of your vehicle being ready'}},
+     warranty:[['Battery pack','8 yrs / 200,000 km',0.29],['Motor & drive unit','5 yrs / 150,000 km',0.39],['Whole vehicle','3 yrs / 100,000 km',0.58]],soh:97,
+     history:[['Sep 2025','Scheduled service, 50,000 km','Hong Seh','S$320'],['Mar 2025','Scheduled service, 30,000 km','Partner B, West','S$290'],['Oct 2024','Door seal replaced','Hong Seh','Warranty']]},
+    {id:'v2',model:'Farizon H9E 20ft',plate:'YQ 2281 L',status:'wait',statusText:'Waiting for parts',km:31650,delivered:'Jun 2024',
+     job:{no:'HS-24790',where:'Partner workshop B, West',stage:3,ready:'Mon 11 Nov, 10:00 am',in:'Wed 30 Oct, 8:30 am',fault:'Cabin display unit failure',
+       feed:[
+        ['Wed 6 Nov, 9:00 am','Part shipped','Cabin display unit on flight from manufacturer. Arrives Fri 8 Nov.',false],
+        ['Thu 31 Oct, 11:20 am','Replacement vehicle offered','Part must be ordered from overseas, so a loan lorry is available. Decline or accept below.',false],
+        ['Wed 30 Oct, 3:15 pm','Diagnosed','Cabin display unit failure. Covered by vehicle warranty.',true],
+        ['Wed 30 Oct, 8:30 am','Checked in','Received at partner workshop B (West).',false]],
+       parts:[['Cabin display unit','Manufacturer (air freight)','order','Ordered','Fri 8 Nov','Warranty'],['Display harness clip','Partner stock','ok','In stock','On arrival','Warranty']],
+       quote:{text:'Optional: replace worn rear tyres (2) while the vehicle is in. S$640, outside warranty.',amt:'S$640'},
+       loan:null},
+     warranty:[['Battery pack','8 yrs / 200,000 km',0.16],['Motor & drive unit','5 yrs / 150,000 km',0.21],['Whole vehicle','3 yrs / 100,000 km',0.32]],soh:98,
+     history:[['Jun 2025','Scheduled service, 20,000 km','Partner B, West','S$480']]},
+    {id:'v3',model:'SRM T3EV',plate:'SNB 5108 C',status:'road',statusText:'On the road',km:41200,delivered:'Mar 2024',job:null,
+     warranty:[['Battery pack','8 yrs / 200,000 km',0.21],['Motor & drive unit','5 yrs / 150,000 km',0.27],['Whole vehicle','3 yrs / 100,000 km',0.41]],soh:98,
+     history:[['Aug 2025','Scheduled service, 40,000 km','Hong Seh','S$320'],['Feb 2025','Scheduled service, 20,000 km','Hong Seh','S$290']]},
+    {id:'v4',model:'Farizon Super Van',plate:'SNC 2093 R',status:'due',statusText:'Service due 12 Nov',km:49400,delivered:'Jan 2025',job:null,
+     warranty:[['Battery pack','8 yrs / 200,000 km',0.25],['Motor & drive unit','5 yrs / 150,000 km',0.33],['Whole vehicle','3 yrs / 100,000 km',0.49]],soh:97,
+     history:[['May 2025','Scheduled service, 25,000 km','Partner A, North','S$260']]},
+    {id:'v5',model:'DFSK EC31 Reefer',plate:'SND 7719 A',status:'road',statusText:'On the road',km:22800,delivered:'Feb 2025',job:null,
+     warranty:[['Battery pack','8 yrs / 200,000 km',0.11],['Motor & drive unit','5 yrs / 150,000 km',0.15],['Whole vehicle','3 yrs / 100,000 km',0.23]],soh:99,
+     history:[['Aug 2025','Scheduled service, 20,000 km','Partner D, East','S$310']]},
+    {id:'v6',model:'SRM T3EV (loan)',plate:'SNB 5521 K',status:'loan',statusText:'Loan vehicle',km:0,delivered:'On loan since 4 Nov',job:null,loanOf:'SNB 4417 X',warranty:[],history:[]}
+  ];
+  let sel='v1';
+  const approved={};
+
+  function renderFleet(){
+    $('#fleet').innerHTML=FLEET.map(v=>`<li><button class="veh" type="button" data-v="${v.id}" aria-current="${v.id===sel}"><b>${esc(v.model)}</b><span class="pill ${v.status}">${esc(v.statusText)}</span><span class="plate">${esc(v.plate)}${v.km?' · '+v.km.toLocaleString('en-SG')+' km':''}</span></button></li>`).join('');
+  }
+  $('#fleet').addEventListener('click',e=>{const b=e.target.closest('[data-v]');if(!b)return;sel=b.dataset.v;renderFleet();renderDetail();if(window.innerWidth<960)$('#detail').scrollIntoView({behavior:'smooth',block:'start'})});
+
+  function warrantyCard(v){
+    if(!v.warranty.length) return '';
+    return `<section class="card"><div class="card-h"><h3>Warranty cover</h3><span class="illus">Illustrative terms</span></div>
+      ${v.warranty.map(w=>`<div class="wbar"><div class="top"><span>${esc(w[0])} · ${esc(w[1])}</span><span>${Math.round((1-w[2])*100)}% remaining</span></div><div class="track"><div class="fill" style="width:${(1-w[2])*100}%"></div></div></div>`).join('')}
+      <p style="margin:6px 0 0;font-size:13px;color:var(--ink)">Battery health: <b>${v.soh}%</b> of original capacity (guaranteed above 70%).</p>
+      <button class="btn btn-line btn-sm" style="margin-top:12px" type="button" data-toast="Concept prototype: full warranty terms (PDF) open here on the live site.">Written warranty terms</button></section>`;
+  }
+  function historyCard(v){
+    if(!v.history.length) return '';
+    return `<section class="card"><div class="card-h"><h3>Service history</h3></div><div class="tbl-wrap"><table><thead><tr><th>Date</th><th>Work</th><th>Where</th><th class="r">Cost</th></tr></thead><tbody>${v.history.map(h=>`<tr><td class="num">${h[0]}</td><td>${esc(h[1])}</td><td>${esc(h[2])}</td><td class="r num">${h[3]}</td></tr>`).join('')}</tbody></table></div></section>`;
+  }
+
+  function renderDetail(){
+    const v=FLEET.find(x=>x.id===sel), d=$('#detail');
+    if(v.status==='loan'){
+      d.innerHTML=`<section class="card"><div class="card-h"><h2>${esc(v.model)} · ${esc(v.plate)}</h2><span class="pill loan" style="grid-row:auto">Loan vehicle</span></div>
+      <p style="margin:0;color:var(--ink)">Lent to you while <b>SNB 4417 X</b> is repaired (job HS-24817). Same class and payload as your T3EV.</p>
+      <ul class="checks" style="margin-top:12px"><li>Insurance included</li><li>You pay only for charging</li><li>Return within 2 working days after your T3EV is ready</li></ul></section>`;
+      return;
+    }
+    let html='';
+    if(v.job){
+      const j=v.job;
+      html+=`<section class="card">
+        <div class="card-h"><h2>Repair ${esc(j.no)} · ${esc(v.model)} ${esc(v.plate)}</h2><span class="pill ${v.status}" style="grid-row:auto">${esc(v.statusText)}</span></div>
+        <p style="margin:0 0 10px;color:var(--ink)">${esc(j.fault)} · ${esc(j.where)}</p>
+        <ol class="prog" aria-label="Repair progress">${STAGES.map((s,i)=>`<li class="${i<j.stage?'done':i===j.stage?'now':''}">${s}</li>`).join('')}</ol>
+        <p style="margin:0 0 8px"><a class="btn btn-orange btn-sm" href="track.html#${j.no==='HS-24817'?'HS-4821':'HS-4790'}">Open full repair tracker</a></p>
+        <dl class="eta"><div><dt>Checked in</dt><dd>${esc(j.in)}</dd></div><div><dt>Estimated ready</dt><dd>${esc(j.ready)}</dd></div><div><dt>Current stage</dt><dd style="color:var(--orange-ink)">${STAGES[j.stage]}</dd></div></dl>
+      </section>
+      <div class="grid2">
+        <section class="card"><div class="card-h"><h3>Repair updates</h3></div>
+          <ol class="feed">${j.feed.map((f,i)=>`<li class="${i===0?'latest':''}"><i aria-hidden="true"></i><div><span class="t">${esc(f[0])}</span><b>${esc(f[1])}</b><p>${esc(f[2])}</p>${f[3]?'<div class="photo">Technician photo</div>':''}</div></li>`).join('')}</ol>
+        </section>
+        <div style="display:grid;gap:20px;min-width:0">
+          <section class="card"><div class="card-h"><h3>Parts estimate</h3></div>
+            <div class="tbl-wrap"><table><thead><tr><th>Part</th><th>Status</th><th>Arrives / fitted</th><th class="r">Cost</th></tr></thead><tbody>
+            ${j.parts.map(p=>`<tr><td>${esc(p[0])}<div style="font-size:11.5px;color:var(--mute)">${esc(p[1])}</div></td><td><span class="status ${p[2]==='ok'?'s-ok':'s-order'}">${esc(p[3])}</span></td><td class="num">${esc(p[4])}</td><td class="r num">${esc(p[5])}</td></tr>`).join('')}
+            </tbody></table></div>
+            ${j.quote?(approved[j.no]?`<p class="approved" style="margin:14px 0 0">${approved[j.no]}</p>`:`<div class="approve"><p><b>Needs your approval:</b> ${esc(j.quote.text)}</p><div class="row"><button class="btn btn-orange btn-sm" type="button" data-q="yes" data-j="${j.no}">Approve ${j.quote.amt}</button><button class="btn btn-line btn-sm" type="button" data-q="no" data-j="${j.no}">Not now</button></div></div>`):''}
+          </section>
+          <section class="card loan"><div class="card-h"><h3>Replacement vehicle</h3></div>
+            ${j.loan?`<dl><dt>Vehicle</dt><dd>${esc(j.loan.veh)}</dd><dt>At your depot since</dt><dd>${esc(j.loan.since)}</dd><dt>Return</dt><dd>${esc(j.loan.ret)}</dd></dl>`
+              : (approved[j.no+'-loan']?`<p class="approved" style="margin:0">${approved[j.no+'-loan']}</p>`:`<p style="margin:0;color:var(--ink)">You qualify for a loan lorry because the part is coming from overseas.</p><div class="row" style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-dark btn-sm" type="button" data-loan="${j.no}">Request loan lorry</button></div>`)}
+            <div><p style="margin:0 0 6px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)">Conditions met</p>
+            <ul class="checks"><li>Warranty repair</li><li>${j.loan?'Repair longer than 48 hours':'Part ordered from overseas'}</li><li>Serviced on schedule</li></ul></div>
+          </section>
+        </div>
+      </div>`;
+    } else {
+      html+=`<section class="card empty"><div class="card-h" style="width:100%"><h2>${esc(v.model)} · ${esc(v.plate)}</h2><span class="pill ${v.status}" style="grid-row:auto">${esc(v.statusText)}</span></div>
+        <p style="margin:0;color:var(--ink)">No open repairs. ${v.km.toLocaleString('en-SG')} km on the odometer, delivered ${esc(v.delivered)}.</p>
+        ${v.status==='due'?'<p style="margin:0">Next scheduled service: <b style="color:var(--ink)">Tue 12 Nov</b> at 50,000 km. About 2 hours.</p>':''}
+        <button class="btn btn-orange btn-sm" type="button" data-toast="Concept prototype: service booking opens here on the live site.">Book a service</button></section>`;
+    }
+    html+=`<div class="grid2">${warrantyCard(v)}${historyCard(v)}</div>`;
+    d.innerHTML=html;
+  }
+  $('#detail').addEventListener('click',e=>{
+    const q=e.target.closest('[data-q]');
+    if(q){approved[q.dataset.j]= q.dataset.q==='yes' ? '✓ Approved. Your advisor has been notified and the tyres will be fitted with the repair.' : 'Declined. Your advisor will not do this work.';renderDetail();toast('Concept prototype: nothing was sent.')}
+    const l=e.target.closest('[data-loan]');
+    if(l){approved[l.dataset.loan+'-loan']='✓ Requested. A loan lorry will be at your depot within 1 working day.';renderDetail();toast('Concept prototype: nothing was sent.')}
+  });
+
+  function signIn(){$('#loginView').hidden=true;$('#dashView').hidden=false;$('#signOut').hidden=false;renderFleet();renderDetail();window.scrollTo(0,0)}
+  $('#loginForm').addEventListener('submit',e=>{e.preventDefault();signIn()});
+  $('#demoBtn').addEventListener('click',signIn);
+  $('#signOut').addEventListener('click',()=>{$('#dashView').hidden=true;$('#loginView').hidden=false;$('#signOut').hidden=true;$('#liPass').value=''});
+})();
+</script>
+</body>
+</html>

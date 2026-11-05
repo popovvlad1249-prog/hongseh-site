@@ -1,0 +1,1121 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hong Seh EV Fleet Concept (Copy)</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
+<style>
+/* Layout: faithful recreation of hongsehgroup.com (centred logo, black caps nav, full-bleed hero,
+   all-caps grey body copy, photo + white overlapping cards) with proposed sections slotted in,
+   each flagged with a teal "Proposed" tag. Single light theme, as on the live site. */
+:root{
+  --ink:#000;           /* nav, headings */
+  --body:#5c5c5c;       /* body copy (site uses #666; nudged darker for 4.5:1) */
+  --mute:#767676;
+  --line:#e3e3e3;
+  --paper:#fff;
+  --soft:#f5f6f7;
+  --link:#026e9f;       /* site link blue */
+  --teal:#0f8a9a;       /* site teal #16b7cc, deepened for text contrast */
+  --teal-bg:#e7f6f8;
+  --orange:#fd6e4f;     /* site button orange */
+  --orange-ink:#c2410c;
+  --red:#d7272f;        /* logo red */
+  --good:#13795b;
+  --warn:#b45309;
+  --font:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--body);font-family:var(--font);font-size:15px;line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--font);color:var(--ink);font-weight:500;text-transform:uppercase;text-wrap:balance;margin:0;letter-spacing:.01em}
+.caps{text-transform:uppercase}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- Concept bar ---------- */
+.concept{background:#111;color:#f1f1f1;font-size:12px;letter-spacing:.04em}
+.concept .wrap{display:flex;gap:10px 18px;align-items:center;flex-wrap:wrap;padding-block:8px}
+.concept strong{color:#fff;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.concept nav{display:flex;gap:6px;flex-wrap:wrap}
+.concept a{color:#9fe3ec;text-decoration:none;border:1px solid #2e4b50;border-radius:999px;padding:2px 10px}
+.concept a:hover{background:#1d3438}
+
+/* ---------- Header ---------- */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 6px rgba(0,0,0,.04)}
+header.site .wrap{display:flex;flex-direction:column;align-items:center;padding-block:8px 0}
+.logo{display:block;width:62px;height:auto}
+.mainnav{display:flex;gap:4px 22px;flex-wrap:wrap;justify-content:center;padding:10px 0 12px}
+.mainnav a{color:var(--ink);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap;padding:2px 0;border-bottom:2px solid transparent}
+.mainnav a:hover{border-color:var(--ink)}
+.mainnav a.new{color:var(--teal)}
+.mainnav a.new::after{content:"NEW";font-size:9px;font-weight:700;background:var(--teal);color:#fff;border-radius:3px;padding:1px 4px;margin-left:5px;vertical-align:2px;letter-spacing:.06em}
+.burger{display:none}
+@media (max-width:860px){
+  header.site .wrap{flex-direction:row;justify-content:space-between;padding-block:6px}
+  .logo{width:48px}
+  .burger{display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--line);border-radius:4px;padding:8px 12px;font:600 12px var(--font);letter-spacing:.08em;color:var(--ink);cursor:pointer}
+  .mainnav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);flex-direction:column;align-items:stretch;gap:0;padding:0 max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+  .mainnav.open{display:flex}
+  .mainnav a{padding:12px 0;border-bottom:1px solid var(--line)}
+}
+
+/* ---------- Hero (existing) ---------- */
+.hero{position:relative;background:#cfd8dc url(assets/hero.jpg) center 62%/cover no-repeat;aspect-ratio:16/8;max-height:640px;width:100%}
+@media (max-width:640px){.hero{aspect-ratio:4/3}}
+
+/* ---------- Testimonials (proposed) ---------- */
+.hero-wrap{position:relative}
+.hero-quote{position:absolute;left:max(24px,calc((100% - 1180px)/2 + 16px));bottom:28px;max-width:440px;margin:0;background:rgba(255,255,255,.96);padding:18px 22px;box-shadow:var(--shadow);display:grid;gap:10px;justify-items:start}
+.hero-quote blockquote{margin:0;color:var(--ink);font-size:15px;font-weight:500;line-height:1.5}
+.hero-quote figcaption{font-size:12px;color:var(--mute)}
+@media (max-width:760px){.hero-quote{position:static;max-width:none;box-shadow:none;border-bottom:1px solid var(--line);padding:18px max(16px,env(safe-area-inset-right,0px)) 18px max(16px,env(safe-area-inset-left,0px))}}
+.stars{color:#e8a317;letter-spacing:2px;font-size:13px;margin-right:6px}
+.sample{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);border:1px solid #fed7aa;background:#fff7ed;border-radius:3px;padding:1px 5px;margin-left:4px;vertical-align:1px}
+.tband{padding-block:48px 40px;border-bottom:1px solid var(--line)}
+.tband-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+.tband-head h2{font-size:clamp(20px,2.6vw,26px)}
+.tband-stats{display:flex;gap:28px;flex-wrap:wrap}
+.tband-stats div{display:grid}
+.tband-stats b{font-size:22px;color:var(--ink);font-weight:600;line-height:1.2}
+.tband-stats span{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em}
+.tcards{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin-bottom:8px}
+.tcard{margin:0;scroll-snap-align:start;border:1px solid var(--line);border-top:3px solid var(--ink);padding:20px;display:grid;gap:12px;align-content:space-between;background:#fff}
+.tcard blockquote{margin:0;color:var(--ink);font-size:14px;line-height:1.55}
+.tcard figcaption{font-size:12px;color:var(--mute);display:grid}
+.tcard figcaption b{color:var(--ink);font-weight:600;font-size:12.5px}
+.tq{margin:22px 0 0;display:grid;grid-template-columns:4px minmax(0,1fr);gap:0 16px;max-width:760px}
+.tq::before{content:"";background:var(--orange);grid-row:1/3}
+.tq blockquote{margin:0;color:var(--ink);font-size:15px;font-style:italic;line-height:1.55}
+.tq figcaption{font-size:12px;color:var(--mute);margin-top:6px}
+.chip .tq-mini{display:block;margin-top:6px;font-style:italic;color:var(--body)}
+
+/* ---------- Proposed tag + section shells ---------- */
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);background:var(--teal-bg);border:1px dashed var(--teal);border-radius:3px;padding:3px 8px}
+.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal)}
+.sec{padding-block:72px}
+.sec.alt{background:var(--soft)}
+.sec-head{display:grid;gap:12px;max-width:760px;margin-bottom:36px}
+.sec-head h2{font-size:clamp(22px,3vw,30px);line-height:1.2}
+.sec-head p{margin:0;font-size:15px}
+.why{font-size:12.5px;color:var(--mute);border-left:2px solid var(--teal);padding-left:12px;margin:0}
+.why b{color:var(--ink);font-weight:600}
+.illus{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);background:#fff7ed;border:1px solid #fed7aa;border-radius:3px;padding:2px 6px;white-space:nowrap}
+.ph{background:#fff7ed;color:#9a3412;border-radius:2px;padding:0 3px;font-weight:500}
+
+/* ---------- Strip CTA under hero (proposed) ---------- */
+.coe-strip{background:var(--ink);color:#fff}
+.coe-strip .wrap{display:flex;gap:14px 28px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:18px}
+.coe-strip p{margin:0;font-size:15px;font-weight:500;text-transform:uppercase;letter-spacing:.02em}
+.coe-strip p span{color:#9fe3ec}
+.coe-strip .tag{background:transparent;color:#9fe3ec;border-color:#9fe3ec}
+.coe-strip .tag::before{background:#9fe3ec}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 13px var(--font);letter-spacing:.08em;text-transform:uppercase;border-radius:3px;padding:12px 22px;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.btn-orange{background:var(--orange);color:#fff}
+.btn-orange:hover{background:#e85a3b}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:#333}
+.btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-light{background:#fff;color:var(--ink)}
+
+/* ---------- Intro (existing) ---------- */
+.intro{padding-block:64px}
+.intro .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;align-items:start}
+.intro h1{font-size:26px;line-height:1.3;grid-column:1/-1;max-width:900px}
+.intro p{text-transform:uppercase;font-size:13.5px;line-height:1.75;margin:0 0 16px}
+.intro img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;margin-bottom:18px}
+@media (max-width:860px){.intro .grid{grid-template-columns:1fr}}
+
+/* ---------- Calculator ---------- */
+.calc{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:900px){.calc{grid-template-columns:1fr}}
+.panel{background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px}
+.field{display:grid;gap:8px;margin-bottom:20px}
+.field:last-child{margin-bottom:0}
+.label{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);display:flex;justify-content:space-between;gap:8px}
+.label output{font-weight:600;color:var(--teal)}
+select,input[type=text],input[type=number],input[type=month],input[type=email]{width:100%;font:500 14px var(--font);color:var(--ink);background:#fff;border:1px solid #cfcfcf;border-radius:3px;padding:10px 12px}
+input[type=range]{width:100%;accent-color:var(--teal)}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
+.seg button{font:600 11.5px var(--font);letter-spacing:.06em;text-transform:uppercase;background:#fff;color:var(--ink);border:0;padding:10px 6px;cursor:pointer;transition:background .2s,color .2s}
+.seg button+button{border-left:1px solid var(--ink)}
+.seg button[aria-pressed=true]{background:var(--ink);color:#fff}
+.pair{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--mute);margin-top:-2px}
+.results{display:grid;gap:20px}
+.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.kpi{background:#fff;padding:18px 18px 16px}
+.kpi .k{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.kpi .v{font-size:clamp(22px,3vw,30px);font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.2;margin-top:6px}
+.kpi .s{font-size:12px;color:var(--mute)}
+.kpi.hl .v{color:var(--good)}
+@media (max-width:560px){.kpis{grid-template-columns:1fr}}
+.chart{width:100%;height:auto;display:block}
+.chart text{font-family:var(--font);font-size:11px;fill:var(--mute)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--body)}
+.legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px;border-radius:2px}
+.note{font-size:12px;color:var(--mute);margin:0}
+
+/* ---------- Product cards (existing) ---------- */
+.products{padding-block:72px;display:grid;gap:64px}
+.prod{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center}
+.prod:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)}
+.prod:nth-child(even) .prod-img{order:2}
+.prod-img{aspect-ratio:3/2;background:#ddd center/cover no-repeat}
+.prod-card{background:#fff;box-shadow:var(--shadow);padding:36px;margin-left:-80px;position:relative}
+.prod:nth-child(even) .prod-card{margin-left:0;margin-right:-80px}
+.prod-card h3{font-size:22px;margin-bottom:16px}
+.prod-card p{text-transform:uppercase;font-size:12.5px;line-height:1.75;margin:0 0 14px}
+.prod-card .more{font-weight:600;color:var(--teal);font-size:13px;text-decoration:none;letter-spacing:.06em}
+.chip{display:flex;gap:10px;align-items:flex-start;background:var(--teal-bg);border:1px dashed var(--teal);border-radius:3px;padding:10px 12px;margin:4px 0 16px;font-size:12.5px;color:var(--ink)}
+.chip b{color:var(--teal);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;padding-top:1px}
+.chip a{font-weight:600}
+@media (max-width:860px){
+  .prod,.prod:nth-child(even){grid-template-columns:1fr}
+  .prod:nth-child(even) .prod-img{order:0}
+  .prod-card,.prod:nth-child(even) .prod-card{margin:-40px 16px 0;padding:24px}
+}
+
+/* ---------- Ownership ---------- */
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:40px}
+@media (max-width:900px){.proof{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.proof{grid-template-columns:1fr}}
+.stat{border-top:3px solid var(--ink);padding-top:14px;display:grid;gap:4px;align-content:start}
+.stat .v{font-size:34px;font-weight:600;color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
+.stat .k{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--ink)}
+.stat .s{font-size:12.5px}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+.cmp{display:grid;gap:14px}
+.cmp-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center;font-size:13px}
+.cmp-row .bars{display:grid;gap:5px}
+.bar{height:16px;border-radius:2px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:11px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums;min-width:34px}
+.bar.ev{background:var(--teal)}
+.bar.ice{background:#9aa3a8}
+@media (max-width:480px){.cmp-row{grid-template-columns:1fr}}
+.tracker-form{display:flex;gap:10px;flex-wrap:wrap}
+.tracker-form input{flex:1 1 180px;width:auto}
+.steps{list-style:none;margin:20px 0 0;padding:0;display:grid}
+.steps li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;position:relative;padding-bottom:18px}
+.steps li:not(:last-child)::before{content:"";position:absolute;left:13px;top:26px;bottom:0;width:2px;background:var(--line)}
+.steps li.done:not(:last-child)::before{background:var(--teal)}
+.dot{width:28px;height:28px;border-radius:50%;border:2px solid #c9c9c9;background:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;color:#999}
+.done .dot{background:var(--teal);border-color:var(--teal);color:#fff}
+.now .dot{border-color:var(--orange);color:var(--orange-ink);box-shadow:0 0 0 4px #ffe6df}
+.steps h4{font-size:13px;letter-spacing:.04em}
+.steps p{margin:2px 0 0;font-size:12.5px}
+.steps .when{font-size:11.5px;color:var(--mute);font-variant-numeric:tabular-nums}
+.job-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px}
+.job-meta dt{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.job-meta dd{margin:0;color:var(--ink);font-weight:500}
+.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+@media (max-width:900px){.quotes{grid-template-columns:1fr}}
+.quote{background:#fff;border:1px solid var(--line);padding:22px;display:grid;gap:12px;align-content:space-between}
+.quote p{margin:0;color:var(--ink);font-size:14px}
+.quote footer{font-size:12px;color:var(--mute)}
+.promise{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
+@media (max-width:760px){.promise{grid-template-columns:1fr}}
+.promise div{background:#fff;border:1px solid var(--line);padding:18px}
+.promise h4{font-size:13px;margin-bottom:6px}
+.promise p{margin:0;font-size:12.5px}
+
+/* ---------- Buyer pack (tabs) ---------- */
+.portal-teaser{display:grid;gap:12px;align-content:start;border-top:3px solid var(--teal)}
+.portal-teaser .btn{justify-self:start}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:13.5px;color:var(--ink)}
+.ticks li{position:relative;padding-left:26px}
+.ticks li::before{content:"✓";color:var(--teal);font-weight:700;position:absolute;left:0;top:0}
+.ticks.small{font-size:13px;margin-bottom:16px}
+.pack{margin-top:40px;background:#fff;border:1px solid var(--line)}
+.pack-head{padding:22px 24px 0;display:flex;justify-content:space-between;align-items:baseline;gap:8px 20px;flex-wrap:wrap}
+.pack-head h3{font-size:18px}
+.tabs{display:flex;gap:0;overflow-x:auto;border-bottom:1px solid var(--line);margin-top:14px;padding:0 24px}
+.tabs button{flex:0 0 auto;font:600 12px var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);background:none;border:0;border-bottom:3px solid transparent;padding:14px 14px 11px;cursor:pointer;transition:color .2s,border-color .2s}
+.tabs button[aria-selected=true]{color:var(--ink);border-color:var(--orange)}
+.tabs button:hover{color:var(--ink)}
+.tabpanel{padding:24px}
+.tp-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:860px){.tp-grid{grid-template-columns:1fr}.tabs,.pack-head{padding-left:16px;padding-right:16px}.tabpanel{padding:20px 16px}}
+.mini-h{font-size:12.5px;letter-spacing:.08em;margin-bottom:10px}
+.wtbl{width:100%;min-width:520px;border-collapse:collapse;font-size:13px}
+.wtbl th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:600;padding:0 12px 8px 0;border-bottom:2px solid var(--ink)}
+.wtbl td{padding:11px 12px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.wtbl td:first-child{color:var(--ink);font-weight:600;white-space:nowrap}
+.wtbl td:nth-child(2){color:var(--ink);white-space:nowrap}
+.advisor{display:flex;gap:16px;align-items:center}
+.avatar{width:56px;height:56px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;flex:none}
+.contacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px;margin:0}
+.contacts dt{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.contacts dd{margin:2px 0 0;color:var(--ink);font-weight:500;font-size:13.5px}
+.stagebar{list-style:none;padding:0;margin:0 0 20px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));counter-reset:s}
+.stagebar li{counter-increment:s;display:grid;gap:4px;align-content:start;padding:14px 12px 0 0;border-top:3px solid var(--teal);font-size:12px}
+.stagebar li::before{content:counter(s);width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;display:grid;place-items:center;font-size:11px;margin-top:-26px}
+.stagebar b{color:var(--ink);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em}
+@media (max-width:860px){.stagebar{grid-template-columns:1fr 1fr;row-gap:22px}}
+.part-out{border:1px solid var(--line);padding:18px;display:grid;gap:10px}
+.part-out .st{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
+.part-out .st i{width:10px;height:10px;border-radius:50%}
+.part-out dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;margin:0;font-size:13px}
+.part-out dt{color:var(--mute)}
+.part-out dd{margin:0;color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums}
+
+/* ---------- Charging ---------- */
+.flow{list-style:none;padding:0;margin:0 0 36px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:f}
+.flow li{padding:18px 18px 18px 0;border-top:2px solid var(--ink);counter-increment:f;display:grid;gap:6px;align-content:start}
+.flow li::before{content:"Step " counter(f);font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--teal);text-transform:uppercase}
+.flow h4{font-size:14px}
+.flow p{margin:0;font-size:13px}
+@media (max-width:760px){.flow{grid-template-columns:1fr 1fr}}
+@media (max-width:440px){.flow{grid-template-columns:1fr}}
+.planner-out{display:grid;gap:14px}
+.bays{display:flex;gap:8px;flex-wrap:wrap}
+.bay{width:58px;height:74px;border:2px solid var(--ink);border-radius:4px;display:grid;place-items:center;align-content:center;gap:2px;font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--ink)}
+.bay svg{width:20px;height:20px}
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th,.tbl td{text-align:left;padding:9px 0;border-bottom:1px solid var(--line)}
+.tbl th{font-weight:500;color:var(--body)}
+.tbl td{text-align:right;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.tbl tr.total td,.tbl tr.total th{border-bottom:0;color:var(--ink);font-weight:700}
+
+/* ---------- Workshops ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.filters button{font:600 11.5px var(--font);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--ink);color:#fff}
+.shops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:900px){.shops{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.shops{grid-template-columns:1fr}}
+.shop{border:1px solid var(--line);background:#fff;padding:18px;display:grid;gap:8px;align-content:start}
+.shop h4{font-size:14px}
+.shop .meta{font-size:12px;color:var(--mute)}
+.badges{display:flex;gap:6px;flex-wrap:wrap}
+.badge{font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:3px;padding:3px 7px;background:var(--soft);color:var(--ink)}
+.badge.ok{background:#e6f4ee;color:var(--good)}
+.badge.hq{background:#fdecec;color:#a61b22}
+.partner-cta{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;background:var(--ink);color:#ddd;padding:24px 28px}
+.partner-cta h3{color:#fff;font-size:17px;margin-bottom:4px}
+.partner-cta p{margin:0;font-size:13px}
+@media (max-width:700px){.partner-cta{grid-template-columns:1fr}}
+
+/* ---------- COE planner ---------- */
+.timeline{list-style:none;padding:0;margin:0;display:grid;gap:0}
+.timeline li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.timeline .d{font-weight:700;color:var(--ink);font-size:13px;font-variant-numeric:tabular-nums}
+.timeline .d small{display:block;font-weight:500;color:var(--mute);font-size:11px}
+.timeline h4{font-size:13px}
+.timeline p{margin:2px 0 0;font-size:12.5px}
+.timeline li.past{opacity:.55}
+.timeline li.next .d{color:var(--orange-ink)}
+.countdown{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.countdown .v{font-size:44px;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.countdown .k{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.match{background:var(--teal-bg);border:1px dashed var(--teal);padding:14px 16px;font-size:13px;color:var(--ink);margin-bottom:16px}
+.status{font-size:13px;margin-top:10px;color:var(--good);font-weight:500;min-height:1.2em}
+
+/* ---------- Brands, news, footer (existing) ---------- */
+.brands{padding-block:48px;border-top:1px solid var(--line)}
+.brands ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:18px 48px}
+.brands li{font-size:18px;font-weight:700;letter-spacing:.14em;color:#8a8a8a;text-transform:uppercase}
+.news{padding-block:56px}
+.news h2{font-size:22px;margin-bottom:24px}
+.news ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 32px}
+.news li{border-bottom:1px solid var(--line);padding:10px 0;font-size:13.5px}
+.news a{color:var(--ink);text-decoration:none}
+.news a:hover{color:var(--link)}
+@media (max-width:860px){.news ul{grid-template-columns:1fr}}
+footer.site{background:#1e1e1e;color:#bdbdbd;font-size:13px}
+footer.site .wrap{padding-block:44px 28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+footer.site h4{color:#fff;font-size:13px;letter-spacing:.1em;margin-bottom:10px}
+footer.site p{margin:0 0 6px}
+footer.site .base{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-size:12px;color:#9a9a9a;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media (max-width:760px){footer.site .wrap{grid-template-columns:1fr}}
+.wa{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));width:54px;height:54px;border-radius:50%;background:#25d366;border:0;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.2);cursor:pointer;z-index:40}
+.wa svg{width:28px;height:28px;fill:#fff}
+.toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#111;color:#fff;font-size:13px;padding:10px 16px;border-radius:4px;z-index:70;max-width:calc(100% - 32px);text-align:center}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+</style>
+
+<!-- =================== CONCEPT BAR =================== -->
+<div class="concept" role="note">
+  <div class="wrap">
+    <strong>Concept prototype</strong>
+    <span>Proposed features are tagged in teal. Jump to:</span>
+    <nav aria-label="Proposed features">
+      <a href="#tband-h">Customer testimonials</a>
+      <a href="#savings">Savings calculator</a>
+      <a href="#buyer-pack">Aftersales commitments</a>
+      <a href="track.html">Repair tracker (new page)</a>
+      <a href="aftersales-portal.html">Customer login (new page)</a>
+      <a href="#charging">Charging, sorted</a>
+      <a href="#workshops">Partner workshops</a>
+      <a href="#coe">COE switch planner</a>
+    </nav>
+  </div>
+</div>
+
+<!-- =================== HEADER (existing) =================== -->
+<header class="site">
+  <div class="wrap">
+    <a href="#top" aria-label="Hong Seh Group home">
+      <svg class="logo" viewBox="0 0 120 100" role="img" aria-label="Hong Seh logo">
+        <polygon points="4,4 116,4 60,96" fill="#d7272f"/>
+        <polygon points="14,10 106,10 60,86" fill="none" stroke="#fff" stroke-width="2.4"/>
+        <text x="60" y="34" text-anchor="middle" font-family="Montserrat,Arial" font-size="15" font-weight="600" fill="#fff">HONG</text>
+        <text x="60" y="52" text-anchor="middle" font-family="Montserrat,Arial" font-size="15" font-weight="600" fill="#fff">SEH</text>
+      </svg>
+    </a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="mainnav">
+      <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" stroke="currentColor" stroke-width="2"/></svg>Menu
+    </button>
+    <nav class="mainnav" id="mainnav" aria-label="Main">
+      <a href="#products">Commercial Electric Vehicle</a>
+      <a href="#products">Riddara</a>
+      <a href="#products">Seres 3</a>
+      <a href="#top">Marine</a>
+      <a href="#top">Leasing</a>
+      <a href="#ownership">Aftersales</a>
+      <a href="#savings" class="new">EV Fleet Hub</a>
+      <a href="track.html" class="new">Track Repair</a>
+      <a href="aftersales-portal.html" class="new">Customer Login</a>
+      <a href="#top">About Us</a>
+      <a href="#coe">Contact Us</a>
+      <a href="#top">Careers</a>
+      <a href="#news">News</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<!-- =================== HERO (existing) =================== -->
+<div class="hero-wrap">
+  <div class="hero" role="img" aria-label="Farizon electric van and Farizon electric lorry parked on grass with the Marina Bay skyline behind"></div>
+  <figure class="hero-quote">
+    <span class="tag">Proposed · Customer voice</span>
+    <blockquote>“Our T3EV was back on the road in two days, and Hong Seh had a loan van at our depot the same afternoon. That is why we ordered four more.”</blockquote>
+    <figcaption><span class="stars" aria-label="5 out of 5">★★★★★</span> Operations Manager, last-mile delivery fleet · 9 EVs <span class="sample">Sample</span></figcaption>
+  </figure>
+</div>
+
+<!-- PROPOSED: testimonial band, first thing after the hero -->
+<section class="tband" aria-labelledby="tband-h">
+  <div class="wrap">
+    <div class="tband-head">
+      <h2 id="tband-h">Fleets that switched with Hong Seh</h2>
+      <div class="tband-stats">
+        <div><b class="num"><span class="ph">40+</span></b><span>business customers on EVs</span></div>
+        <div><b class="num"><span class="ph">4.8/5</span></b><span>aftersales rating</span></div>
+        <div><b class="num"><span class="ph">2.6 days</span></b><span>average EV repair</span></div>
+      </div>
+    </div>
+    <div class="tcards" tabindex="0" aria-label="Customer testimonials, scroll sideways for more">
+      <figure class="tcard"><span class="stars" aria-label="5 out of 5">★★★★★</span><blockquote>“We were worried EV parts would take weeks. In two years, every repair was done with parts Hong Seh already had in Singapore.”</blockquote><figcaption><b>Fleet Manager</b>Cold-chain distributor · 12 vehicles · DFSK EC31 Reefer</figcaption></figure>
+      <figure class="tcard"><span class="stars" aria-label="5 out of 5">★★★★★</span><blockquote>“The calculator said 1.8 years to break even. We hit it in 20 months. Charging at our own depot made the difference.”</blockquote><figcaption><b>Director</b>Building materials supplier · 6 vehicles · SRM T3EV</figcaption></figure>
+      <figure class="tcard"><span class="stars" aria-label="5 out of 5">★★★★★</span><blockquote>“One contract for the lorries and the chargers. Hong Seh filed the grant for us. We did not have to call anyone else.”</blockquote><figcaption><b>Operations Head</b>Logistics contractor · 5 vehicles · Farizon H9E</figcaption></figure>
+      <figure class="tcard"><span class="stars" aria-label="4 out of 5">★★★★☆</span><blockquote>“I can see every step of the repair on my phone, including when the part arrives. No more calling the workshop for updates.”</blockquote><figcaption><b>Owner</b>Moving company · 3 vehicles · Farizon Super Van</figcaption></figure>
+    </div>
+    <p class="note">Sample testimonials written for this concept. Replace with real, attributed quotes from Hong Seh customers before launch.</p>
+  </div>
+</section>
+
+<!-- PROPOSED: targeted outreach strip (Rec 3) -->
+<section class="coe-strip" aria-label="COE expiry prompt">
+  <div class="wrap">
+    <span class="tag">Proposed</span>
+    <p>COE expiring in the next 12 months? <span>That is the cheapest moment to switch to electric.</span></p>
+    <a class="btn btn-orange" href="#coe">Plan my switch</a>
+  </div>
+</section>
+
+<!-- =================== INTRO (existing) =================== -->
+<section class="intro">
+  <div class="wrap grid">
+    <h1>Hong Seh Group: your one-stop destination for cars, commercial transport, aftersales support, and luxury yachts</h1>
+    <div>
+      <p>Hong Seh Group has long been a cornerstone of Singapore’s automotive and luxury transport industries, offering a comprehensive range of services that cater to both individual and business needs. Whether you’re looking for the perfect car, seeking reliable <a href="#products">commercial transport solutions</a>, or exploring luxury yacht options, Hong Seh Group provides tailored offerings designed to meet diverse requirements.</p>
+    </div>
+    <div>
+      <img src="assets/office.jpg" alt="Hong Seh Co (Pte) Ltd office frontage, established 1968" loading="lazy">
+      <p>Hong Seh Group has built its reputation on providing not just exceptional products but also a level of service that exceeds expectations, from Hong Seh Leasing to the expert care provided by the Hong Seh Motors aftersales team.</p>
+    </div>
+    <div>
+      <p>At Hong Seh Group, we’re not just about selling products; we’re about building long-term relationships with our customers. Your journey starts here.</p>
+      <p>Explore available <a href="#charging">EV rebates</a> and government incentives to reduce the cost of transitioning your fleet.</p>
+      <img src="assets/srm-showroom.jpg" alt="SRM T3EV showroom at Hong Seh" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- =================== FEATURE 1: SAVINGS CALCULATOR =================== -->
+<section class="sec alt" id="savings" aria-labelledby="savings-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Proposed · EV Fleet Hub</span>
+      <h2 id="savings-h">What would your fleet save by switching?</h2>
+      <p>Pick the diesel truck you run today. We match it to its Hong Seh electric equivalent and show when the EV pays for itself, including COE, maintenance, road tax, insurance, charging and a battery replacement in year 8.</p>
+      <p class="why"><b>Why this is here:</b> 70% of operators we interviewed who have not yet switched wanted to understand the total cost of ownership and long-run savings.</p>
+    </div>
+
+    <div class="calc">
+      <form class="panel" id="calcForm" onsubmit="return false">
+        <div class="field">
+          <label class="label" for="pairSel">Your current diesel truck</label>
+          <select id="pairSel">
+            <option value="0">Toyota Hiace (van)</option>
+            <option value="1" selected>Toyota Dyna (light lorry)</option>
+            <option value="2">Isuzu NNR85 (medium lorry)</option>
+            <option value="3">Isuzu FVR90 (heavy lorry)</option>
+          </select>
+          <div class="pair"><span>Electric equivalent</span><strong id="evName" style="color:var(--ink)">SRM T3EV</strong></div>
+        </div>
+        <div class="field">
+          <label class="label" for="kmIn">Distance per vehicle per year <output id="kmOut" class="num">50,000 km</output></label>
+          <input type="range" id="kmIn" min="10000" max="80000" step="1000" value="50000">
+        </div>
+        <div class="field">
+          <label class="label" for="nIn">Vehicles to switch <output id="nOut" class="num">3</output></label>
+          <input type="range" id="nIn" min="1" max="20" step="1" value="3">
+        </div>
+        <div class="field">
+          <span class="label" id="chgLbl">Charging</span>
+          <div class="seg" role="group" aria-labelledby="chgLbl">
+            <button type="button" data-chg="own" aria-pressed="true">Depot charger</button>
+            <button type="button" data-chg="public" aria-pressed="false">Public only</button>
+          </div>
+          <div class="pair"><span id="chgNote">S$0.35 / kWh, installed via Hong Seh</span></div>
+        </div>
+        <div class="field">
+          <span class="label" id="dslLbl">Diesel price you pay</span>
+          <div class="seg" role="group" aria-labelledby="dslLbl">
+            <button type="button" data-dsl="4.07" aria-pressed="true">Retail S$4.07/L</button>
+            <button type="button" data-dsl="2.85" aria-pressed="false">Fleet card S$2.85/L</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="results">
+        <div class="kpis" aria-live="polite">
+          <div class="kpi hl"><div class="k">Pays for itself in</div><div class="v" id="kBE">1.8 yrs</div><div class="s" id="kBEs">vs renewing the diesel</div></div>
+          <div class="kpi hl"><div class="k">10-year fleet saving</div><div class="v" id="kSave">S$0</div><div class="s" id="kSaveS">after battery replacement</div></div>
+          <div class="kpi"><div class="k">CO₂ avoided / year</div><div class="v" id="kCO2">0 t</div><div class="s">operating emissions, 53–73% lower</div></div>
+        </div>
+        <div class="panel">
+          <div class="label" style="margin-bottom:10px"><span>Cumulative cost per vehicle, 10 years</span></div>
+          <svg class="chart" id="chart" viewBox="0 0 640 300" role="img" aria-label="Line chart of cumulative cost, diesel versus electric"></svg>
+          <div class="legend"><span><i style="background:#9aa3a8"></i>Renew diesel</span><span><i style="background:var(--teal)"></i><span id="lgEv">SRM T3EV</span></span><span><i style="background:var(--orange);height:10px;width:10px;border-radius:50%"></i>Break-even</span></div>
+        </div>
+        <p class="note">Based on MGMT319 Group 2’s TCO model: COE at PQP S$92,500 (3-month average, Sep 2026), public charging S$0.78/kWh, own charger S$0.35/kWh, own charger S$23,000 (light) or S$11,500 after the LTA EHVCG grant (heavy), ICE road tax rising 10% a year, S$10,000 battery replacement in year 8. Final figures to be validated by Hong Seh before launch.</p>
+        <figure class="tq" style="margin-top:0"><blockquote>“We ran these numbers with Hong Seh before our COE renewal. The EV was cheaper by year two, and it still is.”</blockquote><figcaption>Director, building materials supplier · 6 × SRM T3EV <span class="sample">Sample</span></figcaption></figure>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-orange" href="#coe">Get a fleet quote</a><a class="btn btn-line" href="#charging">See charging options</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== PRODUCTS (existing, with proposed chips) =================== -->
+<section id="products" aria-label="Our vehicles">
+  <div class="wrap products">
+    <article class="prod">
+      <div class="prod-img" style="background-image:url(assets/seres3.jpg)" role="img" aria-label="Seres 3 electric SUV in front of the Singapore skyline"></div>
+      <div class="prod-card"><h3>Seres 3</h3><p>The ultimate electric car designed for urban explorers. This innovative city electric SUV combines sleek design with cutting-edge technology, offering an eco-friendly driving experience without compromising on style or performance.</p><a class="more" href="#top">READ MORE!</a></div>
+    </article>
+    <article class="prod">
+      <div class="prod-img" style="background-image:url(assets/riddara.jpg)" role="img" aria-label="Riddara electric pickup"></div>
+      <div class="prod-card"><h3>Riddara</h3><p>The 2WD RD6 is meticulously crafted to transform your boldest driving dreams into reality. The Riddara 4WD is a powerhouse built for the wild, engineered for exceptional off-road performance.</p><a class="more" href="#top">READ MORE!</a></div>
+    </article>
+    <article class="prod">
+      <div class="prod-img" style="background-image:url(assets/t3ev.jpg)" role="img" aria-label="SRM T3EV electric lorry under a glass canopy"></div>
+      <div class="prod-card"><h3>SRM T3EV</h3><p>SRM T3EV electric lorry is Singapore's best-selling EV van, providing an affordable and eco-friendly solution for business transportation.</p>
+        <div class="chip"><b>Proposed</b><span>Replaces a Toyota Dyna. Pays for itself in about 1.8 years at 50,000 km a year. <a href="#savings" data-pair="1">Compare costs</a><span class="tq-mini">“Same payload as our Dyna, a third of the running cost.” Owner, renovation contractor <span class="sample">Sample</span></span></span></div>
+        <a class="more" href="#top">READ MORE!</a></div>
+    </article>
+    <article class="prod">
+      <div class="prod-img" style="background-image:url(assets/h9e.jpg)" role="img" aria-label="Two Farizon H9E electric lorries outside a warehouse"></div>
+      <div class="prod-card"><h3>Farizon H9E</h3><p>At Farizon, we are committed to revolutionizing the future of transportation with our cutting-edge electric lorry, delivering performance, efficiency, and safety.</p>
+        <div class="chip"><b>Proposed</b><span>Replaces an Isuzu FVR90. Pays for itself in about 2.5 years, with depot charger installation and the LTA grant handled by Hong Seh. <a href="#savings" data-pair="3">Compare costs</a><span class="tq-mini">“Our drivers did not want to give it back after the trial week.” Operations Head, logistics contractor <span class="sample">Sample</span></span></span></div>
+        <a class="more" href="#top">READ MORE!</a></div>
+    </article>
+    <article class="prod">
+      <div class="prod-img" style="background-image:url(assets/ec31-reefer.jpg)" role="img" aria-label="DFSK EC31 refrigerated truck"></div>
+      <div class="prod-card"><h3>DFSK EC31 Refrigerated Truck</h3><p>A fully electric commercial vehicle with an energy consumption of 19.5 kWh/100 km, AC and DC ports, 20% to 80% in 30 minutes, cargo volume of 6 m³ and a payload of 920 kg.</p><a class="more" href="#top">READ MORE!</a></div>
+    </article>
+    <article class="prod">
+      <div class="prod-img" style="background-image:url(assets/ec35.jpg)" role="img" aria-label="DFSK EC35 electric van"></div>
+      <div class="prod-card"><h3>DFSK EC35</h3><p>DFSK's EV commercial vehicles are exceptionally versatile, from standard cargo vans to refrigerated lorry trucks, ideal for urban deliveries, perishable goods and efficient logistics.</p><a class="more" href="#top">READ MORE!</a></div>
+    </article>
+  </div>
+</section>
+
+<!-- =================== FEATURE 2: OWNERSHIP / AFTERSALES =================== -->
+<section class="sec alt" id="ownership" aria-labelledby="own-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Proposed · Aftersales</span>
+      <h2 id="own-h">Ownership, backed by Hong Seh</h2>
+      <p>Buying the truck is the easy part. Here is what happens after: the parts we keep in Singapore, how long repairs take, and what you get while your vehicle is in the workshop.</p>
+      <p class="why"><b>Why this is here:</b> near-adopters told us downtime and aftersales, not price, are what hold them back. Showing the evidence and the process turns aftersales into a reason to buy.</p>
+    </div>
+
+    <div class="proof">
+      <div class="stat"><span class="v num">~90%</span><span class="k">EV repair parts in stock locally</span><span class="s">Held at the Hong Seh workshop, so most jobs never wait on overseas shipping.</span></div>
+      <div class="stat"><span class="v num"><span class="ph">2.6</span> days</span><span class="k">Average EV repair turnaround</span><span class="s">Last 12 months, all EV jobs. <span class="illus">Illustrative</span></span></div>
+      <div class="stat"><span class="v num"><span class="ph">8</span> yrs</span><span class="k">Battery warranty</span><span class="s">Or <span class="ph">[200,000] km</span>, written terms provided at quotation. <span class="illus">Illustrative</span></span></div>
+      <div class="stat"><span class="v num"><span class="ph">48</span> h</span><span class="k">Replacement vehicle guarantee</span><span class="s">If a repair runs past 48 hours, a loan vehicle keeps your deliveries going. <span class="illus">Proposed policy</span></span></div>
+    </div>
+
+    <div class="two">
+      <div class="panel">
+        <div class="label" style="margin-bottom:6px"><span>Time off the road, EV vs diesel</span><span class="illus">Illustrative</span></div>
+        <p class="note" style="margin-bottom:18px">Average days per job at the Hong Seh workshop. Hong Seh to replace with real service records.</p>
+        <div class="cmp" id="cmp"></div>
+        <div class="legend" style="margin-top:16px"><span><i style="background:var(--teal)"></i>Electric</span><span><i style="background:#9aa3a8"></i>Diesel</span></div>
+
+        <figure class="tq"><blockquote>“After two years the battery health report still reads 96%. That report is what convinced our finance team to approve the next three.”</blockquote><figcaption>Fleet Manager, cold-chain distributor · 12 vehicles <span class="sample">Sample</span></figcaption></figure>
+      </div>
+
+      <div class="panel portal-teaser">
+        <div class="label" style="margin-bottom:6px"><span>Customer portal</span><span class="tag" style="font-size:10px">Proposed · New page</span></div>
+        <h3 style="font-size:18px">Log in and follow your repair, step by step</h3>
+        <p class="note" style="font-size:13px">Every Hong Seh fleet customer gets a login. See each stage of the repair as it happens, the parts estimate, your advisor’s updates, your replacement vehicle and your warranty cover for every vehicle.</p>
+        <ul class="ticks">
+          <li>Live repair stages with timestamps</li>
+          <li>Parts: in stock, or ordered with an arrival date</li>
+          <li>Approve any non-warranty cost before work starts</li>
+          <li>Replacement vehicle status and return date</li>
+          <li>Warranty and service history for the whole fleet</li>
+        </ul>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-orange" href="track.html">Track a repair with your code</a><a class="btn btn-dark" href="aftersales-portal.html">Fleet login</a></div>
+        <p class="note">No account needed to track one job: enter the code from your check-in slip, e.g. HS-4821.</p>
+      </div>
+    </div>
+
+    <!-- What a buyer sees: the five commitments -->
+    <div class="pack" id="buyer-pack">
+      <div class="pack-head">
+        <h3>What every Hong Seh EV buyer receives</h3>
+        <p class="note">Shown before you sign, and kept in your customer portal.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Aftersales commitments">
+        <button role="tab" id="t-war" aria-controls="p-war" aria-selected="true">Warranty terms</button>
+        <button role="tab" id="t-con" aria-controls="p-con" aria-selected="false" tabindex="-1">Service contact</button>
+        <button role="tab" id="t-upd" aria-controls="p-upd" aria-selected="false" tabindex="-1">Repair updates</button>
+        <button role="tab" id="t-par" aria-controls="p-par" aria-selected="false" tabindex="-1">Parts estimate</button>
+        <button role="tab" id="t-rep" aria-controls="p-rep" aria-selected="false" tabindex="-1">Replacement vehicle</button>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="p-war" aria-labelledby="t-war">
+        <div class="tp-grid">
+          <div style="overflow-x:auto">
+            <table class="wtbl">
+              <thead><tr><th>Component</th><th>Coverage</th><th>What is guaranteed</th></tr></thead>
+              <tbody>
+                <tr><td>Battery pack</td><td class="num">8 yrs / 200,000 km</td><td>At least 70% of original capacity, or the module is repaired or replaced free</td></tr>
+                <tr><td>Motor &amp; drive unit</td><td class="num">5 yrs / 150,000 km</td><td>Parts and labour for motor, inverter and reduction gear</td></tr>
+                <tr><td>Whole vehicle</td><td class="num">3 yrs / 100,000 km</td><td>Manufacturing defects in all other parts, parts and labour</td></tr>
+                <tr><td>Depot charger</td><td class="num">2 yrs</td><td>Repair within 2 working days, via our charging partner</td></tr>
+                <tr><td>Roadside recovery</td><td class="num">3 yrs</td><td>24-hour towing to the nearest Hong Seh or partner workshop</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h4 class="mini-h">Conditions</h4>
+            <ul class="ticks small">
+              <li>Serviced on schedule at Hong Seh or a certified partner workshop</li>
+              <li>Charged with approved equipment</li>
+              <li>Not covered: accident damage, unauthorised modifications, loads above rated payload</li>
+              <li>Warranty transfers with the vehicle if you sell it</li>
+            </ul>
+            <button class="btn btn-line" type="button" data-toast="Concept prototype: the full warranty booklet (PDF) opens here on the live site.">Full warranty terms (PDF)</button>
+          </div>
+        </div>
+        <p class="note" style="margin-top:14px"><span class="illus">Illustrative</span> Coverage periods are placeholders. Hong Seh to confirm with each OEM.</p>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="p-con" aria-labelledby="t-con" hidden>
+        <div class="tp-grid">
+          <div class="advisor">
+            <div class="avatar" aria-hidden="true">SA</div>
+            <div>
+              <h4 class="mini-h" style="margin:0">Your named service advisor</h4>
+              <p style="margin:2px 0 0;color:var(--ink);font-weight:600"><span class="ph">[Advisor name]</span></p>
+              <p class="note">Assigned to your fleet on delivery. Knows your vehicles and routes.</p>
+            </div>
+          </div>
+          <dl class="contacts">
+            <div><dt>Service hotline</dt><dd class="num"><span class="ph">+65 6xxx xxxx</span></dd></div>
+            <div><dt>WhatsApp</dt><dd class="num"><span class="ph">+65 9xxx xxxx</span></dd></div>
+            <div><dt>24-hour breakdown line</dt><dd class="num"><span class="ph">+65 6xxx xxxx</span></dd></div>
+            <div><dt>Workshop hours</dt><dd>Mon to Fri 8:30 am to 6 pm<br>Sat 8:30 am to 1 pm</dd></div>
+            <div><dt>Reply time</dt><dd>Within 2 working hours</dd></div>
+          </dl>
+        </div>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="p-upd" aria-labelledby="t-upd" hidden>
+        <p style="margin-top:0">You get a WhatsApp message and a portal update at every stage. No need to call the workshop.</p>
+        <ol class="stagebar">
+          <li><b>Checked in</b><span>Job number and estimated ready time</span></li>
+          <li><b>Diagnosed</b><span>Fault found, with photos</span></li>
+          <li><b>Quote approved</b><span>Only if anything is outside warranty</span></li>
+          <li><b>Parts</b><span>In stock, or ordered with an arrival date</span></li>
+          <li><b>Repair &amp; check</b><span>Road test and battery health scan</span></li>
+          <li><b>Ready</b><span>Collection or delivery to your depot</span></li>
+        </ol>
+        <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-orange" href="track.html#HS-4821">Try the repair tracker</a><a class="btn btn-dark" href="aftersales-portal.html">See the fleet portal</a></div>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="p-par" aria-labelledby="t-par" hidden>
+        <div class="tp-grid">
+          <form class="parts-form" onsubmit="return false">
+            <div class="field">
+              <label class="label" for="ptModel">Vehicle</label>
+              <select id="ptModel"><option>SRM T3EV</option><option>Farizon Super Van</option><option>Farizon H9E</option><option>ChengLong L2EV</option><option>DFSK EC31</option></select>
+            </div>
+            <div class="field">
+              <label class="label" for="ptPart">Part</label>
+              <select id="ptPart"></select>
+            </div>
+          </form>
+          <div class="part-out" id="partOut" aria-live="polite"></div>
+        </div>
+        <p class="note" style="margin-top:14px"><span class="illus">Illustrative</span> Stock levels and prices to be connected to Hong Seh’s parts system.</p>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="p-rep" aria-labelledby="t-rep" hidden>
+        <div class="tp-grid">
+          <div>
+            <h4 class="mini-h">You get a replacement vehicle when</h4>
+            <ul class="ticks small">
+              <li>A warranty repair is expected to take longer than <b>48 hours</b>, or a part has to be ordered from overseas</li>
+              <li>The vehicle has been serviced on schedule</li>
+              <li>The breakdown happened in normal use, not an accident (accident repairs go through your insurer’s courtesy vehicle)</li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="mini-h">What you get</h4>
+            <ul class="ticks small">
+              <li>Same class: a van for a van, a lorry for a lorry, with similar or higher payload</li>
+              <li>At your depot within 1 working day</li>
+              <li>Insurance included. You pay only for charging</li>
+              <li>Return it within 2 working days after your vehicle is ready</li>
+            </ul>
+          </div>
+        </div>
+        <p class="note" style="margin-top:14px"><span class="illus">Proposed policy</span> Thresholds to be set by Hong Seh based on loan fleet size.</p>
+      </div>
+    </div>
+
+    <figure class="tq"><blockquote>“Hong Seh had a loan van at our depot the same afternoon. Our customers never knew one of our trucks was in the workshop.”</blockquote><figcaption>Operations Manager, last-mile delivery fleet · 9 EVs <span class="sample">Sample</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- =================== FEATURE 3: CHARGING =================== -->
+<section class="sec" id="charging" aria-labelledby="chg-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Proposed · Charging partner bundle</span>
+      <h2 id="chg-h">Charging, sorted from day one</h2>
+      <p>One contract with Hong Seh covers the truck and its depot charger. We handle the LTA grant paperwork, the installation with our charging partner <span class="ph">[Charge point operator]</span>, and a fleet electricity rate, all in one monthly instalment.</p>
+      <p class="why"><b>Why this is here:</b> fleets named charging access as a key barrier, and Hong Seh does not yet help buyers with charger installation. A partner bundle removes that reason to wait.</p>
+    </div>
+
+    <ol class="flow">
+      <li><h4>Site check</h4><p>We survey your depot’s power supply and parking layout.</p></li>
+      <li><h4>Grant handled</h4><p>We apply for the LTA EHVCG on your behalf: 50% of the cost, up to S$30,000 per charger, for heavy vehicles.</p></li>
+      <li><h4>Installed &amp; commissioned</h4><p>Charger is live on the day your truck is handed over.</p></li>
+      <li><h4>Fleet tariff</h4><p>Charge at about S$0.35/kWh instead of S$0.78/kWh at public chargers.</p></li>
+    </ol>
+
+    <div class="two">
+      <form class="panel" onsubmit="return false" aria-labelledby="planH">
+        <div class="label" id="planH" style="margin-bottom:16px"><span>How many chargers do I need?</span></div>
+        <div class="field">
+          <label class="label" for="cvIn">Electric vehicles at your depot <output id="cvOut" class="num">4</output></label>
+          <input type="range" id="cvIn" min="1" max="12" value="4">
+        </div>
+        <div class="field">
+          <span class="label" id="clsLbl">Vehicle class</span>
+          <div class="seg" role="group" aria-labelledby="clsLbl">
+            <button type="button" data-cls="light" aria-pressed="true">Light (van, T3EV)</button>
+            <button type="button" data-cls="heavy" aria-pressed="false">Heavy (L2EV, H9E)</button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="ckIn">Km per vehicle per year <output id="ckOut" class="num">40,000 km</output></label>
+          <input type="range" id="ckIn" min="10000" max="80000" step="1000" value="40000">
+        </div>
+        <p class="note">Rule of thumb from our analysis: one charger serves up to three vehicles. One charger shared by three vans pays back in about 1.3 years.</p>
+      </form>
+
+      <div class="panel planner-out" aria-live="polite">
+        <div class="bays" id="bays"></div>
+        <table class="tbl">
+          <tbody>
+            <tr><th scope="row">Chargers recommended</th><td id="pC">2</td></tr>
+            <tr><th scope="row">Installation (S$23,000 each)</th><td id="pGross">S$46,000</td></tr>
+            <tr><th scope="row">LTA EHVCG grant</th><td id="pGrant">S$0</td></tr>
+            <tr class="total"><th scope="row">You pay</th><td id="pNet">S$46,000</td></tr>
+            <tr><th scope="row">Saved vs public charging, per year</th><td id="pSave">S$0</td></tr>
+            <tr><th scope="row">Charger pays for itself in</th><td id="pPay">0 yrs</td></tr>
+          </tbody>
+        </table>
+        <p class="note" id="pNote"></p>
+        <div><a class="btn btn-orange" href="#coe">Book a depot site check</a></div>
+      </div>
+    </div>
+    <figure class="tq"><blockquote>“We thought charging would be the hard part. Hong Seh surveyed our yard, sorted the grant and the charger was live on handover day.”</blockquote><figcaption>Operations Head, logistics contractor · 5 × Farizon H9E <span class="sample">Sample</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- =================== FEATURE 4: PARTNER WORKSHOPS =================== -->
+<section class="sec alt" id="workshops" aria-labelledby="ws-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Proposed · Open parts network</span>
+      <h2 id="ws-h">Repairs close to where you operate</h2>
+      <p>Hong Seh EVs can be serviced at certified partner workshops across Singapore, all supplied with genuine Hong Seh parts. Pick your area.</p>
+      <p class="why"><b>Why this is here:</b> operators worried that EV parts are scarce and that only one workshop can fix their truck. A visible partner network answers that, and every part sold to partners earns Hong Seh revenue.</p>
+    </div>
+    <div class="filters" role="group" aria-label="Filter by region">
+      <button type="button" data-r="all" aria-pressed="true">All</button>
+      <button type="button" data-r="North" aria-pressed="false">North</button>
+      <button type="button" data-r="West" aria-pressed="false">West</button>
+      <button type="button" data-r="Central" aria-pressed="false">Central</button>
+      <button type="button" data-r="East" aria-pressed="false">East</button>
+    </div>
+    <div class="shops" id="shops"></div>
+    <p class="note" style="margin-top:14px">Partner names, addresses and opening hours are placeholders for the pilot network. <span class="illus">Illustrative</span></p>
+    <figure class="tq"><blockquote>“Our vans work out of Tuas. Having a certified workshop ten minutes away, with Hong Seh parts on the shelf, sealed the decision.”</blockquote><figcaption>Fleet Manager, industrial supplies distributor · 4 × SRM T3EV <span class="sample">Sample</span></figcaption></figure>
+    <div class="partner-cta">
+      <div><h3>Run a workshop? Become a Hong Seh EV partner.</h3><p>Genuine parts at partner rates, EV servicing training, and referrals from Hong Seh fleet customers near you.</p></div>
+      <a class="btn btn-light" href="#coe">Apply to partner</a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FEATURE 5: COE SWITCH PLANNER =================== -->
+<section class="sec" id="coe" aria-labelledby="coe-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">Proposed · Targeted outreach</span>
+      <h2 id="coe-h">Plan your switch around your COE</h2>
+      <p>Tell us when your vehicle’s COE expires. We will line up the steps so your electric replacement and its charger are ready on the day, with no gap in your fleet.</p>
+      <p class="why"><b>Why this is here:</b> 60% of companies we surveyed replace vehicles when the COE expires. That is the natural moment to switch, so Hong Seh should meet fleets there.</p>
+    </div>
+
+    <div class="two">
+      <form class="panel" id="coeForm">
+        <div class="field">
+          <label class="label" for="coeDate">COE expiry month</label>
+          <input type="month" id="coeDate">
+        </div>
+        <div class="field">
+          <label class="label" for="coeVeh">Vehicle being replaced</label>
+          <select id="coeVeh">
+            <option value="0">Toyota Hiace</option>
+            <option value="1" selected>Toyota Dyna</option>
+            <option value="2">Isuzu NNR85</option>
+            <option value="3">Isuzu FVR90</option>
+            <option value="x">Other / not sure</option>
+          </select>
+        </div>
+        <div class="field">
+          <span class="label" id="stLbl">Where are you today?</span>
+          <div class="seg" role="group" aria-labelledby="stLbl">
+            <button type="button" data-st="new" aria-pressed="true">No EVs yet</button>
+            <button type="button" data-st="ev" aria-pressed="false">Already run EVs</button>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label" for="coeCo">Company name</label>
+          <input type="text" id="coeCo" placeholder="e.g. ABC Logistics Pte Ltd" autocomplete="organization">
+        </div>
+        <div class="field">
+          <label class="label" for="coeEm">Work email</label>
+          <input type="email" id="coeEm" placeholder="name@company.com.sg" autocomplete="email">
+        </div>
+        <button class="btn btn-orange" type="submit">Request a fleet review</button>
+        <p class="status" id="coeStatus" role="status"></p>
+      </form>
+
+      <div class="panel">
+        <div class="countdown"><span class="v" id="coeMonths">9</span><span class="k" id="coeMonthsK">months until your COE expires</span></div>
+        <div class="match" id="coeMatch"></div>
+        <ol class="timeline" id="coeTl"></ol>
+        <p class="note" style="margin-top:12px">Lead times are indicative and depend on stock, LTA approval and depot works.</p>
+      </div>
+    </div>
+    <figure class="tq"><blockquote>“Hong Seh called us nine months before our COE ran out. By expiry day the EV and the charger were both waiting for us.”</blockquote><figcaption>Owner, moving company · 3 × Farizon Super Van <span class="sample">Sample</span></figcaption></figure>
+  </div>
+</section>
+
+<!-- =================== BRANDS + NEWS (existing) =================== -->
+<section class="brands" aria-label="Our brands">
+  <div class="wrap"><ul><li>Seres</li><li>SRM</li><li>Farizon</li><li>DFSK</li><li>LEVC</li><li>Deepway</li><li>Joylong</li><li>Riddara</li></ul></div>
+</section>
+<section class="news" id="news" aria-labelledby="news-h">
+  <div class="wrap">
+    <h2 id="news-h">News &amp; guides</h2>
+    <ul>
+      <li><a href="#top">How to Start a Truck Business in Singapore</a></li>
+      <li><a href="#charging">How Does EV Charging Work for Your Commercial Fleet?</a></li>
+      <li><a href="#top">What Does Payload Capacity Mean for Your Commercial Electric Fleet?</a></li>
+      <li><a href="#top">What is Towing Capacity and Why Does It Matter for Your Electric Fleet?</a></li>
+      <li><a href="#top">Electric Fleet Solutions: Maximize Business Growth with the HVZES Grant</a></li>
+      <li><a href="#ownership">The Ultimate Guide to EV Commercial Fleets Maintenance</a></li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div><h4>Hong Seh Group</h4><p>Serving Singapore since 1968.</p><p>Commercial EVs · Leasing · Aftersales · Marine</p></div>
+    <div><h4>Visit</h4><p>Showroom and workshop address as on the current site.</p></div>
+    <div><h4>Contact</h4><p>Sales and service lines as on the current site.</p></div>
+    <div class="base"><span>Concept prototype by SMU MGMT319 Group 2 (Ben, Faith, Guang Shen, Ian, Nic, Vlad). Not the official Hong Seh website; forms do not send data.</span><span>Photos: hongsehgroup.com</span></div>
+  </div>
+</footer>
+
+<button class="wa" id="wa" aria-label="Chat on WhatsApp (concept)">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.4 14.4 0 0 0 5.5 4.9c2 .9 2.8.9 3.8.8a3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.2-.3-.3-.6-.4z"/></svg>
+</button>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+  const $$ = s => [...document.querySelectorAll(s)];
+  const fmt = n => 'S$' + Math.round(n).toLocaleString('en-SG');
+  const fmtK = n => Math.round(n).toLocaleString('en-SG');
+  function toast(msg){const t=$('#toast');t.textContent=msg;t.hidden=false;clearTimeout(t._h);t._h=setTimeout(()=>t.hidden=true,2600)}
+
+  /* Mobile nav */
+  const burger=$('#burger'), nav=$('#mainnav');
+  burger.addEventListener('click',()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
+  nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
+  $('#wa').addEventListener('click',()=>toast('Concept prototype: WhatsApp chat opens here on the live site.'));
+
+  /* Segmented control helper */
+  function seg(attr,cb){
+    const btns=$$('['+attr+']');
+    btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.setAttribute('aria-pressed',x===b));cb(b.getAttribute(attr))}));
+  }
+
+  /* ===== 1. TCO calculator =====
+     Data from Group 2 Annex A (ICE vs EV pairs). extraOwn = EV extra Year-1 cost incl. own charger.
+     iceKm / evOwnKm = energy cost per km at S$4.07/L diesel and S$0.35/kWh.  */
+  const PAIRS=[
+    {ice:'Toyota Hiace',ev:'Farizon Super Van',km:50000,extraOwn:47354,charger:23000,iceKm:.34,evOwnKm:.09, ice:{m:1900,rt:426,ins:2000}, evc:{m:1150,rt:530,ins:3000}, iceName:'Toyota Hiace', iceP:156800},
+    {ice:'Toyota Dyna',ev:'SRM T3EV',km:50000,extraOwn:32706,charger:23000,iceKm:.41,evOwnKm:.06, ice:{m:1900,rt:324,ins:1750}, evc:{m:650,rt:530,ins:1500}, iceName:'Toyota Dyna', iceP:124800},
+    {ice:'Isuzu NNR85',ev:'ChengLong L2EV',km:25000,extraOwn:21674,charger:11500,iceKm:.54,evOwnKm:.09, ice:{m:4800,rt:426,ins:3500}, evc:{m:1800,rt:1600,ins:3500}, iceName:'Isuzu NNR85', iceP:144300},
+    {ice:'Isuzu FVR90',ev:'Farizon H9E 20ft',km:20000,extraOwn:39200,charger:11500,iceKm:.81,evOwnKm:.22, ice:{m:8500,rt:1100,ins:3000}, evc:{m:2400,rt:1200,ins:4500}, iceName:'Isuzu FVR90', iceP:188300}
+  ];
+  const BATTERY=10000, BATTERY_YEAR=8;
+  const st={pair:1,km:50000,n:3,chg:'own',dsl:4.07};
+
+  function model(p,km,chg,dsl){
+    const upIce=p.iceP;
+    const extra = chg==='own' ? p.extraOwn : p.extraOwn - p.charger;
+    const upEv=upIce+extra;
+    const iceKm=p.iceKm*dsl/4.07;
+    const evKm = chg==='own' ? p.evOwnKm : p.evOwnKm*0.78/0.35;
+    const ice=[upIce], ev=[upEv];
+    let ci=upIce, ce=upEv, be=null;
+    for(let y=1;y<=10;y++){
+      const rtI=p.ice.rt*Math.pow(1.1,y-1);
+      const aI=p.ice.m+rtI+p.ice.ins+km*iceKm;
+      const aE=p.evc.m+p.evc.rt+p.evc.ins+km*evKm+(y===BATTERY_YEAR?BATTERY:0);
+      const ni=ci+aI, ne=ce+aE;
+      if(be===null && ne<=ni){ // linear interpolation within the year
+        const d0=ce-ci, d1=ne-ni; be=(y-1)+ d0/(d0-d1);
+      }
+      ci=ni; ce=ne; ice.push(ci); ev.push(ce);
+    }
+    return {ice,ev,be,save:ci-ce};
+  }
+
+  function drawChart(r){
+    const W=640,H=300,L=64,R=16,T=14,B=36;
+    const max=Math.max(...r.ice,...r.ev), min=Math.min(r.ice[0],r.ev[0]);
+    const step=50000, lo=Math.floor(min*0.9/step)*step, hi=Math.ceil(max*1.04/step)*step;
+    const x=i=>L+(W-L-R)*i/10, y=v=>T+(H-T-B)*(1-(v-lo)/(hi-lo));
+    let g='';
+    const tickStep=(hi-lo)/step>8?100000:step;
+    for(let v=lo; v<=hi; v+=tickStep){g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#ececec"/><text x="${L-8}" y="${y(v)+4}" text-anchor="end">${v>=1e6?(v/1e6).toFixed(1)+'M':Math.round(v/1000)+'k'}</text>`}
+    for(let i=0;i<=10;i+=2){g+=`<text x="${x(i)}" y="${H-12}" text-anchor="middle">Yr ${i}</text>`}
+    const path=a=>a.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ');
+    g+=`<path d="${path(r.ice)}" fill="none" stroke="#9aa3a8" stroke-width="2.5"/>`;
+    g+=`<path d="${path(r.ev)}" fill="none" stroke="var(--teal)" stroke-width="3"/>`;
+    if(r.be!==null && r.be<=10){
+      const i0=Math.floor(r.be), f=r.be-i0, i1=Math.min(i0+1,10);
+      const vy=r.ice[i0]+(r.ice[i1]-r.ice[i0])*f;
+      g+=`<line x1="${x(r.be)}" x2="${x(r.be)}" y1="${T}" y2="${H-B}" stroke="var(--orange)" stroke-dasharray="3 4"/>`;
+      g+=`<circle cx="${x(r.be)}" cy="${y(vy)}" r="6" fill="var(--orange)" stroke="#fff" stroke-width="2"/>`;
+      const lx=Math.min(x(r.be)+10,W-R-110);
+      g+=`<text x="${lx}" y="${T+14}" style="fill:var(--orange-ink);font-weight:600">Break-even ${r.be.toFixed(1)} yrs</text>`;
+    }
+    const ex=r.ev[10]<r.ice[10];
+    g+=`<text x="${W-R}" y="${y(r.ice[10])+(ex?-8:16)}" text-anchor="end" style="font-weight:600">${fmt(r.ice[10])}</text>`;
+    g+=`<text x="${W-R}" y="${y(r.ev[10])+(ex?16:-8)}" text-anchor="end" style="fill:var(--teal);font-weight:600">${fmt(r.ev[10])}</text>`;
+    $('#chart').innerHTML=g;
+  }
+
+  function renderCalc(){
+    const p=PAIRS[st.pair];
+    const r=model(p,st.km,st.chg,st.dsl);
+    $('#evName').textContent=p.ev; $('#lgEv').textContent=p.ev;
+    $('#kmOut').textContent=fmtK(st.km)+' km'; $('#nOut').textContent=st.n;
+    $('#chgNote').textContent= st.chg==='own' ? 'S$0.35 / kWh, charger installed via Hong Seh' : 'S$0.78 / kWh at public chargers';
+    $('#kBE').textContent = r.be===null ? '10+ yrs' : r.be.toFixed(1)+' yrs';
+    $('#kBEs').textContent = 'vs renewing a '+p.iceName;
+    const chargers = st.chg==='own' ? Math.ceil(st.n/3) : 0;
+    // fleet saving: per-vehicle saving, but chargers are shared (1 per 3 vehicles)
+    const perVehNoCharger = r.save + (st.chg==='own'? p.charger : 0);
+    const fleet = perVehNoCharger*st.n - chargers*p.charger;
+    $('#kSave').textContent = (fleet<0?'-':'')+fmt(Math.abs(fleet));
+    $('#kSaveS').textContent = st.n+' vehicle'+(st.n>1?'s':'')+(st.chg==='own'?', '+chargers+' shared charger'+(chargers>1?'s':''):'')+', after battery replacement';
+    // CO2: deck range 5.7–9.8 t per EV per year at the modelled mileage; scale by km
+    const co2 = (p.ev.includes('H9E')?9.8:p.ev.includes('L2EV')?7.2:p.ev.includes('T3EV')?7.6:5.7) * st.km/p.km;
+    $('#kCO2').textContent = (co2*st.n).toFixed(1)+' t';
+    drawChart(r);
+  }
+  $('#pairSel').addEventListener('change',e=>{st.pair=+e.target.value;st.km=PAIRS[st.pair].km;$('#kmIn').value=st.km;renderCalc()});
+  $('#kmIn').addEventListener('input',e=>{st.km=+e.target.value;renderCalc()});
+  $('#nIn').addEventListener('input',e=>{st.n=+e.target.value;renderCalc()});
+  seg('data-chg',v=>{st.chg=v;renderCalc()});
+  seg('data-dsl',v=>{st.dsl=+v;renderCalc()});
+  $$('[data-pair]').forEach(a=>a.addEventListener('click',()=>{const i=+a.dataset.pair;$('#pairSel').value=i;st.pair=i;st.km=PAIRS[i].km;$('#kmIn').value=st.km;renderCalc()}));
+  renderCalc();
+
+  /* ===== 2. Downtime comparison + repair tracker (illustrative data) ===== */
+  const CMP=[['Routine service',0.5,1],['Brake & suspension',1.5,2],['Electrical / sensor fault',2,3],['Drivetrain repair',3,6]];
+  const maxD=6;
+  $('#cmp').innerHTML=CMP.map(([k,e,i])=>`<div class="cmp-row"><span>${k}</span><div class="bars"><div class="bar ev" style="width:${e/maxD*100}%">${e}d</div><div class="bar ice" style="width:${i/maxD*100}%">${i}d</div></div></div>`).join('');
+
+  /* Buyer-pack tabs (arrow keys move between tabs) */
+  const tabs=$$('[role=tab]');
+  function selectTab(t){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on})}
+  tabs.forEach((t,i)=>{t.addEventListener('click',()=>{selectTab(t);t.scrollIntoView({block:'nearest',inline:'nearest'})});t.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowRight')j=(i+1)%tabs.length;if(e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;if(j!==null){e.preventDefault();tabs[j].focus();selectTab(tabs[j])}})});
+  $$('[data-toast]').forEach(b=>b.addEventListener('click',()=>toast(b.dataset.toast)));
+
+  /* Parts estimate (illustrative stock data) */
+  const PARTS=[
+    ['Brake pads (front set)','stock',0,'S$180 – 240'],
+    ['Wiper motor','stock',0,'S$150 – 220'],
+    ['Headlamp assembly','partner',1,'S$420 – 650'],
+    ['12V auxiliary battery','stock',0,'S$160 – 260'],
+    ['DC-DC converter','stock',0,'S$900 – 1,400'],
+    ['Cabin display unit','order',7,'S$1,100 – 1,800'],
+    ['Motor controller','order',10,'Covered by warranty'],
+    ['Battery module','partner',2,'Covered by warranty']
+  ];
+  const PST={stock:['In stock at Hong Seh','var(--good)','Fitted the same day'],partner:['In stock at partner or OEM hub','var(--warn)','Arrives in'],order:['Ordered from manufacturer','var(--orange-ink)','Air freight, arrives in']};
+  $('#ptPart').innerHTML=PARTS.map((p,i)=>`<option value="${i}">${p[0]}</option>`).join('');
+  function renderPart(){
+    const p=PARTS[+$('#ptPart').value], s=PST[p[1]];
+    const eta = p[2]===0 ? s[2] : s[2]+' '+p[2]+' working day'+(p[2]>1?'s':'');
+    const loan = p[2]>=2 ? 'Yes, if the repair is under warranty' : 'Not usually needed';
+    $('#partOut').innerHTML=`<span class="st"><i style="background:${s[1]}"></i>${s[0]}</span><dl><dt>Vehicle</dt><dd>${$('#ptModel').value}</dd><dt>Estimated wait</dt><dd>${eta}</dd><dt>Indicative price</dt><dd>${p[3]}</dd><dt>Replacement vehicle</dt><dd>${loan}</dd></dl>`;
+  }
+  $('#ptPart').addEventListener('change',renderPart);$('#ptModel').addEventListener('change',renderPart);
+  renderPart();
+
+  /* ===== 3. Charger planner ===== */
+  const cs={n:4,cls:'light',km:40000};
+  function renderPlan(){
+    const chargers=Math.min(Math.ceil(cs.n/3),4);
+    const unit=23000, gross=chargers*unit;
+    const grant= cs.cls==='heavy' ? chargers*Math.min(unit*0.5,30000) : 0;
+    const net=gross-grant;
+    const kwhKm= cs.cls==='heavy' ? 0.45 : 0.25; // avg of the light / heavy pairs in Annex A
+    const save= cs.n*cs.km*kwhKm*(0.78-0.35);
+    const pay= net/save;
+    $('#cvOut').textContent=cs.n; $('#ckOut').textContent=fmtK(cs.km)+' km';
+    $('#pC').textContent=chargers;
+    $('#pGross').textContent=fmt(gross);
+    $('#pGross').previousElementSibling.textContent='Installation ('+chargers+' × S$23,000)';
+    $('#pGrant').textContent= grant? '−'+fmt(grant) : 'Not eligible (light)';
+    $('#pNet').textContent=fmt(net);
+    $('#pSave').textContent=fmt(save);
+    $('#pPay').textContent=pay.toFixed(1)+' yrs';
+    $('#pNote').textContent= cs.cls==='heavy' ? 'Heavy vehicles qualify for the LTA EHVCG: 50% of the cost, capped at S$30,000 per charger. Hong Seh files it for you.' : 'Light vans do not qualify for the EHVCG grant, but depot charging still costs less than half the public rate.';
+    const bolt='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6z" fill="currentColor"/></svg>';
+    let b=''; for(let i=0;i<chargers;i++){const v=Math.min(3,cs.n-i*3);b+=`<div class="bay" title="Charger ${i+1}">${bolt}<span>C${i+1}</span><span style="font-weight:500;color:var(--mute)">${v} veh</span></div>`}
+    $('#bays').innerHTML=b;
+  }
+  $('#cvIn').addEventListener('input',e=>{cs.n=+e.target.value;renderPlan()});
+  $('#ckIn').addEventListener('input',e=>{cs.km=+e.target.value;renderPlan()});
+  seg('data-cls',v=>{cs.cls=v;renderPlan()});
+  renderPlan();
+
+  /* ===== 4. Partner workshops (placeholders) ===== */
+  const SHOPS=[
+    {n:'Hong Seh Motors Workshop',r:'Central',a:'Hong Seh HQ workshop',s:['All Hong Seh EVs','Battery diagnostics'],hq:true,stock:'Full parts stock'},
+    {n:'[Partner workshop A]',r:'North',a:'Woodlands / Sungei Kadut',s:['SRM T3EV','DFSK EC31/EC35'],stock:'Fast-moving parts in stock'},
+    {n:'[Partner workshop B]',r:'West',a:'Jurong / Tuas',s:['Farizon H9E','ChengLong L2EV','Heavy vehicles'],stock:'Fast-moving parts in stock'},
+    {n:'[Partner workshop C]',r:'West',a:'Pioneer',s:['SRM T3EV','Farizon Super Van'],stock:'Next-day parts from Hong Seh'},
+    {n:'[Partner workshop D]',r:'East',a:'Changi / Loyang',s:['DFSK EC31 Reefer','SRM T3EV'],stock:'Fast-moving parts in stock'},
+    {n:'[Partner workshop E]',r:'Central',a:'Kallang / Defu',s:['All light EVs'],stock:'Next-day parts from Hong Seh'}
+  ];
+  let reg='all';
+  function renderShops(){
+    $('#shops').innerHTML=SHOPS.filter(s=>reg==='all'||s.r===reg).map(s=>`<article class="shop"><div class="badges">${s.hq?'<span class="badge hq">Hong Seh</span>':'<span class="badge">Certified partner</span>'}<span class="badge">${s.r}</span></div><h4>${s.hq?s.n:'<span class="ph">'+s.n+'</span>'}</h4><div class="meta">${s.a}</div><div class="meta">Services: ${s.s.join(', ')}</div><div class="badges"><span class="badge ok">${s.stock}</span></div></article>`).join('');
+  }
+  seg('data-r',v=>{reg=v;renderShops()});
+  renderShops();
+
+  /* ===== 5. COE switch planner ===== */
+  const cp={st:'new'};
+  const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  const today=new Date(); const now=new Date(today.getFullYear(),today.getMonth(),1);
+  const def=new Date(now.getFullYear(),now.getMonth()+9,1);
+  $('#coeDate').value=def.getFullYear()+'-'+String(def.getMonth()+1).padStart(2,'0');
+  function addM(d,m){return new Date(d.getFullYear(),d.getMonth()+m,1)}
+  function renderCoe(){
+    const v=$('#coeDate').value; if(!v) return;
+    const [yy,mm]=v.split('-').map(Number); const exp=new Date(yy,mm-1,1);
+    const months=(exp.getFullYear()-now.getFullYear())*12+exp.getMonth()-now.getMonth();
+    $('#coeMonths').textContent=Math.max(months,0);
+    $('#coeMonthsK').textContent= months<0 ? 'COE already expired: talk to us about a quick switch' : (months===1?'month':'months')+' until your COE expires';
+    const vi=$('#coeVeh').value;
+    if(vi==='x'){ $('#coeMatch').innerHTML='We will match your vehicle to an electric equivalent with the same payload and body type at your fleet review.'; }
+    else { const p=PAIRS[+vi]; const r=model(p,p.km,'own',4.07);
+      $('#coeMatch').innerHTML=`Your <strong>${p.iceName}</strong> matches the <strong>${p.ev}</strong>. Instead of renewing the COE on the diesel, switching saves about <strong>${fmt(r.save)}</strong> over 10 years and pays for itself in <strong>${r.be.toFixed(1)} years</strong>.`;
+    }
+    const steps = cp.st==='new' ? [
+      [-12,'Fleet review & TCO','Hong Seh reviews your routes and mileage and matches each diesel to an EV.'],
+      [-9,'Test drive or trial','Run the EV on your real routes for a week.'],
+      [-6,'Order & grant application','Place the order; we file the LTA EHVCG for your depot charger.'],
+      [-3,'Charger installation','Our charging partner installs and commissions your depot charger.'],
+      [-1,'Registration & handover','We register the vehicle and hand it over, charger ready.'],
+      [0,'COE expires','Diesel retired with no gap in your fleet.']
+    ] : [
+      [-12,'Fleet & battery health review','Battery health report for your current EVs and a scaling plan.'],
+      [-9,'Charging capacity check','Do you need more chargers before adding vehicles? We plan it with you.'],
+      [-6,'Order next EVs','Fleet pricing for repeat buyers, extended battery warranty.'],
+      [-3,'Add depot chargers','Extra chargers installed in step with your fleet.'],
+      [-1,'Handover','New vehicles registered and delivered.'],
+      [0,'COE expires','Diesel retired; your fleet is one step closer to 100% EV.']
+    ];
+    let nextSet=false;
+    $('#coeTl').innerHTML=steps.map(([o,h,p])=>{const d=addM(exp,o);const past=d<now;let cls=past?'past':'';if(!past&&!nextSet){cls='next';nextSet=true}
+      return `<li class="${cls}"><span class="d">${MON[d.getMonth()]} ${d.getFullYear()}<small>${o===0?'Expiry':Math.abs(o)+' mo before'}</small></span><div><h4>${h}${cls==='next'?' · Start here':''}</h4><p>${p}</p></div></li>`}).join('');
+  }
+  $('#coeDate').addEventListener('change',renderCoe);
+  $('#coeVeh').addEventListener('change',renderCoe);
+  seg('data-st',v=>{cp.st=v;renderCoe()});
+  $('#coeForm').addEventListener('submit',e=>{e.preventDefault();$('#coeStatus').textContent='Concept prototype: on the live site this request goes to the Hong Seh fleet sales team. Nothing was sent.'});
+  renderCoe();
+})();
+</script>
+
+</body></html>

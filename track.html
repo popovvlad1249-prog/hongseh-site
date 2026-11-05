@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>Hong Seh Repair Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: main-site header; code gate; then a job view: header + pizza-tracker timeline across the top,
+   main column (inspection, quote, parts, collection, history) and a side column (summary, chat, notifications).
+   Below 960px everything stacks, with a sticky jump bar. Light only, same tokens as the main site. */
+:root{
+  --ink:#000;--body:#5c5c5c;--mute:#767676;--line:#e3e3e3;--paper:#fff;--soft:#f5f6f7;
+  --link:#026e9f;--teal:#0f8a9a;--teal-bg:#e7f6f8;--orange:#fd6e4f;--orange-ink:#c2410c;--orange-bg:#fff1ec;
+  --ok:#13795b;--ok-bg:#e6f4ee;--mon:#a15c07;--mon-bg:#fff4e0;--att:#b91c1c;--att-bg:#fdecec;
+  --wa:#1f8f4e;--font:"Montserrat","Helvetica Neue",Arial,sans-serif;--shadow:0 10px 30px rgba(0,0,0,.08);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--soft);color:var(--body);font-family:var(--font);font-size:14px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--link);outline-offset:3px}
+[hidden]{display:none!important}
+h1,h2,h3,h4{color:var(--ink);font-weight:600;text-transform:uppercase;margin:0;letter-spacing:.01em;text-wrap:balance}
+p{margin:0}
+.num{font-variant-numeric:tabular-nums}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.concept{background:#111;color:#f1f1f1;font-size:12px}
+.concept .wrap{display:flex;gap:6px 16px;align-items:center;flex-wrap:wrap;padding-block:8px}
+.concept strong{color:#fff;text-transform:uppercase;letter-spacing:.08em}
+.concept a{color:#9fe3ec}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:8px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
+.brand svg{width:44px;height:auto;flex:none}
+.brand span{font-weight:600;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.brand small{display:block;font-weight:500;color:var(--mute);letter-spacing:.06em;font-size:11px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 12px var(--font);letter-spacing:.08em;text-transform:uppercase;border-radius:3px;padding:11px 18px;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:background .2s,color .2s,opacity .2s;white-space:nowrap}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn-orange{background:var(--orange);color:#fff}.btn-orange:hover:not(:disabled){background:#e85a3b}
+.btn-dark{background:var(--ink);color:#fff}.btn-dark:hover:not(:disabled){background:#333}
+.btn-line{background:#fff;color:var(--ink);border-color:var(--ink)}.btn-line:hover:not(:disabled){background:var(--ink);color:#fff}
+.btn-sm{padding:7px 11px;font-size:10.5px}
+.tag{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);background:var(--teal-bg);border:1px dashed var(--teal);border-radius:3px;padding:3px 8px}
+.ph{background:#fff7ed;color:#9a3412;border-radius:2px;padding:0 3px}
+input,textarea,select{font:500 14px var(--font);color:var(--ink);background:#fff;border:1px solid #cfcfcf;border-radius:3px;padding:10px 12px;width:100%}
+textarea{resize:vertical;min-height:80px}
+
+/* ---------- Gate ---------- */
+.gate{padding-block:56px 72px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:center}
+.gate h1{font-size:clamp(24px,3.4vw,34px);line-height:1.2;margin:12px 0}
+.gate-form{display:grid;gap:10px;max-width:420px;margin-top:22px}
+.gate-form label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)}
+.gate-row{display:flex;gap:8px}
+.gate-row input{font-size:18px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.gate-err{color:var(--att);font-size:13px;min-height:1.3em}
+.demo-codes{margin-top:22px;display:grid;gap:8px;max-width:420px}
+.demo-codes p{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.demo-codes button{display:flex;justify-content:space-between;gap:12px;width:100%;text-align:left;background:#fff;border:1px solid var(--line);border-radius:3px;padding:10px 12px;font:500 13px var(--font);color:var(--ink);cursor:pointer}
+.demo-codes button:hover{border-color:var(--ink)}
+.demo-codes b{letter-spacing:.06em}
+.demo-codes span{color:var(--mute);font-size:12px}
+.gate-art{aspect-ratio:4/3;background:#cfd8dc url(assets/t3ev.jpg) center/cover;border-radius:2px;max-width:100%}
+@media (max-width:860px){.gate{grid-template-columns:1fr;padding-block:32px 48px;gap:28px}.gate-art{order:-1;aspect-ratio:16/9}}
+
+/* ---------- Job header ---------- */
+.jobhead{padding-block:24px 8px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.jobhead h1{font-size:clamp(20px,2.6vw,26px)}
+.jobhead .sub{font-size:13px;margin-top:4px}
+.eta-box{background:var(--ink);color:#fff;padding:14px 18px;border-radius:3px;display:grid;gap:2px;min-width:240px}
+.eta-box .k{font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#bdbdbd}
+.eta-box .v{font-size:19px;font-weight:600;font-variant-numeric:tabular-nums}
+.eta-box .u{font-size:11.5px;color:#bdbdbd}
+.eta-box.flash{animation:flash .9s ease}
+@keyframes flash{0%{background:var(--orange)}100%{background:var(--ink)}}
+.action{margin-top:14px;display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--orange-bg);border:1px solid #fdc9b8;border-left:4px solid var(--orange);padding:12px 16px;color:var(--ink);font-weight:500}
+
+/* ---------- Pizza tracker ---------- */
+.tracker{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:22px 20px 16px;margin-top:16px}
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(9,minmax(0,1fr))}
+.step{position:relative;display:grid;justify-items:center;text-align:center;gap:6px;padding:0 4px}
+.step::before{content:"";position:absolute;top:17px;left:-50%;width:100%;height:4px;background:var(--line);z-index:0}
+.step:first-child::before{display:none}
+.step.done::before,.step.now::before{background:var(--teal)}
+.step.skip::before{background:repeating-linear-gradient(90deg,var(--teal) 0 6px,transparent 6px 10px)}
+.dot{position:relative;z-index:1;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;background:#fff;border:3px solid #cfcfcf;color:#9a9a9a;transition:background .3s,border-color .3s,transform .3s}
+.done .dot{background:var(--teal);border-color:var(--teal);color:#fff}
+.now .dot{border-color:var(--orange);color:var(--orange-ink);background:#fff;box-shadow:0 0 0 6px var(--orange-bg)}
+.now .dot::after{content:"";position:absolute;inset:-9px;border-radius:50%;border:2px solid var(--orange);opacity:0;animation:ping 2.2s ease-out infinite}
+@keyframes ping{0%{transform:scale(.8);opacity:.7}100%{transform:scale(1.25);opacity:0}}
+.skip .dot{border-style:dashed;color:#b5b5b5;font-size:12px}
+.step.pop .dot{animation:pop .6s ease}
+@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.15)}100%{transform:scale(1)}}
+.step .lbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+.done .lbl{color:var(--ink)}
+.now .lbl{color:var(--orange-ink)}
+.step .tm{font-size:10.5px;color:var(--mute);font-variant-numeric:tabular-nums;line-height:1.3}
+.now .tm{font-weight:600;color:var(--orange-ink)}
+@media (max-width:860px){
+  .steps{grid-template-columns:1fr;gap:0}
+  .step{grid-template-columns:38px minmax(0,1fr);justify-items:start;text-align:left;column-gap:14px;row-gap:0;padding:0 0 16px}
+  .step::before{left:17px;top:-16px;width:4px;height:calc(100% - 22px)}
+  .step:first-child::before{display:none}
+  .step .dot{grid-row:1/3}
+  .step .lbl{font-size:12.5px;align-self:end}
+  .step .tm{align-self:start;font-size:11.5px}
+  .step.skip::before{background:repeating-linear-gradient(180deg,var(--teal) 0 6px,transparent 6px 10px)}
+}
+.claim{margin-top:16px;padding-top:14px;border-top:1px dashed var(--line)}
+.claim-h{display:flex;gap:10px;align-items:baseline;justify-content:space-between;flex-wrap:wrap;margin-bottom:12px}
+.claim-h h3{font-size:12px;letter-spacing:.1em}
+.claim-h span{font-size:12px;color:var(--mute)}
+.csteps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px}
+.cstep{display:grid;gap:4px;font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.03em;color:var(--mute);line-height:1.3}
+.cstep::before{content:"";height:6px;border-radius:3px;background:var(--line)}
+.cstep.done{color:var(--ink)}.cstep.done::before{background:var(--teal)}
+.cstep.now{color:var(--orange-ink)}.cstep.now::before{background:var(--orange)}
+.cstep small{font-weight:500;text-transform:none;letter-spacing:0;color:var(--mute);font-variant-numeric:tabular-nums}
+@media (max-width:560px){.csteps{grid-template-columns:1fr 1fr}}
+
+/* ---------- Layout ---------- */
+.jump{position:sticky;top:calc(env(safe-area-inset-top,0px) + 61px);z-index:30;background:var(--soft);padding-block:10px;display:none}
+.jump nav{display:flex;gap:6px;overflow-x:auto}
+.jump a{flex:none;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+@media (max-width:960px){.jump{display:block}}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:20px;align-items:start;padding-block:20px 64px}
+.col{display:grid;gap:20px;min-width:0}
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 76px)}
+@media (max-width:960px){.layout{grid-template-columns:1fr}.side{position:static}}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:20px;min-width:0;scroll-margin-top:130px}
+.card-h{display:flex;justify-content:space-between;align-items:baseline;gap:8px 12px;flex-wrap:wrap;margin-bottom:14px}
+.card-h h2{font-size:13.5px;letter-spacing:.08em}
+.card-h .meta{font-size:12px;color:var(--mute)}
+
+/* Summary */
+.summary{display:grid;gap:14px}
+.sum-veh{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;font-size:13px;margin:0}
+.sum-veh dt{color:var(--mute)}
+.sum-veh dd{margin:0;color:var(--ink);font-weight:500}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.person{display:flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:3px;padding:10px}
+.avatar{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:600;color:#fff;background:linear-gradient(135deg,#9aa3a8,#5f676b);position:relative;overflow:hidden}
+.avatar.adv{background:linear-gradient(135deg,#0f8a9a,#0b5f6a)}
+.person b{display:block;color:var(--ink);font-size:13px}
+.person span{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.06em}
+
+/* DVI */
+.dvi-sum{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.pill{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;border-radius:999px;padding:4px 10px}
+.pill i{font-style:normal;width:16px;height:16px;border-radius:50%;display:grid;place-items:center;font-size:10px;color:#fff}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}.pill.ok i{background:var(--ok)}
+.pill.mon{background:var(--mon-bg);color:var(--mon)}.pill.mon i{background:var(--mon)}
+.pill.att{background:var(--att-bg);color:var(--att)}.pill.att i{background:var(--att)}
+.ev-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:18px}
+.ev-tile{border:1px solid var(--line);border-radius:3px;padding:12px 14px;display:grid;gap:4px;align-content:start}
+.ev-tile .k{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.ev-tile .v{font-size:20px;font-weight:600;color:var(--ink);line-height:1.2;font-variant-numeric:tabular-nums}
+.ev-tile .s{font-size:12px}
+.soh{height:8px;border-radius:4px;background:var(--line);overflow:hidden;position:relative}
+.soh b{display:block;height:100%;background:var(--ok)}
+.soh::after{content:"";position:absolute;top:-2px;bottom:-2px;left:70%;width:2px;background:var(--ink)}
+@media (max-width:640px){.ev-tiles{grid-template-columns:1fr}}
+.sys{border-top:1px solid var(--line)}
+.sys summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 0;cursor:pointer;font-weight:600;color:var(--ink);font-size:13px;text-transform:uppercase;letter-spacing:.04em}
+.sys summary::-webkit-details-marker{display:none}
+.sys summary::after{content:"+";font-size:18px;color:var(--mute);margin-left:4px}
+.sys[open] summary::after{content:"−"}
+.sys summary .counts{display:flex;gap:6px;margin-left:auto}
+.finding{display:grid;grid-template-columns:minmax(0,1fr) 120px;gap:14px;padding:12px 0 14px;border-top:1px dashed var(--line)}
+.finding:first-of-type{border-top:0}
+.finding h4{font-size:13px;text-transform:none;letter-spacing:0;display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px}
+.finding p{font-size:13px}
+.finding .who{font-size:11.5px;color:var(--mute);margin-top:4px}
+.media{aspect-ratio:4/3;border-radius:3px;background:repeating-linear-gradient(45deg,#eceff1 0 8px,#e2e6e8 8px 16px);display:grid;place-items:center;align-content:center;gap:4px;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);text-align:center;border:0;cursor:pointer;font-family:var(--font);width:100%}
+.media svg{width:22px;height:22px;fill:#8a9296}
+@media (max-width:520px){.finding{grid-template-columns:minmax(0,1fr) 88px}}
+
+/* Quote */
+.q-tbl-wrap{overflow-x:auto}
+.qline{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 16px;padding:14px 0;border-top:1px solid var(--line)}
+.qline:first-child{border-top:0}
+.qline .d{color:var(--ink);font-weight:600;font-size:13.5px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.qline .m{font-size:12px;color:var(--mute)}
+.qline .amt{text-align:right;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums;font-size:14px}
+.qline .amt s{display:block;color:var(--mute);font-weight:500;font-size:12px}
+.qline.declined .d,.qline.declined .amt{color:var(--mute);text-decoration:line-through}
+.kind{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;padding:2px 6px;background:var(--soft);color:var(--body)}
+.payer{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:3px;padding:2px 6px;background:var(--teal-bg);color:var(--teal)}
+.change{grid-column:1/-1;display:flex;gap:8px;align-items:flex-start;font-size:12.5px;color:var(--ink);background:var(--mon-bg);border-radius:3px;padding:8px 10px}
+.change b{color:var(--mon);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;padding-top:1px}
+.qact{grid-column:1/-1;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.lstat{font-size:11.5px;font-weight:600;display:inline-flex;align-items:center;gap:5px;margin-right:auto}
+.lstat.approved{color:var(--ok)}.lstat.declined{color:var(--att)}.lstat.pending{color:var(--orange-ink)}.lstat.question{color:var(--link)}
+.totals{margin:6px 0 0;padding-top:12px;border-top:2px solid var(--ink);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 16px;font-size:13px}
+.totals dt{color:var(--body)}
+.totals dd{margin:0;text-align:right;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.totals .big{font-size:16px}
+.diff-up{color:var(--att)!important}.diff-down{color:var(--ok)!important}
+
+/* Parts */
+.parts{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.part{display:grid;gap:8px}
+.part-top{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-size:13px}
+.part-top b{color:var(--ink)}
+.part-top span{color:var(--mute);font-size:12px}
+.pbar{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px}
+.pbar li{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--mute);display:grid;gap:4px}
+.pbar li::before{content:"";height:6px;border-radius:3px;background:var(--line)}
+.pbar li.on{color:var(--ink)}.pbar li.on::before{background:var(--teal)}
+
+/* Chat */
+.chat{display:grid;gap:10px;max-height:380px;overflow-y:auto;padding-right:4px;margin-bottom:12px}
+.msg{max-width:86%;padding:9px 12px;border-radius:12px;font-size:13px;line-height:1.5;animation:rise .25s ease}
+@keyframes rise{from{transform:translateY(6px);opacity:.3}to{transform:none;opacity:1}}
+.msg.advisor{background:var(--soft);color:var(--ink);border-bottom-left-radius:3px;justify-self:start}
+.msg.customer{background:var(--ink);color:#fff;border-bottom-right-radius:3px;justify-self:end}
+.msg .t{display:block;font-size:10.5px;opacity:.7;margin-top:3px;font-variant-numeric:tabular-nums}
+.typing{font-size:12px;color:var(--mute);font-style:italic}
+.chips{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.chips button{font:500 12px var(--font);background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:6px 11px;cursor:pointer}
+.chips button:hover{border-color:var(--ink)}
+.chat-form{display:flex;gap:8px}
+.chat-form input{flex:1}
+
+/* Notifications */
+.ntabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.ntabs button{font:600 11px var(--font);letter-spacing:.06em;text-transform:uppercase;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:5px 10px;cursor:pointer}
+.ntabs button[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.notes{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-height:340px;overflow-y:auto}
+.note{display:grid;grid-template-columns:30px minmax(0,1fr);gap:10px;font-size:12.5px;padding:10px;border:1px solid var(--line);border-radius:3px}
+.note.new{animation:rise .35s ease;border-color:var(--orange)}
+.ch{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:9px;font-weight:700;color:#fff;letter-spacing:.02em}
+.ch.WhatsApp{background:var(--wa)}.ch.SMS{background:#3446a8}.ch.Email{background:#5f676b}
+.note .t{font-size:11px;color:var(--mute);display:block;font-variant-numeric:tabular-nums}
+.note .t b{color:var(--ink);font-weight:600}
+
+/* Collection, rating, history */
+.paybox{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;border:1px solid var(--line);border-radius:3px;padding:14px 16px;margin-bottom:16px}
+.paybox .amt{font-size:22px;font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums}
+.paystat{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 10px}
+.paystat.unpaid{background:var(--att-bg);color:var(--att)}
+.paystat.paid{background:var(--ok-bg);color:var(--ok)}
+.checklist{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:8px}
+.checklist label{display:flex;gap:10px;align-items:center;font-size:13.5px;color:var(--ink);cursor:pointer}
+.checklist input{width:18px;height:18px;accent-color:var(--teal);flex:none}
+.stars{display:flex;gap:4px;border:0;padding:0;margin:0 0 12px}
+.stars legend{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);margin-bottom:8px;padding:0}
+.stars input{position:absolute;opacity:0;width:1px;height:1px}
+.stars label{font-size:30px;line-height:1;color:#d0d0d0;cursor:pointer;padding:0 2px}
+.stars label.on{color:#e8a317}
+.stars input:focus-visible+label{outline:2px solid var(--link);outline-offset:2px;border-radius:3px}
+.hist{width:100%;border-collapse:collapse;font-size:13px}
+.hist th{text-align:left;font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding:0 10px 8px 0;border-bottom:2px solid var(--ink)}
+.hist td{padding:10px 10px 10px 0;border-bottom:1px solid var(--line);color:var(--ink);vertical-align:top}
+.hist td.r,.hist th.r{text-align:right}
+.wgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:16px}
+.wgrid div{border:1px solid var(--line);border-radius:3px;padding:12px}
+.wgrid dt{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.wgrid dd{margin:4px 0 0;color:var(--ink);font-weight:500;font-size:13px}
+@media (max-width:640px){.wgrid{grid-template-columns:1fr}}
+
+/* Demo controls */
+.demo{position:fixed;left:max(12px,env(safe-area-inset-left,0px));bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:45;background:#111;color:#eee;border-radius:6px;box-shadow:0 8px 24px rgba(0,0,0,.25);font-size:12px;max-width:calc(100% - 24px)}
+.demo summary{cursor:pointer;padding:10px 14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;list-style:none}
+.demo summary::-webkit-details-marker{display:none}
+.demo .body{padding:0 14px 14px;display:grid;gap:8px;min-width:240px}
+.demo button{font:600 11px var(--font);letter-spacing:.06em;text-transform:uppercase;background:#2a2a2a;color:#fff;border:1px solid #444;border-radius:3px;padding:8px 10px;cursor:pointer;text-align:left}
+.demo button:hover{background:#3a3a3a}
+.demo p{color:#aaa;font-size:11px;margin:0}
+footer{border-top:1px solid var(--line);background:var(--paper);font-size:12px;color:var(--mute)}
+footer .wrap{padding-block:18px 80px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--orange-ink);color:#fff;font-size:13px;padding:10px 16px;border-radius:4px;z-index:70;max-width:calc(100% - 32px);text-align:center}
+</style>
+</head>
+<body>
+
+<div class="concept" role="note"><div class="wrap"><strong>Concept prototype</strong><span>Repair tracker. Demo data only, nothing is sent.</span><a href="index.html#ownership">Main site</a><a href="aftersales-portal.html">Fleet portal</a></div></div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="Hong Seh Group home">
+      <svg viewBox="0 0 120 100" aria-hidden="true"><polygon points="4,4 116,4 60,96" fill="#d7272f"/><polygon points="14,10 106,10 60,86" fill="none" stroke="#fff" stroke-width="2.4"/><text x="60" y="34" text-anchor="middle" font-family="Montserrat,Arial" font-size="15" font-weight="600" fill="#fff">HONG</text><text x="60" y="52" text-anchor="middle" font-family="Montserrat,Arial" font-size="15" font-weight="600" fill="#fff">SEH</text></svg>
+      <span>Aftersales<small>Repair tracker</small></span>
+    </a>
+    <button class="btn btn-line btn-sm" id="changeCode" type="button" hidden>Track another</button>
+  </div>
+</header>
+
+<!-- ============ GATE: nothing about a job is shown until a valid code is entered ============ -->
+<main id="gate">
+  <div class="wrap gate">
+    <div>
+      <span class="tag">Proposed · Repair tracker</span>
+      <h1>Track your repair</h1>
+      <p style="font-size:15px;max-width:52ch">Enter the tracking code from your check-in slip or WhatsApp message. No account or password needed.</p>
+      <form class="gate-form" id="gateForm" novalidate>
+        <label for="codeIn">Tracking code</label>
+        <div class="gate-row">
+          <input id="codeIn" name="code" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="HS-4821" aria-describedby="gateErr">
+          <button class="btn btn-orange" type="submit">Track</button>
+        </div>
+        <p class="gate-err" id="gateErr" role="alert"></p>
+      </form>
+      <div class="demo-codes">
+        <p>Demo codes</p>
+        <button type="button" data-code="HS-4821"><b>HS-4821</b><span>SRM T3EV · waiting for your approval</span></button>
+        <button type="button" data-code="HS-4790"><b>HS-4790</b><span>Farizon H9E · accident claim, in repair</span></button>
+        <button type="button" data-code="HS-4755"><b>HS-4755</b><span>Farizon Super Van · ready to collect</span></button>
+      </div>
+    </div>
+    <div class="gate-art" role="img" aria-label="SRM T3EV electric lorry"></div>
+  </div>
+</main>
+
+<!-- ============ JOB VIEW ============ -->
+<main id="job" hidden>
+  <div class="wrap">
+    <div class="jobhead">
+      <div>
+        <span class="tag" id="jhType">Service job</span>
+        <h1 id="jhTitle" style="margin-top:8px">Job HS-4821</h1>
+        <p class="sub" id="jhSub"></p>
+      </div>
+      <div class="eta-box" id="etaBox" aria-live="polite">
+        <span class="k" id="etaK">Estimated completion</span>
+        <span class="v" id="etaV"></span>
+        <span class="u" id="etaU"></span>
+      </div>
+    </div>
+    <div class="action" id="actionBar" hidden></div>
+
+    <section class="tracker" aria-labelledby="trkH">
+      <h2 id="trkH" class="vh">Repair status</h2>
+      <ol class="steps" id="steps"></ol>
+      <div class="claim" id="claim" hidden></div>
+    </section>
+  </div>
+
+  <div class="jump"><div class="wrap"><nav aria-label="Jump to section">
+    <a href="#sumCard">Summary</a><a href="#dviCard">Inspection</a><a href="#quoteCard">Quote</a><a href="#partsCard">Parts</a><a href="#chatCard">Chat</a><a href="#noteCard">Notifications</a><a href="#collectCard">Collection</a><a href="#histCard">History</a>
+  </nav></div></div>
+
+  <div class="wrap layout">
+    <div class="col">
+      <section class="card" id="sumCard" aria-labelledby="sumH"></section>
+      <section class="card" id="quoteCard" aria-labelledby="quoteH"></section>
+      <section class="card" id="dviCard" aria-labelledby="dviH"></section>
+      <section class="card" id="partsCard" aria-labelledby="partsH"></section>
+      <section class="card" id="collectCard" aria-labelledby="colH"></section>
+      <section class="card" id="histCard" aria-labelledby="histH"></section>
+    </div>
+    <aside class="col side">
+      <section class="card" id="chatCard" aria-labelledby="chatH">
+        <div class="card-h"><h2 id="chatH">Chat with your advisor</h2><span class="meta" id="chatMeta"></span></div>
+        <div class="chat" id="chat" aria-live="polite"></div>
+        <div class="chips" id="chips"></div>
+        <form class="chat-form" id="chatForm">
+          <label for="chatIn" class="vh">Message</label>
+          <input id="chatIn" autocomplete="off" placeholder="Type a message">
+          <button class="btn btn-dark" type="submit">Send</button>
+        </form>
+      </section>
+      <section class="card" id="noteCard" aria-labelledby="noteH">
+        <div class="card-h"><h2 id="noteH">Notifications sent to you</h2><span class="meta">Simulated</span></div>
+        <div class="ntabs" id="ntabs" role="group" aria-label="Filter by channel"></div>
+        <ol class="notes" id="notes" aria-live="polite"></ol>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<details class="demo" id="demo" hidden>
+  <summary>Demo controls</summary>
+  <div class="body">
+    <p>Stand in for workshop staff to see the tracker update live.</p>
+    <button type="button" id="dNext">Move job to next stage</button>
+    <button type="button" id="dClaim" hidden>Move claim to next step</button>
+    <button type="button" id="dParts">Advance parts status</button>
+    <button type="button" id="dReset">Reset all demo data</button>
+  </div>
+</details>
+
+<footer><div class="wrap"><span>Concept prototype by SMU MGMT319 Group 2. Not the official Hong Seh website. Demo data only.</span><a href="index.html">Hong Seh mockup home</a></div></footer>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<script src="data/tracker-config.js"></script>
+<script src="data/demo-jobs.js"></script>
+<script src="js/store.js"></script>
+<script>
+(function(){
+  const C = HS_CONFIG;
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const money = n => 'S$' + Number(n).toLocaleString('en-SG', {minimumFractionDigits:2, maximumFractionDigits:2});
+  const fmt = iso => iso ? new Date(iso).toLocaleString('en-SG', {weekday:'short', day:'numeric', month:'short', hour:'numeric', minute:'2-digit'}) : '';
+  const fmtD = iso => new Date(iso).toLocaleDateString('en-SG', {day:'numeric', month:'short', year:'numeric'});
+  function ago(iso){ const m = Math.round((Date.now() - new Date(iso)) / 60000); if (m < 1) return 'just now'; if (m < 60) return m + ' min ago'; const h = Math.round(m / 60); if (h < 48) return h + ' h ago'; return Math.round(h / 24) + ' days ago'; }
+  function toast(m){ const t = $('#toast'); t.textContent = m; t.hidden = false; clearTimeout(t._h); t._h = setTimeout(() => t.hidden = true, 3200); }
+
+  let job = null;
+  let noteFilter = 'All';
+  let lastNoteCount = 0;
+
+  /* ---------- helpers on the job ---------- */
+  const stages = () => C.stages.filter(s => !(s.optional && !job.needsParts && !job.stageTimes[s.id]));
+  const allStages = () => C.stages;
+  const idx = id => C.stages.findIndex(s => s.id === id);
+  const curIdx = () => idx(job.stage);
+  const isSkipped = s => s.optional && !job.needsParts;
+  function fill(tpl){
+    const pe = job.parts.filter(p => p.eta && p.status === 'ordered').map(p => p.eta).sort().pop();
+    return tpl.replace(/\{(\w+)\}/g, (_, k) => ({code:job.code, plate:job.plate, model:job.model, tech:job.technician.name, advisor:job.advisor.name, eta:fmt(job.eta), partsEta: pe ? fmt(pe) : 'shortly'})[k] || '');
+  }
+  function save(){ HSStore.save(job); }
+  function notify(text, channels){ const at = new Date().toISOString(); channels.forEach(ch => job.notifications.push({channel: ch, text, at})); }
+  function recomputeEta(){
+    const ci = curIdx();
+    if (job.stage === 'ready' || job.stage === 'collected') { job.eta = job.stageTimes.ready; job.etaUpdatedAt = new Date().toISOString(); return; }
+    let hrs = 0;
+    C.stages.forEach((s, i) => { if (i >= ci && s.id !== 'ready' && s.id !== 'collected' && !isSkipped(s)) hrs += s.hours * (i === ci ? 0.6 : 1); });
+    const partsLate = job.parts.filter(p => p.status === 'ordered' && p.eta).map(p => new Date(p.eta).getTime() + 8 * 3600e3);
+    let eta = Date.now() + hrs * 3600e3;
+    if (partsLate.length) eta = Math.max(eta, ...partsLate);
+    job.eta = workshopHours(eta).toISOString(); job.etaUpdatedAt = new Date().toISOString();
+  }
+
+  // Keep estimates inside workshop hours (Mon to Sat, 9 am to 6 pm), rounded up to the half hour
+  function workshopHours(ms){
+    const d = new Date(ms); d.setSeconds(0, 0);
+    const m = d.getMinutes(); if (m && m !== 30) d.setMinutes(m < 30 ? 30 : 60);
+    const h = d.getHours() + d.getMinutes() / 60;
+    if (h < 9) d.setHours(11, 0); else if (h > 18) { d.setDate(d.getDate() + 1); d.setHours(11, 0); }
+    if (d.getDay() === 0) { d.setDate(d.getDate() + 1); d.setHours(11, 0); }
+    return d;
+  }
+
+  /* ---------- stage changes ---------- */
+  function advance(){
+    const ci = curIdx();
+    if (job.stage === 'awaiting_approval' && job.quote.some(l => l.status === 'pending' || l.status === 'question')) { toast('Waiting for the customer: approve or decline every quote line first.'); location.hash = '#quoteCard'; return false; }
+    if (job.stage === 'ready' && job.payment.status !== 'paid') { toast('Payment is needed before collection. Use “Pay now” in the Collection section.'); location.hash = '#collectCard'; return false; }
+    if (job.stage === 'collected') { toast('This job is complete.'); return false; }
+    let ni = ci + 1;
+    while (ni < C.stages.length && isSkipped(C.stages[ni])) ni++;
+    const s = C.stages[ni];
+    job.stage = s.id; job.stageTimes[s.id] = new Date().toISOString();
+    // side effects on parts
+    if (s.id === 'parts_ordered') job.parts.forEach(p => { if (p.status === 'awaiting') { p.status = p.source.includes('stock') ? 'arrived' : 'ordered'; } });
+    if (s.id === 'repair') job.parts.forEach(p => { if (p.status === 'awaiting') p.status = 'arrived'; if (p.status === 'ordered') p.status = 'arrived'; });
+    if (s.id === 'qc') job.parts.forEach(p => { if (p.status !== 'fitted') p.status = 'fitted'; });
+    recomputeEta();
+    notify(fill(s.notify), s.channels);
+    if (s.id === 'ready') job.chat.push({from:'advisor', text:`Good news, ${job.plate} is ready. You can pay in the tracker before you come; collection is until 6 pm.`, at:new Date().toISOString()});
+    save(); render(true); return true;
+  }
+  function advanceClaim(){
+    const cs = C.claimStages, i = cs.findIndex(s => s.id === job.claim.stage);
+    if (i >= cs.length - 1) { toast('Claim already settled.'); return; }
+    const n = cs[i + 1]; job.claim.stage = n.id; job.claim.times[n.id] = new Date().toISOString();
+    notify(`Hong Seh: claim update for ${job.plate}: ${n.label}.`, ['WhatsApp', 'Email']);
+    save(); render(true);
+  }
+  function advanceParts(){
+    const order = ['awaiting', 'ordered', 'arrived', 'fitted'];
+    const p = job.parts.find(p => p.status !== 'fitted' && p.status !== 'awaiting') || job.parts.find(p => p.status === 'awaiting' && job.stage !== 'awaiting_approval');
+    if (!p) { toast(job.parts.length ? 'No parts can move right now (waiting for approval, or all fitted).' : 'This job needs no parts.'); return; }
+    p.status = order[order.indexOf(p.status) + 1];
+    if (p.status === 'arrived') { notify(`Hong Seh: ${p.name} for ${job.plate} has arrived at the workshop.`, ['WhatsApp']); }
+    recomputeEta(); save(); render(true);
+  }
+
+  /* ---------- renderers ---------- */
+  function renderHead(){
+    $('#jhType').textContent = job.jobType === 'accident' ? 'Accident claim job' : 'Service job';
+    $('#jhTitle').textContent = `Job ${job.code} · ${job.plate}`;
+    $('#jhSub').textContent = `${job.model} · ${job.serviceType}`;
+    const done = job.stage === 'ready' || job.stage === 'collected';
+    $('#etaK').textContent = job.stage === 'collected' ? 'Collected' : done ? 'Ready since' : 'Estimated completion';
+    $('#etaV').textContent = fmt(job.stage === 'collected' ? job.stageTimes.collected : job.eta);
+    $('#etaU').textContent = done ? job.location : 'Updated ' + ago(job.etaUpdatedAt);
+    const bar = $('#actionBar'); let a = '';
+    const pend = job.quote.filter(l => l.status === 'pending').length;
+    if (job.stage === 'awaiting_approval' && pend) a = `<span>${pend} quote item${pend > 1 ? 's need' : ' needs'} your decision before work continues.</span><a class="btn btn-orange btn-sm" href="#quoteCard">Review quote</a>`;
+    else if (job.stage === 'ready' && job.payment.status !== 'paid') a = `<span>Your vehicle is ready. Pay now to skip the counter.</span><a class="btn btn-orange btn-sm" href="#collectCard">Pay and collect</a>`;
+    else if (job.stage === 'collected' && !job.rating) a = `<span>How did we do? Rate this service in 10 seconds.</span><a class="btn btn-orange btn-sm" href="#collectCard">Rate us</a>`;
+    bar.innerHTML = a; bar.hidden = !a;
+  }
+
+  function renderSteps(animate){
+    const ci = curIdx();
+    $('#steps').innerHTML = C.stages.map((s, i) => {
+      const skip = isSkipped(s);
+      const cls = skip ? 'skip' : i < ci ? 'done' : i === ci ? (s.id === 'collected' ? 'done' : 'now') : '';
+      const t = job.stageTimes[s.id];
+      const tm = skip ? 'Not needed' : t ? fmt(t) : (i === ci + 1 && s.id !== 'collected' ? 'Next' : '');
+      const icon = skip ? '–' : (cls === 'done') ? '✓' : (i + 1);
+      const sr = skip ? 'skipped' : cls === 'done' ? 'completed' : cls === 'now' ? 'current stage' : 'upcoming';
+      return `<li class="step ${cls}${animate && i === ci ? ' pop' : ''}" ${cls === 'now' ? 'aria-current="step"' : ''}><span class="dot" aria-hidden="true">${icon}</span><span class="lbl">${esc(s.label)}<span class="vh">, ${sr}</span></span><span class="tm">${cls === 'now' ? 'Now · ' : ''}${esc(tm)}</span></li>`;
+    }).join('');
+  }
+
+  function renderClaim(){
+    const el = $('#claim');
+    if (!job.claim) { el.hidden = true; $('#dClaim').hidden = true; return; }
+    el.hidden = false; $('#dClaim').hidden = false;
+    const cs = C.claimStages, ci = cs.findIndex(s => s.id === job.claim.stage);
+    el.innerHTML = `<div class="claim-h"><h3>Insurance claim</h3><span>${esc(job.claim.insurer)} · ref ${esc(job.claim.ref)} · surveyor ${esc(job.claim.surveyor)}</span></div>
+      <ol class="csteps">${cs.map((s, i) => { const cls = i < ci || (i === ci && i === cs.length - 1) ? 'done' : i === ci ? 'now' : ''; return `<li class="cstep ${cls}">${esc(s.label)}<span class="vh">, ${cls === 'done' ? 'completed' : cls === 'now' ? 'in progress' : 'upcoming'}</span><small>${job.claim.times[s.id] ? fmt(job.claim.times[s.id]) : ''}</small></li>`; }).join('')}</ol>`;
+  }
+
+  function renderSummary(){
+    const ini = n => n.split(' ').map(x => x[0]).join('').slice(0, 2);
+    $('#sumCard').innerHTML = `<div class="card-h"><h2 id="sumH">Vehicle &amp; job</h2><span class="meta">Checked in ${fmt(job.stageTimes.checked_in)}</span></div>
+    <div class="summary">
+      <dl class="sum-veh">
+        <dt>Plate</dt><dd>${esc(job.plate)}</dd>
+        <dt>Model</dt><dd>${esc(job.model)} (electric)</dd>
+        <dt>Odometer</dt><dd class="num">${job.odometer.toLocaleString('en-SG')} km</dd>
+        <dt>Service</dt><dd>${esc(job.serviceType)}</dd>
+        <dt>Where</dt><dd>${esc(job.location)}</dd>
+      </dl>
+      <div class="people">
+        <div class="person"><span class="avatar" role="img" aria-label="Photo of technician ${esc(job.technician.name)} (placeholder)">${esc(ini(job.technician.name))}</span><div><b>${esc(job.technician.name)}</b><span>Technician</span></div></div>
+        <div class="person"><span class="avatar adv" role="img" aria-label="Photo of service advisor ${esc(job.advisor.name)} (placeholder)">${esc(ini(job.advisor.name))}</span><div><b>${esc(job.advisor.name)}</b><span>Service advisor</span></div></div>
+      </div>
+    </div>`;
+  }
+
+  const mediaIcon = k => k === 'video'
+    ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>'
+    : '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 7.2 6H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-3.2L15 4zm3 4.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9z"/></svg>';
+  function pill(st, n){ const d = C.dviStatus[st]; return `<span class="pill ${d.cls}"><i aria-hidden="true">${d.icon}</i>${n != null ? n + ' ' : ''}${d.label}</span>`; }
+  function renderDVI(){
+    const items = job.dvi.flatMap(s => s.items);
+    const cnt = st => items.filter(i => i.status === st).length;
+    const b = job.battery;
+    const reached = curIdx() >= idx('quote_sent');
+    if (!reached) { $('#dviCard').innerHTML = `<div class="card-h"><h2 id="dviH">Inspection report</h2></div><p>${esc(job.technician.name)} is inspecting your vehicle. The report with photos appears here when it is done.</p>`; return; }
+    $('#dviCard').innerHTML = `<div class="card-h"><h2 id="dviH">Digital inspection report</h2><span class="meta">By ${esc(job.technician.name)} · ${fmt(job.stageTimes.inspection)}</span></div>
+      <div class="dvi-sum">${pill('attention', cnt('attention'))}${pill('monitor', cnt('monitor'))}${pill('ok', cnt('ok'))}</div>
+      <div class="ev-tiles">
+        <div class="ev-tile"><span class="k">Battery health</span><span class="v">${b.soh}%</span><div class="soh" role="img" aria-label="Battery health ${b.soh}% against a 70% warranty threshold"><b style="width:${b.soh}%"></b></div><span class="s">Warranty threshold 70% (black line). Cell gap ${esc(b.cellDelta)}.</span></div>
+        <div class="ev-tile"><span class="k">Charging port</span><span class="v" style="font-size:16px">✓ Checked</span><span class="s">${esc(b.chargePort)}</span></div>
+        <div class="ev-tile"><span class="k">Software</span><span class="v" style="font-size:16px">${esc(b.software.status)}</span><span class="s">${b.software.from === b.software.to ? 'Version ' + esc(b.software.to) : esc(b.software.from) + ' → ' + esc(b.software.to)}</span></div>
+      </div>
+      ${job.dvi.map((s, si) => {
+        const worst = s.items.some(i => i.status === 'attention') ? 'attention' : s.items.some(i => i.status === 'monitor') ? 'monitor' : 'ok';
+        return `<details class="sys" ${worst !== 'ok' ? 'open' : ''}><summary>${esc(s.system)}<span class="counts">${pill(worst)}</span></summary>
+          ${s.items.map(it => `<div class="finding"><div><h4>${esc(it.name)} ${pill(it.status)}</h4><p>${esc(it.note)}</p><p class="who">${esc(job.technician.name)}, technician</p></div>
+          ${it.media ? `<button class="media" type="button" data-media="${esc(it.name)}" aria-label="${it.media === 'video' ? 'Play video' : 'View photo'}: ${esc(it.name)} (placeholder)">${mediaIcon(it.media)}${it.media === 'video' ? 'Video 0:18' : 'Photo'}</button>` : '<span></span>'}</div>`).join('')}
+        </details>`;
+      }).join('')}`;
+  }
+
+  function lineTotal(l){ return l.unit * l.qty; }
+  function renderQuote(){
+    const reached = curIdx() >= idx('quote_sent');
+    const h = `<div class="card-h"><h2 id="quoteH">Quote</h2><span class="meta">Prices include ${Math.round(C.gstRate * 100)}% GST</span></div>`;
+    if (!reached) { $('#quoteCard').innerHTML = h + '<p>Your quote appears here after the inspection.</p>'; return; }
+    const canAct = job.stage === 'awaiting_approval';
+    const original = job.quote.filter(l => l.original != null).reduce((a, l) => a + l.original * l.qty, 0);
+    const current = job.quote.filter(l => l.status !== 'declined').reduce((a, l) => a + lineTotal(l), 0);
+    const approved = job.quote.filter(l => l.status === 'approved').reduce((a, l) => a + lineTotal(l), 0);
+    const youPay = job.quote.filter(l => l.status !== 'declined' && l.payer === 'You').reduce((a, l) => a + lineTotal(l), 0);
+    const diff = current - original;
+    $('#quoteCard').innerHTML = h + `<div>${job.quote.map(l => {
+      const st = C.lineStatus[l.status];
+      const amt = l.unit === 0 ? (l.payer === 'Warranty' ? 'Warranty' : 'No charge') : money(lineTotal(l));
+      const changed = l.original == null || l.original !== l.unit;
+      const flag = l.reason && changed ? `<div class="change"><b>${l.original == null ? 'Added' : 'Changed'}</b><span>${l.original != null ? 'Was ' + money(l.original) + '. ' : ''}${esc(l.reason)}</span></div>` : '';
+      const acts = canAct && (l.status === 'pending' || l.status === 'question')
+        ? `<button class="btn btn-orange btn-sm" data-act="approved" data-id="${l.id}">Approve</button><button class="btn btn-line btn-sm" data-act="declined" data-id="${l.id}">Decline</button><button class="btn btn-line btn-sm" data-act="ask" data-id="${l.id}">Ask a question</button>`
+        : (canAct && (l.status === 'approved' || l.status === 'declined') && l.payer !== 'Insurer' && l.original == null ? `<button class="btn btn-line btn-sm" data-act="pending" data-id="${l.id}">Undo</button>` : '');
+      return `<div class="qline ${l.status}"><div><div class="d">${esc(l.desc)} <span class="kind">${l.kind}</span>${l.payer !== 'You' ? `<span class="payer">${esc(l.payer)}</span>` : ''}</div>
+        <div class="m">${l.kind === 'part' ? 'Qty ' + l.qty : 'Labour'}${l.hours ? ' · est. ' + l.hours + ' h' : ''}</div></div>
+        <div class="amt">${amt}${l.original != null && l.original !== l.unit ? `<s>${money(l.original)}</s>` : ''}</div>
+        ${flag}
+        <div class="qact"><span class="lstat ${l.status}">${l.status === 'approved' ? '✓' : l.status === 'declined' ? '✕' : l.status === 'question' ? '?' : '●'} ${st.label}</span>${acts}</div></div>`;
+    }).join('')}</div>
+    <dl class="totals">
+      <dt>Original estimate at check-in</dt><dd>${money(original)}</dd>
+      <dt>Current quote (excluding declined)</dt><dd>${money(current)}</dd>
+      <dt>Change from original</dt><dd class="${diff > 0 ? 'diff-up' : diff < 0 ? 'diff-down' : ''}">${diff > 0 ? '+' : diff < 0 ? '−' : ''}${money(Math.abs(diff))}</dd>
+      <dt>Approved so far</dt><dd>${money(approved)}</dd>
+      <dt class="big"><b style="color:var(--ink)">You pay</b>${job.jobType === 'accident' ? ' (rest paid by insurer)' : ''}</dt><dd class="big">${money(youPay)}</dd>
+    </dl>`;
+  }
+
+  function renderParts(){
+    const h = `<div class="card-h"><h2 id="partsH">Parts</h2><span class="meta">${job.parts.length ? job.parts.filter(p => p.status === 'fitted').length + ' of ' + job.parts.length + ' fitted' : ''}</span></div>`;
+    if (!job.parts.length) { $('#partsCard').innerHTML = h + '<p>No parts needed for this job.</p>'; return; }
+    $('#partsCard').innerHTML = h + `<ul class="parts">${job.parts.map(p => {
+      const s = C.partStatus[p.status].step;
+      const when = p.status === 'awaiting' ? 'Ordered after you approve' + (p.eta ? ` · about ${Math.max(1, Math.round((new Date(p.eta) - new Date(job.stageTimes.awaiting_approval)) / 864e5))} day lead time` : ' · in stock')
+        : p.status === 'ordered' ? 'Expected ' + fmt(p.eta) : p.status === 'arrived' ? 'Arrived, waiting to be fitted' : 'Fitted';
+      return `<li class="part"><div class="part-top"><b>${esc(p.name)}</b><span>${esc(p.source)}</span></div>
+        <ol class="pbar" aria-label="${esc(p.name)} status: ${C.partStatus[p.status].label}"><li class="${s >= 1 ? 'on' : ''}">Ordered</li><li class="${s >= 2 ? 'on' : ''}">Arrived</li><li class="${s >= 3 ? 'on' : ''}">Fitted</li></ol>
+        <span class="m" style="font-size:12px;color:${p.status === 'ordered' ? 'var(--orange-ink)' : 'var(--mute)'}"><b>${C.partStatus[p.status].label}.</b> ${esc(when)}</span></li>`;
+    }).join('')}</ul>`;
+  }
+
+  function renderChat(scroll){
+    $('#chatMeta').textContent = job.advisor.name + ' · replies within 2 working hours';
+    $('#chat').innerHTML = job.chat.map(m => `<div class="msg ${m.from}">${esc(m.text)}<span class="t">${m.from === 'advisor' ? esc(job.advisor.name) + ' · ' : 'You · '}${fmt(m.at)}</span></div>`).join('') + (typingOn ? `<div class="typing">${esc(job.advisor.name)} is typing…</div>` : '');
+    $('#chips').innerHTML = C.quickReplies.map(q => `<button type="button" data-q="${esc(q)}">${esc(q)}</button>`).join('');
+    if (scroll !== false) { const c = $('#chat'); c.scrollTop = c.scrollHeight; }
+  }
+
+  function renderNotes(){
+    const chans = ['All', 'WhatsApp', 'SMS', 'Email'];
+    $('#ntabs').innerHTML = chans.map(c => `<button type="button" data-ch="${c}" aria-pressed="${c === noteFilter}">${c}${c !== 'All' ? ' ' + job.notifications.filter(n => n.channel === c).length : ''}</button>`).join('');
+    const list = job.notifications.slice().reverse().filter(n => noteFilter === 'All' || n.channel === noteFilter);
+    const fresh = job.notifications.length - lastNoteCount;
+    $('#notes').innerHTML = list.map((n, i) => `<li class="note${lastNoteCount && i < fresh && noteFilter === 'All' ? ' new' : ''}"><span class="ch ${n.channel}" aria-hidden="true">${n.channel === 'WhatsApp' ? 'WA' : n.channel === 'Email' ? '@' : 'SMS'}</span><div><span class="t"><b>${n.channel}</b> · ${fmt(n.at)}</span>${esc(n.text)}</div></li>`).join('');
+    lastNoteCount = job.notifications.length;
+  }
+
+  function renderCollect(){
+    const el = $('#collectCard');
+    const h = `<div class="card-h"><h2 id="colH">${job.stage === 'collected' ? 'Rate your service' : 'Collection'}</h2></div>`;
+    if (curIdx() < idx('ready')) { el.innerHTML = h + `<p>Payment, your job card and the pickup checklist appear here when the vehicle is ready.</p>`; return; }
+    const youPay = job.quote.filter(l => l.status !== 'declined' && l.payer === 'You').reduce((a, l) => a + lineTotal(l), 0);
+    const paid = job.payment.status === 'paid';
+    const pay = `<div class="paybox"><div><span class="paystat ${paid ? 'paid' : 'unpaid'}">${paid ? '✓ Paid' : 'Unpaid'}</span><div class="amt" style="margin-top:6px">${money(youPay)}</div><span style="font-size:12px">${paid ? 'Ref ' + esc(job.payment.ref) + ' · ' + fmt(job.payment.paidAt) : 'PayNow, card or fleet account'}</span></div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">${paid ? '' : '<button class="btn btn-orange" type="button" id="payBtn">Pay now (mock)</button>'}<a class="btn btn-line" href="jobcard.html#${esc(job.code)}">Job card &amp; invoice</a></div></div>`;
+    if (job.stage === 'collected') {
+      el.innerHTML = h + (job.rating
+        ? `<p style="color:var(--ink);font-weight:500">Thank you. You rated this service ${job.rating.stars} out of 5.</p>${job.rating.comment ? `<p style="margin-top:6px;font-style:italic">“${esc(job.rating.comment)}”</p>` : ''}<p style="margin-top:12px"><a href="jobcard.html#${esc(job.code)}">View job card &amp; invoice</a></p>`
+        : `<form id="rateForm"><fieldset class="stars" id="stars"><legend>Your rating</legend>${[1,2,3,4,5].map(n => `<input type="radio" name="stars" id="st${n}" value="${n}"><label for="st${n}" data-n="${n}">★<span class="vh">${n} star${n > 1 ? 's' : ''}</span></label>`).join('')}</fieldset>
+           <label for="rateC" style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink)">Comment (optional)</label>
+           <textarea id="rateC" placeholder="What went well, or what could be better?" style="margin:6px 0 12px"></textarea>
+           <button class="btn btn-orange" type="submit">Submit rating</button></form>`);
+      return;
+    }
+    el.innerHTML = h + pay + `<h3 style="font-size:12px;letter-spacing:.1em;margin-bottom:10px">Pickup checklist</h3>
+      <ul class="checklist">${C.pickupChecklist.map((c, i) => `<li><label><input type="checkbox" data-ck="${i}" ${job.checklist[i] ? 'checked' : ''}>${esc(c)}</label></li>`).join('')}</ul>
+      <button class="btn btn-dark" type="button" id="collectBtn" ${paid && job.checklist.every(Boolean) ? '' : 'disabled'}>Confirm collection</button>
+      <p style="font-size:12px;margin-top:8px">${paid ? (job.checklist.every(Boolean) ? 'All set.' : 'Tick each item with your advisor at the counter.') : 'Pay first, then tick each item at the counter.'}</p>`;
+  }
+
+  function renderHistory(){
+    $('#histCard').innerHTML = `<div class="card-h"><h2 id="histH">Service history · ${esc(job.plate)}</h2></div>
+      <div style="overflow-x:auto"><table class="hist"><thead><tr><th>Date</th><th>Job</th><th>Work done</th><th class="r">Cost</th></tr></thead><tbody>
+      ${job.history.map(h => `<tr><td class="num">${fmtD(h.date)}</td><td class="num">${esc(h.code)}</td><td>${esc(h.desc)}</td><td class="r num">${h.cost ? money(h.cost) : esc(h.note || '')}</td></tr>`).join('')}
+      </tbody></table></div>
+      <dl class="wgrid"><div><dt>Vehicle warranty</dt><dd>${esc(job.warranty.vehicle)}</dd></div><div><dt>Battery warranty</dt><dd>${esc(job.warranty.battery)}</dd></div><div><dt>Next service due</dt><dd>${esc(job.nextService)}</dd></div></dl>`;
+  }
+
+  let typingOn = false;
+  function render(animate){
+    renderHead(); renderSteps(animate); renderClaim(); renderSummary(); renderDVI(); renderQuote(); renderParts(); renderChat(); renderNotes(); renderCollect(); renderHistory();
+    if (animate) { const b = $('#etaBox'); b.classList.remove('flash'); void b.offsetWidth; b.classList.add('flash'); }
+  }
+
+  /* ---------- events ---------- */
+  function open(code){
+    const j = HSStore.find(code);
+    if (!j) { $('#gateErr').textContent = `We could not find “${String(code).trim()}”. Check the code on your check-in slip (format HS-1234).`; return false; }
+    job = j; lastNoteCount = 0; noteFilter = 'All';
+    $('#gate').hidden = true; $('#job').hidden = false; $('#demo').hidden = false; $('#changeCode').hidden = false;
+    if (location.hash.slice(1) !== job.code) history.replaceState(null, '', '#' + job.code);
+    render(false); window.scrollTo(0, 0); return true;
+  }
+  function close(){ job = null; $('#job').hidden = true; $('#demo').hidden = true; $('#changeCode').hidden = true; $('#gate').hidden = false; $('#codeIn').value = ''; $('#gateErr').textContent = ''; history.replaceState(null, '', location.pathname + location.search); $('#codeIn').focus(); }
+
+  $('#gateForm').addEventListener('submit', e => { e.preventDefault(); open($('#codeIn').value); });
+  document.querySelectorAll('[data-code]').forEach(b => b.addEventListener('click', () => { $('#codeIn').value = b.dataset.code; open(b.dataset.code); }));
+  $('#changeCode').addEventListener('click', close);
+
+  $('#quoteCard').addEventListener('click', e => {
+    const b = e.target.closest('[data-act]'); if (!b) return;
+    const l = job.quote.find(x => x.id === b.dataset.id);
+    if (b.dataset.act === 'ask') { l.status = 'question'; save(); renderQuote(); const inp = $('#chatIn'); inp.value = `About “${l.desc}”: `; $('#chatCard').scrollIntoView({behavior:'smooth', block:'start'}); setTimeout(() => inp.focus(), 350); return; }
+    l.status = b.dataset.act; save(); renderQuote(); renderHead(); renderParts();
+    if (job.stage === 'awaiting_approval' && !job.quote.some(x => x.status === 'pending' || x.status === 'question')) {
+      const ok = job.quote.filter(x => x.status === 'approved').length, no = job.quote.filter(x => x.status === 'declined').length;
+      job.chat.push({from:'customer', text:`Approved ${ok} item${ok !== 1 ? 's' : ''}${no ? ', declined ' + no : ''}.`, at:new Date().toISOString()});
+      save(); renderChat();
+      typingOn = true; renderChat();
+      setTimeout(() => { typingOn = false; job.chat.push({from:'advisor', text:`Thanks, ${job.contact}. Approval received. ${job.needsParts ? 'I am ordering the parts now and will update the arrival date here.' : 'Work starts now.'}`, at:new Date().toISOString()}); save(); advance(); }, 1600);
+    }
+  });
+
+  function reply(text){
+    const t = text.toLowerCase(); const s = C.stages[curIdx()];
+    if (t.startsWith('about “')) return `Good question. I will check with ${job.technician.name} and reply here shortly. Your approval for that item can wait until then.`;
+    if (t.includes('update') || t.includes('when') || t.includes('ready')) return job.stage === 'ready' ? `It is ready now. Collection is until 6 pm today.` : `It is at “${s.label}” now. Current estimate is ${fmt(job.eta)}. You will get a WhatsApp message at each step.`;
+    if (t.includes('another service') || t.includes('add')) return `Yes, we can add work while it is here. Tell me what you need and I will add it to your quote for approval.`;
+    if (t.includes('deliver') || t.includes('depot')) return `Yes, we can drive it back to your depot. Delivery within 15 km is S$40; I can add it to the quote.`;
+    return `Thanks, noted. I will get back to you within 2 working hours.`;
+  }
+  function send(text){
+    if (!text.trim()) return;
+    job.chat.push({from:'customer', text:text.trim(), at:new Date().toISOString()}); save();
+    typingOn = true; renderChat();
+    setTimeout(() => { typingOn = false; job.chat.push({from:'advisor', text:reply(text), at:new Date().toISOString()}); notify(`Hong Seh: new message from ${job.advisor.name} about job ${job.code}.`, ['WhatsApp']); save(); renderChat(); renderNotes(); }, 1500);
+  }
+  $('#chatForm').addEventListener('submit', e => { e.preventDefault(); send($('#chatIn').value); $('#chatIn').value = ''; });
+  $('#chips').addEventListener('click', e => { const b = e.target.closest('[data-q]'); if (b) send(b.dataset.q); });
+  $('#ntabs').addEventListener('click', e => { const b = e.target.closest('[data-ch]'); if (b) { noteFilter = b.dataset.ch; lastNoteCount = job.notifications.length; renderNotes(); } });
+  $('#dviCard').addEventListener('click', e => { const b = e.target.closest('[data-media]'); if (b) toast('Placeholder: the technician’s photo or video of “' + b.dataset.media + '” opens here.'); });
+
+  $('#collectCard').addEventListener('click', e => {
+    if (e.target.id === 'payBtn') { job.payment = {status:'paid', ref:'PN-' + Math.floor(100000 + Math.random() * 900000), paidAt:new Date().toISOString()}; notify(`Hong Seh: payment received for job ${job.code}. Receipt is in your tracker.`, ['Email', 'SMS']); save(); render(false); toast('Mock payment recorded. No money was taken.'); }
+    if (e.target.id === 'collectBtn') advance();
+  });
+  $('#collectCard').addEventListener('change', e => {
+    const c = e.target.closest('[data-ck]');
+    if (c) { job.checklist[+c.dataset.ck] = c.checked; save(); const pos = window.scrollY; renderCollect(); window.scrollTo(0, pos); const again = document.querySelector(`[data-ck="${c.dataset.ck}"]`); again && again.focus(); }
+    if (e.target.name === 'stars') { const v = +e.target.value; document.querySelectorAll('#stars label').forEach(l => l.classList.toggle('on', +l.dataset.n <= v)); }
+  });
+  $('#collectCard').addEventListener('submit', e => {
+    e.preventDefault(); const s = document.querySelector('input[name=stars]:checked');
+    if (!s) { toast('Pick a star rating first.'); return; }
+    job.rating = {stars:+s.value, comment:$('#rateC').value.trim(), at:new Date().toISOString()}; save(); render(false);
+  });
+
+  $('#dNext').addEventListener('click', advance);
+  $('#dClaim').addEventListener('click', advanceClaim);
+  $('#dParts').addEventListener('click', advanceParts);
+  $('#dReset').addEventListener('click', () => { const c = job && job.code; HSStore.reset(); if (c) open(c); toast('Demo data reset.'); });
+
+  // Keep "updated x min ago" fresh, and pick up changes made in another tab (e.g. the job card)
+  setInterval(() => { if (job) renderHead(); }, 30000);
+  HSStore.onChange(() => { if (job) { job = HSStore.find(job.code); render(false); } });
+
+  const start = HSStore.normalise(decodeURIComponent(location.hash.slice(1)));
+  if (start && HSStore.find(start)) open(start);
+  window.addEventListener('hashchange', () => { const c = location.hash.slice(1); if (/^HS-/i.test(c) && (!job || job.code !== HSStore.normalise(c))) open(c); });
+})();
+</script>
+</body>
+</html>
