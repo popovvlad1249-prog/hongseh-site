@@ -1,126 +1,67 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<meta charset="utf-8">
+<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Hong Seh EV Fleet Concept (Copy)</title>
+<title>Hong Seh EV — Commercial Electric Fleets (Copy)</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap">
 <style>
-/* Layout: faithful recreation of hongsehgroup.com (centred logo, black caps nav, full-bleed hero,
-   all-caps grey body copy, photo + white overlapping cards) with proposed sections slotted in,
-   each flagged with a teal "Proposed" tag. Single light theme, as on the live site. */
 :root{
-  --ink:#000;           /* nav, headings */
-  --body:#5c5c5c;       /* body copy (site uses #666; nudged darker for 4.5:1) */
+  --ink:#000;
+  --body:#555;
   --mute:#767676;
   --line:#e3e3e3;
   --paper:#fff;
-  --soft:#f5f6f7;
-  --link:#026e9f;       /* site link blue */
-  --teal:#0f8a9a;       /* site teal #16b7cc, deepened for text contrast */
+  --soft:#f6f7f8;
+  --link:#026e9f;
+  --teal:#0f8a9a;
   --teal-bg:#e7f6f8;
-  --orange:#fd6e4f;     /* site button orange */
+  --orange:#fd6e4f;
   --orange-ink:#c2410c;
-  --red:#d7272f;        /* logo red */
+  --red:#d7272f;
   --good:#13795b;
-  --warn:#b45309;
-  --font:"Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --gold:#e8a317;
+  --font:"Montserrat","Helvetica Neue",Arial,sans-serif;
   --shadow:0 10px 30px rgba(0,0,0,.08);
   color-scheme:light;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{background:var(--paper);color:var(--body);font-family:var(--font);font-size:15px;line-height:1.65}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--paper)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--body);font-family:var(--font);font-size:15px;line-height:1.65}
 a{color:var(--link)}
+img{max-width:100%;display:block}
 :focus-visible{outline:2px solid var(--link);outline-offset:3px}
-.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-h1,h2,h3,h4{font-family:var(--font);color:var(--ink);font-weight:500;text-transform:uppercase;text-wrap:balance;margin:0;letter-spacing:.01em}
-.caps{text-transform:uppercase}
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+h1,h2,h3,h4{font-family:var(--font);color:var(--ink);font-weight:600;text-wrap:balance;margin:0;letter-spacing:.005em}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)}
 .num{font-variant-numeric:tabular-nums}
 
-/* ---------- Concept bar ---------- */
-.concept{background:#111;color:#f1f1f1;font-size:12px;letter-spacing:.04em}
-.concept .wrap{display:flex;gap:10px 18px;align-items:center;flex-wrap:wrap;padding-block:8px}
-.concept strong{color:#fff;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
-.concept nav{display:flex;gap:6px;flex-wrap:wrap}
-.concept a{color:#9fe3ec;text-decoration:none;border:1px solid #2e4b50;border-radius:999px;padding:2px 10px}
-.concept a:hover{background:#1d3438}
-
 /* ---------- Header ---------- */
-header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 6px rgba(0,0,0,.04)}
-header.site .wrap{display:flex;flex-direction:column;align-items:center;padding-block:8px 0}
-.logo{display:block;width:62px;height:auto}
-.mainnav{display:flex;gap:4px 22px;flex-wrap:wrap;justify-content:center;padding:10px 0 12px}
-.mainnav a{color:var(--ink);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:-.01em;text-transform:uppercase;white-space:nowrap;padding:2px 0;border-bottom:2px solid transparent}
-.mainnav a:hover{border-color:var(--ink)}
-.mainnav a.new{color:var(--teal)}
-.mainnav a.new::after{content:"NEW";font-size:9px;font-weight:700;background:var(--teal);color:#fff;border-radius:3px;padding:1px 4px;margin-left:5px;vertical-align:2px;letter-spacing:.06em}
+header.site{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line);box-shadow:0 2px 6px rgba(0,0,0,.04)}
+.hdr-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:12px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);background:none;border:0;cursor:pointer;font:inherit}
+.logo svg{width:40px;height:34px;flex:none}
+.logo b{font-size:16px;letter-spacing:.02em}
+.logo small{display:block;font-size:10px;font-weight:600;letter-spacing:.14em;color:var(--teal)}
+.mainnav{display:flex;gap:2px;flex-wrap:wrap;justify-content:center}
+.mainnav button{color:var(--ink);background:none;border:0;font:600 12.5px var(--font);letter-spacing:.02em;text-transform:uppercase;white-space:nowrap;padding:8px 12px;border-bottom:2px solid transparent;cursor:pointer;border-radius:3px 3px 0 0}
+.mainnav button:hover{background:var(--soft)}
+.mainnav button[aria-current=page]{border-color:var(--orange);color:var(--ink)}
+.hdr-cta{display:flex;gap:10px;flex:none}
 .burger{display:none}
-@media (max-width:860px){
-  header.site .wrap{flex-direction:row;justify-content:space-between;padding-block:6px}
-  .logo{width:48px}
-  .burger{display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--line);border-radius:4px;padding:8px 12px;font:600 12px var(--font);letter-spacing:.08em;color:var(--ink);cursor:pointer}
-  .mainnav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);flex-direction:column;align-items:stretch;gap:0;padding:0 max(16px,env(safe-area-inset-right,0px)) 12px max(16px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+@media (max-width:980px){
+  .mainnav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);flex-direction:column;align-items:stretch;padding:4px max(24px,env(safe-area-inset-right,0px)) 14px max(24px,env(safe-area-inset-left,0px));border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
   .mainnav.open{display:flex}
-  .mainnav a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .mainnav button{text-align:left;padding:12px 4px;border-bottom:1px solid var(--line);border-radius:0}
+  .burger{display:inline-flex;align-items:center;gap:8px;background:none;border:1px solid var(--line);border-radius:4px;padding:9px 12px;font:600 12px var(--font);letter-spacing:.08em;color:var(--ink);cursor:pointer}
+  .hdr-cta{display:none}
 }
 
-/* ---------- Hero (existing) ---------- */
-.hero{position:relative;background:#cfd8dc url(assets/hero.jpg) center 62%/cover no-repeat;aspect-ratio:16/8;max-height:640px;width:100%}
-@media (max-width:640px){.hero{aspect-ratio:4/3}}
-
-/* ---------- Testimonials (proposed) ---------- */
-.hero-wrap{position:relative}
-.hero-quote{position:absolute;left:max(24px,calc((100% - 1180px)/2 + 16px));bottom:28px;max-width:440px;margin:0;background:rgba(255,255,255,.96);padding:18px 22px;box-shadow:var(--shadow);display:grid;gap:10px;justify-items:start}
-.hero-quote blockquote{margin:0;color:var(--ink);font-size:15px;font-weight:500;line-height:1.5}
-.hero-quote figcaption{font-size:12px;color:var(--mute)}
-@media (max-width:760px){.hero-quote{position:static;max-width:none;box-shadow:none;border-bottom:1px solid var(--line);padding:18px max(16px,env(safe-area-inset-right,0px)) 18px max(16px,env(safe-area-inset-left,0px))}}
-.stars{color:#e8a317;letter-spacing:2px;font-size:13px;margin-right:6px}
-.sample{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);border:1px solid #fed7aa;background:#fff7ed;border-radius:3px;padding:1px 5px;margin-left:4px;vertical-align:1px}
-.tband{padding-block:48px 40px;border-bottom:1px solid var(--line)}
-.tband-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap;margin-bottom:22px}
-.tband-head h2{font-size:clamp(20px,2.6vw,26px)}
-.tband-stats{display:flex;gap:28px;flex-wrap:wrap}
-.tband-stats div{display:grid}
-.tband-stats b{font-size:22px;color:var(--ink);font-weight:600;line-height:1.2}
-.tband-stats span{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em}
-.tcards{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,1fr);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin-bottom:8px}
-.tcard{margin:0;scroll-snap-align:start;border:1px solid var(--line);border-top:3px solid var(--ink);padding:20px;display:grid;gap:12px;align-content:space-between;background:#fff}
-.tcard blockquote{margin:0;color:var(--ink);font-size:14px;line-height:1.55}
-.tcard figcaption{font-size:12px;color:var(--mute);display:grid}
-.tcard figcaption b{color:var(--ink);font-weight:600;font-size:12.5px}
-.tq{margin:22px 0 0;display:grid;grid-template-columns:4px minmax(0,1fr);gap:0 16px;max-width:760px}
-.tq::before{content:"";background:var(--orange);grid-row:1/3}
-.tq blockquote{margin:0;color:var(--ink);font-size:15px;font-style:italic;line-height:1.55}
-.tq figcaption{font-size:12px;color:var(--mute);margin-top:6px}
-.chip .tq-mini{display:block;margin-top:6px;font-style:italic;color:var(--body)}
-
-/* ---------- Proposed tag + section shells ---------- */
-.tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);background:var(--teal-bg);border:1px dashed var(--teal);border-radius:3px;padding:3px 8px}
-.tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--teal)}
-.sec{padding-block:72px}
-.sec.alt{background:var(--soft)}
-.sec-head{display:grid;gap:12px;max-width:760px;margin-bottom:36px}
-.sec-head h2{font-size:clamp(22px,3vw,30px);line-height:1.2}
-.sec-head p{margin:0;font-size:15px}
-.why{font-size:12.5px;color:var(--mute);border-left:2px solid var(--teal);padding-left:12px;margin:0}
-.why b{color:var(--ink);font-weight:600}
-.illus{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--warn);background:#fff7ed;border:1px solid #fed7aa;border-radius:3px;padding:2px 6px;white-space:nowrap}
-.ph{background:#fff7ed;color:#9a3412;border-radius:2px;padding:0 3px;font-weight:500}
-
-/* ---------- Strip CTA under hero (proposed) ---------- */
-.coe-strip{background:var(--ink);color:#fff}
-.coe-strip .wrap{display:flex;gap:14px 28px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-block:18px}
-.coe-strip p{margin:0;font-size:15px;font-weight:500;text-transform:uppercase;letter-spacing:.02em}
-.coe-strip p span{color:#9fe3ec}
-.coe-strip .tag{background:transparent;color:#9fe3ec;border-color:#9fe3ec}
-.coe-strip .tag::before{background:#9fe3ec}
-
 /* ---------- Buttons ---------- */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 13px var(--font);letter-spacing:.08em;text-transform:uppercase;border-radius:3px;padding:12px 22px;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:background .2s,color .2s,border-color .2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 12.5px var(--font);letter-spacing:.06em;text-transform:uppercase;border-radius:4px;padding:12px 22px;border:1px solid transparent;cursor:pointer;text-decoration:none;transition:background .2s,color .2s,border-color .2s,transform .15s}
+.btn:active{transform:translateY(1px)}
 .btn-orange{background:var(--orange);color:#fff}
 .btn-orange:hover{background:#e85a3b}
 .btn-dark{background:var(--ink);color:#fff}
@@ -128,764 +69,1020 @@ header.site .wrap{display:flex;flex-direction:column;align-items:center;padding-
 .btn-line{background:transparent;color:var(--ink);border-color:var(--ink)}
 .btn-line:hover{background:var(--ink);color:#fff}
 .btn-light{background:#fff;color:var(--ink)}
+.btn-ghost{background:var(--teal-bg);color:var(--teal);border-color:transparent}
+.btn-ghost:hover{background:#d9f0f3}
+.btn-sm{padding:9px 14px;font-size:11.5px}
 
-/* ---------- Intro (existing) ---------- */
-.intro{padding-block:64px}
-.intro .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:36px;align-items:start}
-.intro h1{font-size:26px;line-height:1.3;grid-column:1/-1;max-width:900px}
-.intro p{text-transform:uppercase;font-size:13.5px;line-height:1.75;margin:0 0 16px}
-.intro img{width:100%;display:block;aspect-ratio:4/3;object-fit:cover;margin-bottom:18px}
+/* ---------- Pages / tabs ---------- */
+.page{display:none}
+.page.active{display:block;animation:fadein .35s ease}
+@keyframes fadein{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.pagehead{padding-block:40px 32px;border-bottom:1px solid var(--line);background:var(--soft)}
+.pagehead h1{font-size:clamp(24px,3.4vw,34px);line-height:1.2}
+.pagehead p{margin:10px 0 0;max-width:700px;font-size:15px;color:var(--body)}
+.sec{padding-block:56px}
+.sec.alt{background:var(--soft)}
+.sec-head{display:grid;gap:10px;max-width:720px;margin-bottom:32px}
+.sec-head h2{font-size:clamp(20px,2.6vw,27px);line-height:1.25}
+.sec-head p{margin:0;font-size:14.5px}
+
+/* ---------- Hero ---------- */
+.hero-wrap{position:relative;background:#cfd8dc}
+.hero{position:relative;background:#cfd8dc url(assets/hero.jpg) center 60%/cover no-repeat;aspect-ratio:16/7.2;max-height:560px;width:100%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,0,0,.55),rgba(0,0,0,0) 55%)}
+@media (max-width:640px){.hero{aspect-ratio:4/3.4}}
+.hero-copy{position:absolute;left:0;right:0;bottom:0;padding:34px max(24px,env(safe-area-inset-right,0px)) 30px max(24px,env(safe-area-inset-left,0px))}
+.hero-copy .in{max-width:1160px;margin:0 auto}
+.hero-copy h1{color:#fff;font-size:clamp(22px,4vw,38px);max-width:620px;line-height:1.18}
+.hero-copy p{color:#f1f1f1;margin:10px 0 20px;max-width:520px;font-size:14.5px}
+.hero-ctas{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ---------- Logo marquee ---------- */
+.marquee-band{padding-block:26px;border-bottom:1px solid var(--line)}
+.marquee-label{text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:scroll 26s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.mlogo{font-size:17px;font-weight:700;letter-spacing:.06em;color:#9a9a9a;white-space:nowrap;display:flex;align-items:center;gap:8px}
+.mlogo i{width:7px;height:7px;border-radius:50%;background:#c7c7c7}
+
+/* ---------- Testimonials ---------- */
+.tstats{display:flex;gap:36px;flex-wrap:wrap;justify-content:center;margin:0 0 30px}
+.tstats div{text-align:center}
+.tstats b{display:block;font-size:26px;color:var(--ink);font-weight:700;line-height:1.2}
+.tstats span{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute)}
+.carousel{position:relative;max-width:760px;margin:0 auto}
+.cslide{display:none;background:#fff;border:1px solid var(--line);border-top:4px solid var(--orange);border-radius:6px;padding:34px 38px;text-align:center;box-shadow:var(--shadow)}
+.cslide.show{display:block;animation:fadein .4s ease}
+.cslide .stars{color:var(--gold);letter-spacing:3px;font-size:17px;display:block;margin-bottom:14px}
+.cslide blockquote{margin:0 0 16px;color:var(--ink);font-size:17px;line-height:1.55;font-weight:500}
+.cslide figcaption{font-size:13px;color:var(--mute)}
+.cslide figcaption b{color:var(--ink);font-weight:600}
+.cdots{display:flex;gap:8px;justify-content:center;margin-top:18px}
+.cdots button{width:8px;height:8px;border-radius:50%;border:0;background:#d8d8d8;padding:0;cursor:pointer}
+.cdots button[aria-current=true]{background:var(--orange);width:22px;border-radius:5px;transition:width .25s}
+.carousel-arrow{position:absolute;top:50%;translate:0 -50%;width:38px;height:38px;border-radius:50%;border:1px solid var(--line);background:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 4px 10px rgba(0,0,0,.08)}
+.carousel-arrow.prev{left:-50px}.carousel-arrow.next{right:-50px}
+@media (max-width:860px){.carousel-arrow{display:none}}
+
+/* ---------- Intro ---------- */
+.intro{padding-block:56px}
+.intro .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.intro img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
+.intro h2{font-size:clamp(20px,2.6vw,27px);margin-bottom:14px}
+.intro p{margin:0 0 14px;font-size:14.5px;line-height:1.7}
 @media (max-width:860px){.intro .grid{grid-template-columns:1fr}}
 
+/* ---------- Vehicle cards ---------- */
+.vgrid{display:grid;gap:52px}
+.vcard{display:grid;grid-template-columns:1.1fr 1fr;gap:0;align-items:center;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.vcard:nth-child(even){grid-template-columns:1fr 1.1fr}
+.vcard:nth-child(even) .v-img{order:2}
+.v-img{position:relative;aspect-ratio:4/3;background:#dde1e3 center/cover no-repeat;overflow:hidden}
+.v-img.ph{display:grid;place-items:center;background:linear-gradient(135deg,#eef1f2,#dfe4e6)}
+.v-img.ph svg{width:46%;opacity:.35}
+.v-body{padding:34px}
+.v-body h3{font-size:21px;margin-bottom:4px}
+.v-tag{font-size:12px;color:var(--teal);font-weight:600;margin-bottom:12px;display:block}
+.v-body p{margin:0 0 18px;font-size:13.5px;line-height:1.75}
+.v-specs{display:none;grid-template-columns:auto 1fr;gap:6px 14px;margin:0 0 18px;padding:14px 16px;background:var(--soft);border-radius:6px;font-size:12.5px}
+.v-specs.show{display:grid}
+.v-specs dt{color:var(--mute)}
+.v-specs dd{margin:0;color:var(--ink);font-weight:600}
+.v-ctas{display:flex;gap:10px;flex-wrap:wrap}
+@media (max-width:760px){
+  .vcard,.vcard:nth-child(even){grid-template-columns:1fr}
+  .vcard:nth-child(even) .v-img{order:0}
+  .v-body{padding:26px}
+}
+
 /* ---------- Calculator ---------- */
-.calc{display:grid;grid-template-columns:minmax(0,360px) minmax(0,1fr);gap:28px;align-items:start}
+.calc{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:28px;align-items:start}
 @media (max-width:900px){.calc{grid-template-columns:1fr}}
-.panel{background:#fff;border:1px solid var(--line);border-radius:4px;padding:24px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:6px;padding:24px}
 .field{display:grid;gap:8px;margin-bottom:20px}
 .field:last-child{margin-bottom:0}
-.label{font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);display:flex;justify-content:space-between;gap:8px}
+.label{font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink);display:flex;justify-content:space-between;gap:8px}
 .label output{font-weight:600;color:var(--teal)}
-select,input[type=text],input[type=number],input[type=month],input[type=email]{width:100%;font:500 14px var(--font);color:var(--ink);background:#fff;border:1px solid #cfcfcf;border-radius:3px;padding:10px 12px}
+select,input[type=text],input[type=number],input[type=month],input[type=email]{width:100%;font:500 14px var(--font);color:var(--ink);background:#fff;border:1px solid #cfcfcf;border-radius:4px;padding:10px 12px}
 input[type=range]{width:100%;accent-color:var(--teal)}
-.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;border:1px solid var(--ink);border-radius:3px;overflow:hidden}
-.seg button{font:600 11.5px var(--font);letter-spacing:.06em;text-transform:uppercase;background:#fff;color:var(--ink);border:0;padding:10px 6px;cursor:pointer;transition:background .2s,color .2s}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;border:1px solid var(--ink);border-radius:4px;overflow:hidden}
+.seg button{font:600 11.5px var(--font);letter-spacing:.05em;text-transform:uppercase;background:#fff;color:var(--ink);border:0;padding:10px 6px;cursor:pointer;transition:background .2s,color .2s}
 .seg button+button{border-left:1px solid var(--ink)}
 .seg button[aria-pressed=true]{background:var(--ink);color:#fff}
 .pair{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--mute);margin-top:-2px}
 .results{display:grid;gap:20px}
-.kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden}
 .kpi{background:#fff;padding:18px 18px 16px}
-.kpi .k{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
-.kpi .v{font-size:clamp(22px,3vw,30px);font-weight:600;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.2;margin-top:6px}
+.kpi .k{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+.kpi .v{font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--ink);line-height:1.2;margin-top:6px}
 .kpi .s{font-size:12px;color:var(--mute)}
 .kpi.hl .v{color:var(--good)}
 @media (max-width:560px){.kpis{grid-template-columns:1fr}}
 .chart{width:100%;height:auto;display:block}
 .chart text{font-family:var(--font);font-size:11px;fill:var(--mute)}
-.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--body)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:12px}
 .legend i{display:inline-block;width:18px;height:3px;vertical-align:middle;margin-right:6px;border-radius:2px}
 .note{font-size:12px;color:var(--mute);margin:0}
+.calc-ext{display:flex;align-items:center;gap:16px;justify-content:space-between;flex-wrap:wrap;background:var(--teal-bg);border-radius:6px;padding:18px 22px;margin-top:4px}
+.calc-ext p{margin:0;font-size:13.5px;color:var(--ink);max-width:420px}
 
-/* ---------- Product cards (existing) ---------- */
-.products{padding-block:72px;display:grid;gap:64px}
-.prod{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);align-items:center}
-.prod:nth-child(even){grid-template-columns:minmax(0,1fr) minmax(0,1.35fr)}
-.prod:nth-child(even) .prod-img{order:2}
-.prod-img{aspect-ratio:3/2;background:#ddd center/cover no-repeat}
-.prod-card{background:#fff;box-shadow:var(--shadow);padding:36px;margin-left:-80px;position:relative}
-.prod:nth-child(even) .prod-card{margin-left:0;margin-right:-80px}
-.prod-card h3{font-size:22px;margin-bottom:16px}
-.prod-card p{text-transform:uppercase;font-size:12.5px;line-height:1.75;margin:0 0 14px}
-.prod-card .more{font-weight:600;color:var(--teal);font-size:13px;text-decoration:none;letter-spacing:.06em}
-.chip{display:flex;gap:10px;align-items:flex-start;background:var(--teal-bg);border:1px dashed var(--teal);border-radius:3px;padding:10px 12px;margin:4px 0 16px;font-size:12.5px;color:var(--ink)}
-.chip b{color:var(--teal);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;padding-top:1px}
-.chip a{font-weight:600}
-@media (max-width:860px){
-  .prod,.prod:nth-child(even){grid-template-columns:1fr}
-  .prod:nth-child(even) .prod-img{order:0}
-  .prod-card,.prod:nth-child(even) .prod-card{margin:-40px 16px 0;padding:24px}
-}
-
-/* ---------- Ownership ---------- */
-.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:40px}
-@media (max-width:900px){.proof{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* ---------- Proof stats ---------- */
+.proof{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px}
+@media (max-width:900px){.proof{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:480px){.proof{grid-template-columns:1fr}}
-.stat{border-top:3px solid var(--ink);padding-top:14px;display:grid;gap:4px;align-content:start}
-.stat .v{font-size:34px;font-weight:600;color:var(--ink);line-height:1.1;font-variant-numeric:tabular-nums}
-.stat .k{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--ink)}
-.stat .s{font-size:12.5px}
-.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+.stat{border-top:3px solid var(--ink);padding-top:14px}
+.stat .v{display:block;font-size:32px;font-weight:700;color:var(--ink);line-height:1.1}
+.stat .k{display:block;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--ink);margin-top:4px}
+.stat .s{display:block;font-size:12.5px;margin-top:4px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
 @media (max-width:900px){.two{grid-template-columns:1fr}}
 .cmp{display:grid;gap:14px}
-.cmp-row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;align-items:center;font-size:13px}
+.cmp-row{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;font-size:13px}
 .cmp-row .bars{display:grid;gap:5px}
-.bar{height:16px;border-radius:2px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:11px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums;min-width:34px}
+.bar{height:16px;border-radius:2px;display:flex;align-items:center;justify-content:flex-end;padding-right:6px;font-size:11px;font-weight:600;color:#fff;min-width:34px}
 .bar.ev{background:var(--teal)}
 .bar.ice{background:#9aa3a8}
 @media (max-width:480px){.cmp-row{grid-template-columns:1fr}}
-.tracker-form{display:flex;gap:10px;flex-wrap:wrap}
-.tracker-form input{flex:1 1 180px;width:auto}
-.steps{list-style:none;margin:20px 0 0;padding:0;display:grid}
-.steps li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;position:relative;padding-bottom:18px}
-.steps li:not(:last-child)::before{content:"";position:absolute;left:13px;top:26px;bottom:0;width:2px;background:var(--line)}
-.steps li.done:not(:last-child)::before{background:var(--teal)}
-.dot{width:28px;height:28px;border-radius:50%;border:2px solid #c9c9c9;background:#fff;display:grid;place-items:center;font-size:12px;font-weight:700;color:#999}
-.done .dot{background:var(--teal);border-color:var(--teal);color:#fff}
-.now .dot{border-color:var(--orange);color:var(--orange-ink);box-shadow:0 0 0 4px #ffe6df}
-.steps h4{font-size:13px;letter-spacing:.04em}
-.steps p{margin:2px 0 0;font-size:12.5px}
-.steps .when{font-size:11.5px;color:var(--mute);font-variant-numeric:tabular-nums}
-.job-meta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 18px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:12.5px}
-.job-meta dt{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
-.job-meta dd{margin:0;color:var(--ink);font-weight:500}
-.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
-@media (max-width:900px){.quotes{grid-template-columns:1fr}}
-.quote{background:#fff;border:1px solid var(--line);padding:22px;display:grid;gap:12px;align-content:space-between}
-.quote p{margin:0;color:var(--ink);font-size:14px}
-.quote footer{font-size:12px;color:var(--mute)}
-.promise{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
-@media (max-width:760px){.promise{grid-template-columns:1fr}}
-.promise div{background:#fff;border:1px solid var(--line);padding:18px}
-.promise h4{font-size:13px;margin-bottom:6px}
-.promise p{margin:0;font-size:12.5px}
-
-/* ---------- Buyer pack (tabs) ---------- */
-.portal-teaser{display:grid;gap:12px;align-content:start;border-top:3px solid var(--teal)}
-.portal-teaser .btn{justify-self:start}
 .ticks{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:13.5px;color:var(--ink)}
 .ticks li{position:relative;padding-left:26px}
 .ticks li::before{content:"✓";color:var(--teal);font-weight:700;position:absolute;left:0;top:0}
 .ticks.small{font-size:13px;margin-bottom:16px}
-.pack{margin-top:40px;background:#fff;border:1px solid var(--line)}
+.portal-teaser{border-top:3px solid var(--teal);display:grid;gap:12px}
+
+/* ---------- Buyer pack sub-tabs ---------- */
+.pack{margin-top:40px;background:#fff;border:1px solid var(--line);border-radius:6px}
 .pack-head{padding:22px 24px 0;display:flex;justify-content:space-between;align-items:baseline;gap:8px 20px;flex-wrap:wrap}
-.pack-head h3{font-size:18px}
-.tabs{display:flex;gap:0;overflow-x:auto;border-bottom:1px solid var(--line);margin-top:14px;padding:0 24px}
-.tabs button{flex:0 0 auto;font:600 12px var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);background:none;border:0;border-bottom:3px solid transparent;padding:14px 14px 11px;cursor:pointer;transition:color .2s,border-color .2s}
-.tabs button[aria-selected=true]{color:var(--ink);border-color:var(--orange)}
-.tabs button:hover{color:var(--ink)}
-.tabpanel{padding:24px}
-.tp-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:28px;align-items:start}
-@media (max-width:860px){.tp-grid{grid-template-columns:1fr}.tabs,.pack-head{padding-left:16px;padding-right:16px}.tabpanel{padding:20px 16px}}
-.mini-h{font-size:12.5px;letter-spacing:.08em;margin-bottom:10px}
-.wtbl{width:100%;min-width:520px;border-collapse:collapse;font-size:13px}
-.wtbl th{text-align:left;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);font-weight:600;padding:0 12px 8px 0;border-bottom:2px solid var(--ink)}
+.pack-head h3{font-size:17px}
+.subtabs{display:flex;gap:0;overflow-x:auto;border-bottom:1px solid var(--line);margin-top:14px;padding:0 24px}
+.subtabs button{flex:0 0 auto;font:600 12px var(--font);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);background:none;border:0;border-bottom:3px solid transparent;padding:14px 14px 11px;cursor:pointer}
+.subtabs button[aria-selected=true]{color:var(--ink);border-color:var(--orange)}
+.subtabpanel{padding:24px}
+.tp-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start}
+@media (max-width:860px){.tp-grid{grid-template-columns:1fr}.subtabs,.pack-head{padding-left:16px;padding-right:16px}.subtabpanel{padding:20px 16px}}
+.mini-h{font-size:12.5px;letter-spacing:.06em;margin-bottom:10px}
+.wtbl{width:100%;min-width:500px;border-collapse:collapse;font-size:13px}
+.wtbl th{text-align:left;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:600;padding:0 12px 8px 0;border-bottom:2px solid var(--ink)}
 .wtbl td{padding:11px 12px 11px 0;border-bottom:1px solid var(--line);vertical-align:top}
 .wtbl td:first-child{color:var(--ink);font-weight:600;white-space:nowrap}
-.wtbl td:nth-child(2){color:var(--ink);white-space:nowrap}
-.advisor{display:flex;gap:16px;align-items:center}
-.avatar{width:56px;height:56px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:600;flex:none}
-.contacts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 20px;margin:0}
-.contacts dt{font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.advisor{display:flex;gap:16px;align-items:center;margin-bottom:18px}
+.avatar{width:54px;height:54px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700;flex:none}
+.contacts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 20px;margin:0}
+.contacts dt{font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
 .contacts dd{margin:2px 0 0;color:var(--ink);font-weight:500;font-size:13.5px}
-.stagebar{list-style:none;padding:0;margin:0 0 20px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));counter-reset:s}
+.stagebar{list-style:none;padding:0;margin:0 0 20px;display:grid;grid-template-columns:repeat(6,1fr);counter-reset:s}
 .stagebar li{counter-increment:s;display:grid;gap:4px;align-content:start;padding:14px 12px 0 0;border-top:3px solid var(--teal);font-size:12px}
 .stagebar li::before{content:counter(s);width:22px;height:22px;border-radius:50%;background:var(--teal);color:#fff;font-weight:700;display:grid;place-items:center;font-size:11px;margin-top:-26px}
-.stagebar b{color:var(--ink);font-size:12.5px;text-transform:uppercase;letter-spacing:.03em}
+.stagebar b{color:var(--ink);font-size:12.5px;text-transform:uppercase}
 @media (max-width:860px){.stagebar{grid-template-columns:1fr 1fr;row-gap:22px}}
-.part-out{border:1px solid var(--line);padding:18px;display:grid;gap:10px}
+.part-out{border:1px solid var(--line);padding:18px;border-radius:6px;display:grid;gap:10px}
 .part-out .st{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px}
 .part-out .st i{width:10px;height:10px;border-radius:50%}
-.part-out dl{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 16px;margin:0;font-size:13px}
+.part-out dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0;font-size:13px}
 .part-out dt{color:var(--mute)}
-.part-out dd{margin:0;color:var(--ink);font-weight:500;font-variant-numeric:tabular-nums}
+.part-out dd{margin:0;color:var(--ink);font-weight:500}
 
 /* ---------- Charging ---------- */
-.flow{list-style:none;padding:0;margin:0 0 36px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;counter-reset:f}
+.flow{list-style:none;padding:0;margin:0 0 36px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:f}
 .flow li{padding:18px 18px 18px 0;border-top:2px solid var(--ink);counter-increment:f;display:grid;gap:6px;align-content:start}
-.flow li::before{content:"Step " counter(f);font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--teal);text-transform:uppercase}
+.flow li::before{content:"Step " counter(f);font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--teal);text-transform:uppercase}
 .flow h4{font-size:14px}
 .flow p{margin:0;font-size:13px}
 @media (max-width:760px){.flow{grid-template-columns:1fr 1fr}}
 @media (max-width:440px){.flow{grid-template-columns:1fr}}
 .planner-out{display:grid;gap:14px}
 .bays{display:flex;gap:8px;flex-wrap:wrap}
-.bay{width:58px;height:74px;border:2px solid var(--ink);border-radius:4px;display:grid;place-items:center;align-content:center;gap:2px;font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--ink)}
+.bay{width:58px;height:74px;border:2px solid var(--ink);border-radius:5px;display:grid;place-items:center;align-content:center;gap:2px;font-size:10px;font-weight:700;color:var(--ink)}
 .bay svg{width:20px;height:20px}
 .tbl{width:100%;border-collapse:collapse;font-size:13px}
 .tbl th,.tbl td{text-align:left;padding:9px 0;border-bottom:1px solid var(--line)}
 .tbl th{font-weight:500;color:var(--body)}
-.tbl td{text-align:right;color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.tbl td{text-align:right;color:var(--ink);font-weight:600}
 .tbl tr.total td,.tbl tr.total th{border-bottom:0;color:var(--ink);font-weight:700}
 
-/* ---------- Workshops ---------- */
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-.filters button{font:600 11.5px var(--font);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer}
+/* ---------- Workshops / map ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.filters button{font:600 11.5px var(--font);letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--ink);background:#fff;color:var(--ink);border-radius:999px;padding:8px 14px;cursor:pointer}
 .filters button[aria-pressed=true]{background:var(--ink);color:#fff}
-.shops{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-@media (max-width:900px){.shops{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.map-wrap{position:relative;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:linear-gradient(135deg,#eaf2f1,#e3edec);aspect-ratio:1412/784;max-width:820px;margin:0 auto 28px;cursor:grab}
+.map-wrap:active{cursor:grabbing}
+.map-stage{position:absolute;inset:0;transition:transform .2s ease}
+.map-stage svg{width:100%;height:100%}
+.map-pin{position:absolute;transform:translate(-50%,-100%);display:grid;place-items:center;cursor:pointer}
+.map-pin .dot{width:14px;height:14px;border-radius:50% 50% 50% 0;background:var(--orange);transform:rotate(45deg);box-shadow:0 2px 6px rgba(0,0,0,.3);animation:pulse 2.4s ease-in-out infinite}
+.map-pin.hq .dot{background:var(--red)}
+@keyframes pulse{0%,100%{box-shadow:0 2px 6px rgba(0,0,0,.3),0 0 0 0 rgba(253,110,79,.4)}50%{box-shadow:0 2px 6px rgba(0,0,0,.3),0 0 0 8px rgba(253,110,79,0)}}
+.map-card{position:absolute;transform:translate(-50%,-128%);background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px 12px;font-size:12px;white-space:nowrap;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .15s}
+.map-pin:hover .map-card,.map-pin:focus .map-card{opacity:1}
+.map-hint{position:absolute;right:14px;bottom:14px;background:rgba(255,255,255,.9);font-size:11px;font-weight:600;color:var(--mute);padding:5px 10px;border-radius:999px;display:flex;align-items:center;gap:6px}
+.shops{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.shops{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:560px){.shops{grid-template-columns:1fr}}
-.shop{border:1px solid var(--line);background:#fff;padding:18px;display:grid;gap:8px;align-content:start}
+.shop{border:1px solid var(--line);background:#fff;padding:18px;border-radius:6px;display:grid;gap:8px;align-content:start}
 .shop h4{font-size:14px}
 .shop .meta{font-size:12px;color:var(--mute)}
 .badges{display:flex;gap:6px;flex-wrap:wrap}
-.badge{font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:3px;padding:3px 7px;background:var(--soft);color:var(--ink)}
+.badge{font-size:10.5px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border-radius:3px;padding:3px 7px;background:var(--soft);color:var(--ink)}
 .badge.ok{background:#e6f4ee;color:var(--good)}
 .badge.hq{background:#fdecec;color:#a61b22}
-.partner-cta{margin-top:28px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;background:var(--ink);color:#ddd;padding:24px 28px}
+.partner-cta{margin-top:28px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;background:var(--ink);color:#ddd;padding:26px 28px;border-radius:8px}
 .partner-cta h3{color:#fff;font-size:17px;margin-bottom:4px}
 .partner-cta p{margin:0;font-size:13px}
 @media (max-width:700px){.partner-cta{grid-template-columns:1fr}}
 
 /* ---------- COE planner ---------- */
-.timeline{list-style:none;padding:0;margin:0;display:grid;gap:0}
-.timeline li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
-.timeline .d{font-weight:700;color:var(--ink);font-size:13px;font-variant-numeric:tabular-nums}
-.timeline .d small{display:block;font-weight:500;color:var(--mute);font-size:11px}
-.timeline h4{font-size:13px}
-.timeline p{margin:2px 0 0;font-size:12.5px}
-.timeline li.past{opacity:.55}
-.timeline li.next .d{color:var(--orange-ink)}
+.state-toggle{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.state-card{border:2px solid var(--line);border-radius:6px;padding:14px;display:grid;gap:4px;background:#fff;cursor:pointer;text-align:left}
+.state-card b{font-size:13px;color:var(--ink)}
+.state-card span{font-size:11.5px;color:var(--mute)}
+.state-card[aria-pressed=true]{border-color:var(--teal);background:var(--teal-bg)}
 .countdown{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.countdown .v{font-size:44px;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
-.countdown .k{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.08em}
-.match{background:var(--teal-bg);border:1px dashed var(--teal);padding:14px 16px;font-size:13px;color:var(--ink);margin-bottom:16px}
+.countdown .v{font-size:40px;font-weight:700;color:var(--ink);line-height:1}
+.countdown .k{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.match{background:var(--teal-bg);border-radius:6px;padding:14px 16px;font-size:13px;color:var(--ink);margin-bottom:18px}
 .status{font-size:13px;margin-top:10px;color:var(--good);font-weight:500;min-height:1.2em}
+.timeline-h{overflow-x:auto;padding-bottom:10px;opacity:0;transform:translateY(10px);transition:opacity .5s ease,transform .5s ease}
+.timeline-h.in{opacity:1;transform:none}
+.tl-track{display:flex;gap:0;min-width:720px;position:relative;padding-top:8px}
+.tl-track::before{content:"";position:absolute;left:0;right:0;top:34px;height:2px;background:var(--line)}
+.tl-step{flex:1;padding:0 10px;position:relative;text-align:left}
+.tl-step .dot{width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid #c9c9c9;display:grid;place-items:center;font-size:10px;font-weight:700;color:#999;margin-bottom:10px;position:relative;z-index:1}
+.tl-step.past .dot{background:var(--teal);border-color:var(--teal);color:#fff}
+.tl-step.next .dot{border-color:var(--orange);color:var(--orange-ink);box-shadow:0 0 0 4px #ffe6df}
+.tl-step .d{font-size:11px;font-weight:700;color:var(--ink)}
+.tl-step .d small{display:block;font-weight:500;color:var(--mute);font-size:10.5px}
+.tl-step h4{font-size:12.5px;margin-top:4px}
+.tl-step p{margin:3px 0 0;font-size:11.5px}
 
-/* ---------- Brands, news, footer (existing) ---------- */
-.brands{padding-block:48px;border-top:1px solid var(--line)}
-.brands ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:18px 48px}
-.brands li{font-size:18px;font-weight:700;letter-spacing:.14em;color:#8a8a8a;text-transform:uppercase}
-.news{padding-block:56px}
-.news h2{font-size:22px;margin-bottom:24px}
-.news ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px 32px}
-.news li{border-bottom:1px solid var(--line);padding:10px 0;font-size:13.5px}
-.news a{color:var(--ink);text-decoration:none}
-.news a:hover{color:var(--link)}
-@media (max-width:860px){.news ul{grid-template-columns:1fr}}
-footer.site{background:#1e1e1e;color:#bdbdbd;font-size:13px}
-footer.site .wrap{padding-block:44px 28px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
-footer.site h4{color:#fff;font-size:13px;letter-spacing:.1em;margin-bottom:10px}
+/* ---------- Portal ---------- */
+.portal-shell{background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+.portal-top{background:var(--ink);color:#fff;padding:22px 26px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.portal-top h3{color:#fff;font-size:18px;margin-bottom:2px}
+.portal-top p{margin:0;font-size:12px;color:#bbb}
+.portal-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line)}
+@media (max-width:700px){.portal-tiles{grid-template-columns:repeat(2,1fr)}}
+.ptile{background:#fff;padding:20px}
+.ptile b{display:block;font-size:26px;color:var(--ink);font-weight:700}
+.ptile span{font-size:11px;color:var(--mute);text-transform:uppercase;letter-spacing:.05em}
+.ptile.warn b{color:var(--orange-ink)}
+.portal-body{padding:26px}
+.jobrow{display:grid;grid-template-columns:auto 1fr auto auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.jobrow:last-child{border-bottom:0}
+.jicon{width:38px;height:38px;border-radius:50%;background:var(--soft);display:grid;place-items:center;flex:none}
+.jmain b{display:block;color:var(--ink);font-size:13.5px}
+.jmain span{font-size:12px;color:var(--mute)}
+.jstatus{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:4px 10px;border-radius:999px;white-space:nowrap}
+.jstatus.progress{background:#fff4e8;color:var(--orange-ink)}
+.jstatus.done{background:#e6f4ee;color:var(--good)}
+.jlink{font-size:12px;font-weight:600;color:var(--link);background:none;border:0;cursor:pointer;white-space:nowrap}
+
+/* Rating card */
+.rate-wrap{max-width:480px;margin:24px auto 0;text-align:center;border:1px solid var(--line);border-radius:10px;padding:30px 26px;background:#fff}
+.rate-wrap h4{font-size:16px;margin-bottom:6px}
+.rate-wrap p.sub{margin:0 0 20px;font-size:13px;color:var(--mute)}
+.stars-input{display:flex;gap:6px;justify-content:center;margin-bottom:18px}
+.stars-input button{background:none;border:0;font-size:32px;line-height:1;color:#d8d8d8;cursor:pointer;padding:0;transition:color .15s,transform .1s}
+.stars-input button:hover,.stars-input button:focus-visible{transform:scale(1.1)}
+.stars-input button.on{color:var(--gold)}
+.rtags{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+.rtags button{font-size:12px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:7px 13px;cursor:pointer}
+.rtags button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.rate-wrap textarea{width:100%;min-height:70px;font:400 13.5px var(--font);border:1px solid #cfcfcf;border-radius:6px;padding:10px 12px;resize:vertical;margin-bottom:16px}
+.rate-thanks{display:none;padding:34px 10px}
+.rate-thanks.show{display:block;animation:fadein .4s ease}
+.rate-thanks .check{width:56px;height:56px;border-radius:50%;background:var(--good);color:#fff;display:grid;place-items:center;margin:0 auto 14px;font-size:26px}
+
+/* ---------- Footer ---------- */
+footer.site{background:#1e1e1e;color:#bdbdbd;font-size:13px;margin-top:40px}
+footer.site .wrap{padding-block:44px 24px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+footer.site h4{color:#fff;font-size:13px;letter-spacing:.08em;margin-bottom:10px}
 footer.site p{margin:0 0 6px}
-footer.site .base{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-size:12px;color:#9a9a9a;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer.site a{color:#bdbdbd}
+footer.site .base{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;font-size:12px;color:#8f8f8f;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 @media (max-width:760px){footer.site .wrap{grid-template-columns:1fr}}
 .wa{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));width:54px;height:54px;border-radius:50%;background:#25d366;border:0;display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.2);cursor:pointer;z-index:40}
 .wa svg{width:28px;height:28px;fill:#fff}
 .toast{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:#111;color:#fff;font-size:13px;padding:10px 16px;border-radius:4px;z-index:70;max-width:calc(100% - 32px);text-align:center}
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-</style>
 
-<!-- =================== CONCEPT BAR =================== -->
-<div class="concept" role="note">
-  <div class="wrap">
-    <strong>Concept prototype</strong>
-    <span>Proposed features are tagged in teal. Jump to:</span>
-    <nav aria-label="Proposed features">
-      <a href="#tband-h">Customer testimonials</a>
-      <a href="#savings">Savings calculator</a>
-      <a href="#buyer-pack">Aftersales commitments</a>
-      <a href="track.html">Repair tracker (new page)</a>
-      <a href="aftersales-portal.html">Customer login (new page)</a>
-      <a href="#charging">Charging, sorted</a>
-      <a href="#workshops">Partner workshops</a>
-      <a href="#coe">COE switch planner</a>
-    </nav>
-  </div>
-</div>
+/* ---------- Track a repair ---------- */
+.track-gate{max-width:460px;margin:0 auto;text-align:center}
+.track-gate .field{text-align:left}
+.track-hint{font-size:12.5px;color:var(--mute);margin-top:14px}
+.track-hint button{background:none;border:0;color:var(--link);font:inherit;font-weight:600;cursor:pointer;padding:0 2px;text-decoration:underline}
+.track-error{color:#b91c1c;font-size:13px;margin-top:10px;display:none}
+.track-error.show{display:block}
+.pizza{display:flex;gap:0;overflow-x:auto;padding:14px 0 4px}
+.pz-step{flex:1;min-width:112px;text-align:center;padding:0 6px;position:relative}
+.pz-step .ln{position:absolute;top:15px;left:-50%;right:50%;height:2px;background:var(--line);z-index:0}
+.pz-step:first-child .ln{display:none}
+.pz-step.done .ln{background:var(--teal)}
+.pz-step .dot{width:30px;height:30px;border-radius:50%;background:#fff;border:2px solid #c9c9c9;display:grid;place-items:center;margin:0 auto 8px;position:relative;z-index:1;font-size:12px;font-weight:700;color:#999}
+.pz-step.done .dot{background:var(--teal);border-color:var(--teal);color:#fff}
+.pz-step.now .dot{border-color:var(--orange);color:var(--orange-ink);box-shadow:0 0 0 5px #ffe6df;animation:pulse2 2s ease-in-out infinite}
+@keyframes pulse2{0%,100%{box-shadow:0 0 0 5px #ffe6df}50%{box-shadow:0 0 0 9px #fff0ea}}
+.pz-step .lbl{font-size:11px;font-weight:700;color:var(--ink);line-height:1.3}
+.pz-step .ts{font-size:10px;color:var(--mute);margin-top:3px}
+.pz-eta{text-align:center;background:var(--teal-bg);border-radius:6px;padding:12px;font-size:13.5px;color:var(--ink);margin:4px 0 28px}
+.pz-eta b{color:var(--teal)}
+.claim-track{background:var(--teal-bg);border-radius:8px;padding:22px;margin:0 0 28px}
+.job-card{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:28px}
+.job-card div{background:#fff;padding:16px 18px}
+.job-card .jk{display:block;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);margin-bottom:4px}
+.job-card .jv{font-size:14px;font-weight:600;color:var(--ink)}
+.job-card .people{display:flex;gap:10px;align-items:center}
+.job-card .av2{width:30px;height:30px;border-radius:50%;background:var(--soft);display:grid;place-items:center;font-size:14px;flex:none}
+@media (max-width:760px){.job-card{grid-template-columns:1fr 1fr}}
+.dvi-group{margin-bottom:22px}
+.dvi-group h4{font-size:14px;margin-bottom:6px}
+.dvi-item{display:grid;grid-template-columns:auto 86px 1fr;gap:14px;align-items:start;padding:12px 0;border-top:1px solid var(--line)}
+.tl{width:12px;height:12px;border-radius:50%;margin-top:4px}
+.tl.green{background:var(--good)}
+.tl.amber{background:#d97706}
+.tl.red{background:#dc2626}
+.dvi-media{width:86px;height:60px;border-radius:5px;background:var(--soft);display:grid;place-items:center;color:var(--mute);font-size:10.5px}
+.dvi-body b{display:block;font-size:13.5px;color:var(--ink)}
+.dvi-body p{margin:3px 0 0;font-size:12.5px}
+.dvi-metric{display:inline-block;font-size:11px;font-weight:700;color:var(--teal);background:var(--teal-bg);border-radius:3px;padding:1px 7px;margin-left:8px}
+.quote-tbl{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:10px}
+.quote-tbl th{text-align:left;font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);padding:0 10px 8px 0;border-bottom:2px solid var(--ink)}
+.quote-tbl td{padding:12px 10px 12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.q-new{display:inline-block;font-size:10px;font-weight:700;color:var(--orange-ink);background:#fff4e8;border-radius:3px;padding:1px 6px;margin-left:6px}
+.q-actions{display:flex;gap:6px;flex-wrap:wrap}
+.q-actions button{font:600 11px var(--font);border-radius:3px;padding:5px 9px;cursor:pointer;border:1px solid var(--line);background:#fff}
+.q-actions button.approve[aria-pressed=true]{background:var(--good);border-color:var(--good);color:#fff}
+.q-actions button.decline[aria-pressed=true]{background:#dc2626;border-color:#dc2626;color:#fff}
+.q-ask-box{margin-top:6px;display:none;gap:6px}
+.q-ask-box.show{display:flex}
+.q-ask-box input{flex:1;font-size:12.5px;padding:6px 8px;border:1px solid #cfcfcf;border-radius:4px}
+.q-totals{display:flex;justify-content:flex-end;gap:28px;font-size:13.5px;padding-top:10px}
+.q-totals b{color:var(--ink);font-size:16px}
+.parts-list{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:28px}
+.parts-list div.prow{background:#fff;padding:12px 16px;display:flex;justify-content:space-between;gap:12px;font-size:13px}
+.chat-thread{display:grid;gap:10px;max-height:320px;overflow-y:auto;padding:4px 2px;margin-bottom:12px}
+.msg{max-width:72%;padding:10px 14px;border-radius:12px;font-size:13px;line-height:1.5}
+.msg.in{background:var(--soft);justify-self:start;border-bottom-left-radius:3px}
+.msg.out{background:var(--teal);color:#fff;justify-self:end;border-bottom-right-radius:3px}
+.msg .who{font-size:10.5px;opacity:.7;margin-bottom:2px;display:block}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.chips button{font-size:12px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:6px 12px;cursor:pointer}
+.chat-input{display:flex;gap:8px}
+.chat-input input{flex:1;padding:10px 12px;border:1px solid #cfcfcf;border-radius:6px;font-size:13px}
+.notif-list{display:grid;gap:10px;margin-bottom:28px}
+.notif{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:6px;padding:12px 14px}
+.notif .nch{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:3px 7px;border-radius:3px;flex:none}
+.notif .nch.WhatsApp{background:#e7f8ef;color:#128c4a}
+.notif .nch.SMS{background:#eef2ff;color:#4338ca}
+.notif .nch.Email{background:#fef3e8;color:#b45309}
+.notif p{margin:0;font-size:12.5px}
+.notif time{display:block;font-size:11px;color:var(--mute);margin-top:3px}
+.checklist{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:8px}
+.checklist li{display:flex;gap:10px;align-items:center;font-size:13.5px}
+.checklist input{width:18px;height:18px;accent-color:var(--teal)}
+</style></head>
+<body>
 
-<!-- =================== HEADER (existing) =================== -->
+<!-- =================== HEADER =================== -->
 <header class="site">
-  <div class="wrap">
-    <a href="#top" aria-label="Hong Seh Group home">
-      <svg class="logo" viewBox="0 0 120 100" role="img" aria-label="Hong Seh logo">
+  <div class="wrap hdr-row">
+    <button class="logo" data-tab="home" aria-label="Hong Seh EV home">
+      <svg viewBox="0 0 120 100" role="img" aria-label="Hong Seh logo">
         <polygon points="4,4 116,4 60,96" fill="#d7272f"/>
         <polygon points="14,10 106,10 60,86" fill="none" stroke="#fff" stroke-width="2.4"/>
         <text x="60" y="34" text-anchor="middle" font-family="Montserrat,Arial" font-size="15" font-weight="600" fill="#fff">HONG</text>
         <text x="60" y="52" text-anchor="middle" font-family="Montserrat,Arial" font-size="15" font-weight="600" fill="#fff">SEH</text>
       </svg>
-    </a>
+      <span><b>Hong Seh</b><small>EV FLEET</small></span>
+    </button>
     <button class="burger" id="burger" aria-expanded="false" aria-controls="mainnav">
       <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 1h16M0 6h16M0 11h16" stroke="currentColor" stroke-width="2"/></svg>Menu
     </button>
     <nav class="mainnav" id="mainnav" aria-label="Main">
-      <a href="#products">Commercial Electric Vehicle</a>
-      <a href="#products">Riddara</a>
-      <a href="#products">Seres 3</a>
-      <a href="#top">Marine</a>
-      <a href="#top">Leasing</a>
-      <a href="#ownership">Aftersales</a>
-      <a href="#savings" class="new">EV Fleet Hub</a>
-      <a href="track.html" class="new">Track Repair</a>
-      <a href="aftersales-portal.html" class="new">Customer Login</a>
-      <a href="#top">About Us</a>
-      <a href="#coe">Contact Us</a>
-      <a href="#top">Careers</a>
-      <a href="#news">News</a>
+      <button data-tab="home">Home</button>
+      <button data-tab="vehicles">Our Vehicles</button>
+      <button data-tab="savings">Savings Calculator</button>
+      <button data-tab="aftersales">Aftersales</button>
+      <button data-tab="charging">Charging</button>
+      <button data-tab="workshops">Workshops</button>
+      <button data-tab="coe">Switch Planner</button>
+      <button data-tab="track">Track a Repair</button>
+      <button data-tab="portal">Customer Portal</button>
     </nav>
+    <div class="hdr-cta"><button class="btn btn-orange btn-sm" data-tab="coe">Request a fleet review</button></div>
   </div>
 </header>
 
 <main id="top">
-<!-- =================== HERO (existing) =================== -->
-<div class="hero-wrap">
-  <div class="hero" role="img" aria-label="Farizon electric van and Farizon electric lorry parked on grass with the Marina Bay skyline behind"></div>
-  <figure class="hero-quote">
-    <span class="tag">Proposed · Customer voice</span>
-    <blockquote>“Our T3EV was back on the road in two days, and Hong Seh had a loan van at our depot the same afternoon. That is why we ordered four more.”</blockquote>
-    <figcaption><span class="stars" aria-label="5 out of 5">★★★★★</span> Operations Manager, last-mile delivery fleet · 9 EVs <span class="sample">Sample</span></figcaption>
-  </figure>
-</div>
 
-<!-- PROPOSED: testimonial band, first thing after the hero -->
-<section class="tband" aria-labelledby="tband-h">
-  <div class="wrap">
-    <div class="tband-head">
-      <h2 id="tband-h">Fleets that switched with Hong Seh</h2>
-      <div class="tband-stats">
-        <div><b class="num"><span class="ph">40+</span></b><span>business customers on EVs</span></div>
-        <div><b class="num"><span class="ph">4.8/5</span></b><span>aftersales rating</span></div>
-        <div><b class="num"><span class="ph">2.6 days</span></b><span>average EV repair</span></div>
+<!-- =================== HOME =================== -->
+<section class="page active" id="page-home" data-page="home">
+  <div class="hero-wrap">
+    <div class="hero" role="img" aria-label="Farizon electric van and electric lorry parked against the Marina Bay skyline"></div>
+    <div class="hero-copy">
+      <div class="in">
+        <h1>Electric power for your everyday business</h1>
+        <p>Vans and lorries built for Singapore delivery routes, backed by local parts, a named service advisor and a fleet of loan vehicles — so downtime never costs you a job.</p>
+        <div class="hero-ctas">
+          <button class="btn btn-orange" data-tab="vehicles">See our vehicles</button>
+          <button class="btn btn-light" data-tab="savings">Calculate your savings</button>
+        </div>
       </div>
     </div>
-    <div class="tcards" tabindex="0" aria-label="Customer testimonials, scroll sideways for more">
-      <figure class="tcard"><span class="stars" aria-label="5 out of 5">★★★★★</span><blockquote>“We were worried EV parts would take weeks. In two years, every repair was done with parts Hong Seh already had in Singapore.”</blockquote><figcaption><b>Fleet Manager</b>Cold-chain distributor · 12 vehicles · DFSK EC31 Reefer</figcaption></figure>
-      <figure class="tcard"><span class="stars" aria-label="5 out of 5">★★★★★</span><blockquote>“The calculator said 1.8 years to break even. We hit it in 20 months. Charging at our own depot made the difference.”</blockquote><figcaption><b>Director</b>Building materials supplier · 6 vehicles · SRM T3EV</figcaption></figure>
-      <figure class="tcard"><span class="stars" aria-label="5 out of 5">★★★★★</span><blockquote>“One contract for the lorries and the chargers. Hong Seh filed the grant for us. We did not have to call anyone else.”</blockquote><figcaption><b>Operations Head</b>Logistics contractor · 5 vehicles · Farizon H9E</figcaption></figure>
-      <figure class="tcard"><span class="stars" aria-label="4 out of 5">★★★★☆</span><blockquote>“I can see every step of the repair on my phone, including when the part arrives. No more calling the workshop for updates.”</blockquote><figcaption><b>Owner</b>Moving company · 3 vehicles · Farizon Super Van</figcaption></figure>
-    </div>
-    <p class="note">Sample testimonials written for this concept. Replace with real, attributed quotes from Hong Seh customers before launch.</p>
   </div>
+
+  <section class="marquee-band" aria-label="Fleets that run on Hong Seh">
+    <p class="marquee-label">Trusted by fleets across Singapore</p>
+    <div class="marquee">
+      <div class="marquee-track" id="mqTrack"></div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="tband-h">
+    <div class="wrap">
+      <div class="sec-head" style="margin:0 auto 28px;text-align:center;max-width:620px">
+        <h2 id="tband-h">What fleets say after switching</h2>
+      </div>
+      <div class="tstats">
+        <div><b class="num">40+</b><span>business customers on EVs</span></div>
+        <div><b class="num">4.8/5</b><span>aftersales rating</span></div>
+        <div><b class="num">2.6 days</b><span>average EV repair</span></div>
+      </div>
+      <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Customer testimonials">
+        <button class="carousel-arrow prev" id="cPrev" aria-label="Previous testimonial">‹</button>
+        <button class="carousel-arrow next" id="cNext" aria-label="Next testimonial">›</button>
+        <div id="cSlides"></div>
+        <div class="cdots" id="cDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="intro">
+    <div class="wrap grid">
+      <div>
+        <h2>Singapore's commercial EV fleet partner</h2>
+        <p>Hong Seh has been part of Singapore's automotive industry since 1968. Hong Seh EV brings that same standard of service to electric vans and lorries: a curated range matched to real routes and payloads, a local parts stock, and an aftersales team that knows commercial EVs inside out.</p>
+        <p>We handle the whole switch — vehicle matching, depot charger installation, the LTA grant paperwork and a fleet electricity rate — on one contract.</p>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px"><button class="btn btn-dark" data-tab="vehicles">Explore the range</button><button class="btn btn-line" data-tab="charging">See charging options</button></div>
+      </div>
+      <img src="assets/srm-showroom.jpg" alt="SRM T3EV on display at the Hong Seh showroom" loading="lazy">
+    </div>
+  </section>
 </section>
 
-<!-- PROPOSED: targeted outreach strip (Rec 3) -->
-<section class="coe-strip" aria-label="COE expiry prompt">
-  <div class="wrap">
-    <span class="tag">Proposed</span>
-    <p>COE expiring in the next 12 months? <span>That is the cheapest moment to switch to electric.</span></p>
-    <a class="btn btn-orange" href="#coe">Plan my switch</a>
-  </div>
+<!-- =================== VEHICLES =================== -->
+<section class="page" id="page-vehicles" data-page="vehicles">
+  <div class="pagehead"><div class="wrap">
+    <span class="eyebrow">Our vehicles</span>
+    <h1>Commercial electric vehicles, matched to your routes</h1>
+    <p>Every model below is built for Singapore business use — last-mile delivery, trade routes and heavy haulage — with genuine parts and local aftersales support.</p>
+  </div></div>
+
+  <section class="sec" aria-label="Vehicle range">
+    <div class="wrap vgrid" id="vgrid"></div>
+  </section>
 </section>
 
-<!-- =================== INTRO (existing) =================== -->
-<section class="intro">
-  <div class="wrap grid">
-    <h1>Hong Seh Group: your one-stop destination for cars, commercial transport, aftersales support, and luxury yachts</h1>
-    <div>
-      <p>Hong Seh Group has long been a cornerstone of Singapore’s automotive and luxury transport industries, offering a comprehensive range of services that cater to both individual and business needs. Whether you’re looking for the perfect car, seeking reliable <a href="#products">commercial transport solutions</a>, or exploring luxury yacht options, Hong Seh Group provides tailored offerings designed to meet diverse requirements.</p>
-    </div>
-    <div>
-      <img src="assets/office.jpg" alt="Hong Seh Co (Pte) Ltd office frontage, established 1968" loading="lazy">
-      <p>Hong Seh Group has built its reputation on providing not just exceptional products but also a level of service that exceeds expectations, from Hong Seh Leasing to the expert care provided by the Hong Seh Motors aftersales team.</p>
-    </div>
-    <div>
-      <p>At Hong Seh Group, we’re not just about selling products; we’re about building long-term relationships with our customers. Your journey starts here.</p>
-      <p>Explore available <a href="#charging">EV rebates</a> and government incentives to reduce the cost of transitioning your fleet.</p>
-      <img src="assets/srm-showroom.jpg" alt="SRM T3EV showroom at Hong Seh" loading="lazy">
-    </div>
-  </div>
-</section>
+<!-- =================== SAVINGS CALCULATOR =================== -->
+<section class="page" id="page-savings" data-page="savings">
+  <div class="pagehead"><div class="wrap">
+    <span class="eyebrow">Savings calculator</span>
+    <h1>What would your fleet save by switching?</h1>
+    <p>Pick the diesel truck you run today. We match it to its Hong Seh electric equivalent and show when the EV pays for itself, including COE, maintenance, road tax, insurance, charging and a battery replacement in year 8.</p>
+  </div></div>
 
-<!-- =================== FEATURE 1: SAVINGS CALCULATOR =================== -->
-<section class="sec alt" id="savings" aria-labelledby="savings-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="tag">Proposed · EV Fleet Hub</span>
-      <h2 id="savings-h">What would your fleet save by switching?</h2>
-      <p>Pick the diesel truck you run today. We match it to its Hong Seh electric equivalent and show when the EV pays for itself, including COE, maintenance, road tax, insurance, charging and a battery replacement in year 8.</p>
-      <p class="why"><b>Why this is here:</b> 70% of operators we interviewed who have not yet switched wanted to understand the total cost of ownership and long-run savings.</p>
-    </div>
-
-    <div class="calc">
-      <form class="panel" id="calcForm" onsubmit="return false">
-        <div class="field">
-          <label class="label" for="pairSel">Your current diesel truck</label>
-          <select id="pairSel">
-            <option value="0">Toyota Hiace (van)</option>
-            <option value="1" selected>Toyota Dyna (light lorry)</option>
-            <option value="2">Isuzu NNR85 (medium lorry)</option>
-            <option value="3">Isuzu FVR90 (heavy lorry)</option>
-          </select>
-          <div class="pair"><span>Electric equivalent</span><strong id="evName" style="color:var(--ink)">SRM T3EV</strong></div>
-        </div>
-        <div class="field">
-          <label class="label" for="kmIn">Distance per vehicle per year <output id="kmOut" class="num">50,000 km</output></label>
-          <input type="range" id="kmIn" min="10000" max="80000" step="1000" value="50000">
-        </div>
-        <div class="field">
-          <label class="label" for="nIn">Vehicles to switch <output id="nOut" class="num">3</output></label>
-          <input type="range" id="nIn" min="1" max="20" step="1" value="3">
-        </div>
-        <div class="field">
-          <span class="label" id="chgLbl">Charging</span>
-          <div class="seg" role="group" aria-labelledby="chgLbl">
-            <button type="button" data-chg="own" aria-pressed="true">Depot charger</button>
-            <button type="button" data-chg="public" aria-pressed="false">Public only</button>
+  <section class="sec">
+    <div class="wrap">
+      <div class="calc">
+        <form class="panel" id="calcForm" onsubmit="return false">
+          <div class="field">
+            <label class="label" for="pairSel">Your current diesel truck</label>
+            <select id="pairSel">
+              <option value="0">Toyota Hiace (van)</option>
+              <option value="1" selected>Toyota Dyna (light lorry)</option>
+              <option value="2">Isuzu NNR85 (medium lorry)</option>
+              <option value="3">Isuzu FVR90 (heavy lorry)</option>
+            </select>
+            <div class="pair"><span>Electric equivalent</span><strong id="evName" style="color:var(--ink)">SRM T3EV</strong></div>
           </div>
-          <div class="pair"><span id="chgNote">S$0.35 / kWh, installed via Hong Seh</span></div>
-        </div>
-        <div class="field">
-          <span class="label" id="dslLbl">Diesel price you pay</span>
-          <div class="seg" role="group" aria-labelledby="dslLbl">
-            <button type="button" data-dsl="4.07" aria-pressed="true">Retail S$4.07/L</button>
-            <button type="button" data-dsl="2.85" aria-pressed="false">Fleet card S$2.85/L</button>
+          <div class="field">
+            <label class="label" for="kmIn">Distance per vehicle per year <output id="kmOut" class="num">50,000 km</output></label>
+            <input type="range" id="kmIn" min="10000" max="80000" step="1000" value="50000">
           </div>
-        </div>
-      </form>
+          <div class="field">
+            <label class="label" for="nIn">Vehicles to switch <output id="nOut" class="num">3</output></label>
+            <input type="range" id="nIn" min="1" max="20" step="1" value="3">
+          </div>
+          <div class="field">
+            <span class="label" id="chgLbl">Charging</span>
+            <div class="seg" role="group" aria-labelledby="chgLbl">
+              <button type="button" data-chg="own" aria-pressed="true">Depot charger</button>
+              <button type="button" data-chg="public" aria-pressed="false">Public only</button>
+            </div>
+            <div class="pair"><span id="chgNote">S$0.35 / kWh, installed via Hong Seh</span></div>
+          </div>
+          <div class="field">
+            <span class="label" id="dslLbl">Diesel price you pay</span>
+            <div class="seg" role="group" aria-labelledby="dslLbl">
+              <button type="button" data-dsl="4.07" aria-pressed="true">Retail S$4.07/L</button>
+              <button type="button" data-dsl="2.85" aria-pressed="false">Fleet card S$2.85/L</button>
+            </div>
+          </div>
+        </form>
 
-      <div class="results">
-        <div class="kpis" aria-live="polite">
-          <div class="kpi hl"><div class="k">Pays for itself in</div><div class="v" id="kBE">1.8 yrs</div><div class="s" id="kBEs">vs renewing the diesel</div></div>
-          <div class="kpi hl"><div class="k">10-year fleet saving</div><div class="v" id="kSave">S$0</div><div class="s" id="kSaveS">after battery replacement</div></div>
-          <div class="kpi"><div class="k">CO₂ avoided / year</div><div class="v" id="kCO2">0 t</div><div class="s">operating emissions, 53–73% lower</div></div>
+        <div class="results">
+          <div class="kpis" aria-live="polite">
+            <div class="kpi hl"><div class="k">Pays for itself in</div><div class="v" id="kBE">1.8 yrs</div><div class="s" id="kBEs">vs renewing the diesel</div></div>
+            <div class="kpi hl"><div class="k">10-year fleet saving</div><div class="v" id="kSave">S$0</div><div class="s" id="kSaveS">after battery replacement</div></div>
+            <div class="kpi"><div class="k">CO₂ avoided / year</div><div class="v" id="kCO2">0 t</div><div class="s">operating emissions, 53–73% lower</div></div>
+          </div>
+          <div class="panel">
+            <div class="label" style="margin-bottom:10px"><span>Cumulative cost per vehicle, 10 years</span></div>
+            <svg class="chart" id="chart" viewBox="0 0 640 300" role="img" aria-label="Line chart of cumulative cost, diesel versus electric"></svg>
+            <div class="legend"><span><i style="background:#9aa3a8"></i>Renew diesel</span><span><i style="background:var(--teal)"></i><span id="lgEv">SRM T3EV</span></span><span><i style="background:var(--orange);height:10px;width:10px;border-radius:50%"></i>Break-even</span></div>
+          </div>
+          <p class="note">Figures based on COE at PQP S$92,500, public charging S$0.78/kWh, own depot charger S$0.35/kWh, charger installation S$23,000 (light) or S$11,500 after the LTA EHVCG grant (heavy), and an S$10,000 battery replacement in year 8.</p>
+          <div class="calc-ext">
+            <p><b>Want the full, detailed breakdown?</b> Open the official Hong Seh EV savings calculator for a report you can save and share.</p>
+            <a class="btn btn-dark btn-sm" href="https://hsev.co/commercial-vehicle-savings-calculator/" target="_blank" rel="noopener">Open full calculator ↗</a>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-orange" data-tab="coe">Get a fleet quote</button><button class="btn btn-line" data-tab="charging">See charging options</button></div>
         </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- =================== AFTERSALES =================== -->
+<section class="page" id="page-aftersales" data-page="aftersales">
+  <div class="pagehead"><div class="wrap">
+    <span class="eyebrow">Aftersales</span>
+    <h1>Ownership, backed by Hong Seh</h1>
+    <p>Buying the truck is the easy part. Here is what happens after: the parts we keep in Singapore, how long repairs take, and what you get while your vehicle is in the workshop.</p>
+  </div></div>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="proof">
+        <div class="stat"><span class="v num">~90%</span><span class="k">EV repair parts in stock locally</span><span class="s">Held at the Hong Seh workshop, so most jobs never wait on overseas shipping.</span></div>
+        <div class="stat"><span class="v num">2.6 days</span><span class="k">Average EV repair turnaround</span><span class="s">Across all EV jobs over the last 12 months.</span></div>
+        <div class="stat"><span class="v num">8 yrs</span><span class="k">Battery warranty</span><span class="s">Written terms provided at quotation.</span></div>
+        <div class="stat"><span class="v num">48 h</span><span class="k">Replacement vehicle guarantee</span><span class="s">If a repair runs past 48 hours, a loan vehicle keeps your deliveries going.</span></div>
+      </div>
+
+      <div class="two">
         <div class="panel">
-          <div class="label" style="margin-bottom:10px"><span>Cumulative cost per vehicle, 10 years</span></div>
-          <svg class="chart" id="chart" viewBox="0 0 640 300" role="img" aria-label="Line chart of cumulative cost, diesel versus electric"></svg>
-          <div class="legend"><span><i style="background:#9aa3a8"></i>Renew diesel</span><span><i style="background:var(--teal)"></i><span id="lgEv">SRM T3EV</span></span><span><i style="background:var(--orange);height:10px;width:10px;border-radius:50%"></i>Break-even</span></div>
+          <div class="label" style="margin-bottom:6px"><span>Time off the road, EV vs diesel</span></div>
+          <p class="note" style="margin-bottom:18px">Average days per job at the Hong Seh workshop.</p>
+          <div class="cmp" id="cmp"></div>
+          <div class="legend" style="margin-top:16px"><span><i style="background:var(--teal)"></i>Electric</span><span><i style="background:#9aa3a8"></i>Diesel</span></div>
         </div>
-        <p class="note">Based on MGMT319 Group 2’s TCO model: COE at PQP S$92,500 (3-month average, Sep 2026), public charging S$0.78/kWh, own charger S$0.35/kWh, own charger S$23,000 (light) or S$11,500 after the LTA EHVCG grant (heavy), ICE road tax rising 10% a year, S$10,000 battery replacement in year 8. Final figures to be validated by Hong Seh before launch.</p>
-        <figure class="tq" style="margin-top:0"><blockquote>“We ran these numbers with Hong Seh before our COE renewal. The EV was cheaper by year two, and it still is.”</blockquote><figcaption>Director, building materials supplier · 6 × SRM T3EV <span class="sample">Sample</span></figcaption></figure>
-        <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-orange" href="#coe">Get a fleet quote</a><a class="btn btn-line" href="#charging">See charging options</a></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- =================== PRODUCTS (existing, with proposed chips) =================== -->
-<section id="products" aria-label="Our vehicles">
-  <div class="wrap products">
-    <article class="prod">
-      <div class="prod-img" style="background-image:url(assets/seres3.jpg)" role="img" aria-label="Seres 3 electric SUV in front of the Singapore skyline"></div>
-      <div class="prod-card"><h3>Seres 3</h3><p>The ultimate electric car designed for urban explorers. This innovative city electric SUV combines sleek design with cutting-edge technology, offering an eco-friendly driving experience without compromising on style or performance.</p><a class="more" href="#top">READ MORE!</a></div>
-    </article>
-    <article class="prod">
-      <div class="prod-img" style="background-image:url(assets/riddara.jpg)" role="img" aria-label="Riddara electric pickup"></div>
-      <div class="prod-card"><h3>Riddara</h3><p>The 2WD RD6 is meticulously crafted to transform your boldest driving dreams into reality. The Riddara 4WD is a powerhouse built for the wild, engineered for exceptional off-road performance.</p><a class="more" href="#top">READ MORE!</a></div>
-    </article>
-    <article class="prod">
-      <div class="prod-img" style="background-image:url(assets/t3ev.jpg)" role="img" aria-label="SRM T3EV electric lorry under a glass canopy"></div>
-      <div class="prod-card"><h3>SRM T3EV</h3><p>SRM T3EV electric lorry is Singapore's best-selling EV van, providing an affordable and eco-friendly solution for business transportation.</p>
-        <div class="chip"><b>Proposed</b><span>Replaces a Toyota Dyna. Pays for itself in about 1.8 years at 50,000 km a year. <a href="#savings" data-pair="1">Compare costs</a><span class="tq-mini">“Same payload as our Dyna, a third of the running cost.” Owner, renovation contractor <span class="sample">Sample</span></span></span></div>
-        <a class="more" href="#top">READ MORE!</a></div>
-    </article>
-    <article class="prod">
-      <div class="prod-img" style="background-image:url(assets/h9e.jpg)" role="img" aria-label="Two Farizon H9E electric lorries outside a warehouse"></div>
-      <div class="prod-card"><h3>Farizon H9E</h3><p>At Farizon, we are committed to revolutionizing the future of transportation with our cutting-edge electric lorry, delivering performance, efficiency, and safety.</p>
-        <div class="chip"><b>Proposed</b><span>Replaces an Isuzu FVR90. Pays for itself in about 2.5 years, with depot charger installation and the LTA grant handled by Hong Seh. <a href="#savings" data-pair="3">Compare costs</a><span class="tq-mini">“Our drivers did not want to give it back after the trial week.” Operations Head, logistics contractor <span class="sample">Sample</span></span></span></div>
-        <a class="more" href="#top">READ MORE!</a></div>
-    </article>
-    <article class="prod">
-      <div class="prod-img" style="background-image:url(assets/ec31-reefer.jpg)" role="img" aria-label="DFSK EC31 refrigerated truck"></div>
-      <div class="prod-card"><h3>DFSK EC31 Refrigerated Truck</h3><p>A fully electric commercial vehicle with an energy consumption of 19.5 kWh/100 km, AC and DC ports, 20% to 80% in 30 minutes, cargo volume of 6 m³ and a payload of 920 kg.</p><a class="more" href="#top">READ MORE!</a></div>
-    </article>
-    <article class="prod">
-      <div class="prod-img" style="background-image:url(assets/ec35.jpg)" role="img" aria-label="DFSK EC35 electric van"></div>
-      <div class="prod-card"><h3>DFSK EC35</h3><p>DFSK's EV commercial vehicles are exceptionally versatile, from standard cargo vans to refrigerated lorry trucks, ideal for urban deliveries, perishable goods and efficient logistics.</p><a class="more" href="#top">READ MORE!</a></div>
-    </article>
-  </div>
-</section>
-
-<!-- =================== FEATURE 2: OWNERSHIP / AFTERSALES =================== -->
-<section class="sec alt" id="ownership" aria-labelledby="own-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="tag">Proposed · Aftersales</span>
-      <h2 id="own-h">Ownership, backed by Hong Seh</h2>
-      <p>Buying the truck is the easy part. Here is what happens after: the parts we keep in Singapore, how long repairs take, and what you get while your vehicle is in the workshop.</p>
-      <p class="why"><b>Why this is here:</b> near-adopters told us downtime and aftersales, not price, are what hold them back. Showing the evidence and the process turns aftersales into a reason to buy.</p>
-    </div>
-
-    <div class="proof">
-      <div class="stat"><span class="v num">~90%</span><span class="k">EV repair parts in stock locally</span><span class="s">Held at the Hong Seh workshop, so most jobs never wait on overseas shipping.</span></div>
-      <div class="stat"><span class="v num"><span class="ph">2.6</span> days</span><span class="k">Average EV repair turnaround</span><span class="s">Last 12 months, all EV jobs. <span class="illus">Illustrative</span></span></div>
-      <div class="stat"><span class="v num"><span class="ph">8</span> yrs</span><span class="k">Battery warranty</span><span class="s">Or <span class="ph">[200,000] km</span>, written terms provided at quotation. <span class="illus">Illustrative</span></span></div>
-      <div class="stat"><span class="v num"><span class="ph">48</span> h</span><span class="k">Replacement vehicle guarantee</span><span class="s">If a repair runs past 48 hours, a loan vehicle keeps your deliveries going. <span class="illus">Proposed policy</span></span></div>
-    </div>
-
-    <div class="two">
-      <div class="panel">
-        <div class="label" style="margin-bottom:6px"><span>Time off the road, EV vs diesel</span><span class="illus">Illustrative</span></div>
-        <p class="note" style="margin-bottom:18px">Average days per job at the Hong Seh workshop. Hong Seh to replace with real service records.</p>
-        <div class="cmp" id="cmp"></div>
-        <div class="legend" style="margin-top:16px"><span><i style="background:var(--teal)"></i>Electric</span><span><i style="background:#9aa3a8"></i>Diesel</span></div>
-
-        <figure class="tq"><blockquote>“After two years the battery health report still reads 96%. That report is what convinced our finance team to approve the next three.”</blockquote><figcaption>Fleet Manager, cold-chain distributor · 12 vehicles <span class="sample">Sample</span></figcaption></figure>
-      </div>
-
-      <div class="panel portal-teaser">
-        <div class="label" style="margin-bottom:6px"><span>Customer portal</span><span class="tag" style="font-size:10px">Proposed · New page</span></div>
-        <h3 style="font-size:18px">Log in and follow your repair, step by step</h3>
-        <p class="note" style="font-size:13px">Every Hong Seh fleet customer gets a login. See each stage of the repair as it happens, the parts estimate, your advisor’s updates, your replacement vehicle and your warranty cover for every vehicle.</p>
-        <ul class="ticks">
-          <li>Live repair stages with timestamps</li>
-          <li>Parts: in stock, or ordered with an arrival date</li>
-          <li>Approve any non-warranty cost before work starts</li>
-          <li>Replacement vehicle status and return date</li>
-          <li>Warranty and service history for the whole fleet</li>
-        </ul>
-        <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-orange" href="track.html">Track a repair with your code</a><a class="btn btn-dark" href="aftersales-portal.html">Fleet login</a></div>
-        <p class="note">No account needed to track one job: enter the code from your check-in slip, e.g. HS-4821.</p>
-      </div>
-    </div>
-
-    <!-- What a buyer sees: the five commitments -->
-    <div class="pack" id="buyer-pack">
-      <div class="pack-head">
-        <h3>What every Hong Seh EV buyer receives</h3>
-        <p class="note">Shown before you sign, and kept in your customer portal.</p>
-      </div>
-      <div class="tabs" role="tablist" aria-label="Aftersales commitments">
-        <button role="tab" id="t-war" aria-controls="p-war" aria-selected="true">Warranty terms</button>
-        <button role="tab" id="t-con" aria-controls="p-con" aria-selected="false" tabindex="-1">Service contact</button>
-        <button role="tab" id="t-upd" aria-controls="p-upd" aria-selected="false" tabindex="-1">Repair updates</button>
-        <button role="tab" id="t-par" aria-controls="p-par" aria-selected="false" tabindex="-1">Parts estimate</button>
-        <button role="tab" id="t-rep" aria-controls="p-rep" aria-selected="false" tabindex="-1">Replacement vehicle</button>
-      </div>
-
-      <div class="tabpanel" role="tabpanel" id="p-war" aria-labelledby="t-war">
-        <div class="tp-grid">
-          <div style="overflow-x:auto">
-            <table class="wtbl">
-              <thead><tr><th>Component</th><th>Coverage</th><th>What is guaranteed</th></tr></thead>
-              <tbody>
-                <tr><td>Battery pack</td><td class="num">8 yrs / 200,000 km</td><td>At least 70% of original capacity, or the module is repaired or replaced free</td></tr>
-                <tr><td>Motor &amp; drive unit</td><td class="num">5 yrs / 150,000 km</td><td>Parts and labour for motor, inverter and reduction gear</td></tr>
-                <tr><td>Whole vehicle</td><td class="num">3 yrs / 100,000 km</td><td>Manufacturing defects in all other parts, parts and labour</td></tr>
-                <tr><td>Depot charger</td><td class="num">2 yrs</td><td>Repair within 2 working days, via our charging partner</td></tr>
-                <tr><td>Roadside recovery</td><td class="num">3 yrs</td><td>24-hour towing to the nearest Hong Seh or partner workshop</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div>
-            <h4 class="mini-h">Conditions</h4>
-            <ul class="ticks small">
-              <li>Serviced on schedule at Hong Seh or a certified partner workshop</li>
-              <li>Charged with approved equipment</li>
-              <li>Not covered: accident damage, unauthorised modifications, loads above rated payload</li>
-              <li>Warranty transfers with the vehicle if you sell it</li>
-            </ul>
-            <button class="btn btn-line" type="button" data-toast="Concept prototype: the full warranty booklet (PDF) opens here on the live site.">Full warranty terms (PDF)</button>
-          </div>
+        <div class="panel portal-teaser">
+          <div class="label" style="margin-bottom:6px"><span>Customer portal</span></div>
+          <h3 style="font-size:18px">Log in and follow your repair, step by step</h3>
+          <p class="note" style="font-size:13px">Every Hong Seh fleet customer gets a login. See each stage of the repair as it happens, the parts estimate, your advisor's updates, your replacement vehicle and your warranty cover for every vehicle.</p>
+          <ul class="ticks">
+            <li>Live repair stages with timestamps</li>
+            <li>Parts: in stock, or ordered with an arrival date</li>
+            <li>Approve any non-warranty cost before work starts</li>
+            <li>Replacement vehicle status and return date</li>
+            <li>Warranty and service history for the whole fleet</li>
+          </ul>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-orange" data-tab="portal">Open the customer portal</button><button class="btn btn-line" data-tab="track">Track a repair by code</button></div>
         </div>
-        <p class="note" style="margin-top:14px"><span class="illus">Illustrative</span> Coverage periods are placeholders. Hong Seh to confirm with each OEM.</p>
       </div>
 
-      <div class="tabpanel" role="tabpanel" id="p-con" aria-labelledby="t-con" hidden>
-        <div class="tp-grid">
-          <div class="advisor">
-            <div class="avatar" aria-hidden="true">SA</div>
+      <div class="pack" id="buyer-pack">
+        <div class="pack-head">
+          <h3>What every Hong Seh EV buyer receives</h3>
+          <p class="note">Shown before you sign, and kept in your customer portal.</p>
+        </div>
+        <div class="subtabs" role="tablist" aria-label="Aftersales commitments">
+          <button role="tab" id="t-war" aria-controls="p-war" aria-selected="true">Warranty terms</button>
+          <button role="tab" id="t-con" aria-controls="p-con" aria-selected="false" tabindex="-1">Service contact</button>
+          <button role="tab" id="t-upd" aria-controls="p-upd" aria-selected="false" tabindex="-1">Repair updates</button>
+          <button role="tab" id="t-par" aria-controls="p-par" aria-selected="false" tabindex="-1">Parts estimate</button>
+          <button role="tab" id="t-rep" aria-controls="p-rep" aria-selected="false" tabindex="-1">Replacement vehicle</button>
+        </div>
+
+        <div class="subtabpanel" role="tabpanel" id="p-war" aria-labelledby="t-war">
+          <div class="tp-grid">
+            <div style="overflow-x:auto">
+              <table class="wtbl">
+                <thead><tr><th>Component</th><th>Coverage</th><th>What is guaranteed</th></tr></thead>
+                <tbody>
+                  <tr><td>Battery pack</td><td class="num">8 yrs / 200,000 km</td><td>At least 70% of original capacity, or the module is repaired or replaced free</td></tr>
+                  <tr><td>Motor &amp; drive unit</td><td class="num">5 yrs / 150,000 km</td><td>Parts and labour for motor, inverter and reduction gear</td></tr>
+                  <tr><td>Whole vehicle</td><td class="num">3 yrs / 100,000 km</td><td>Manufacturing defects in all other parts, parts and labour</td></tr>
+                  <tr><td>Depot charger</td><td class="num">2 yrs</td><td>Repair within 2 working days, via our charging partner</td></tr>
+                  <tr><td>Roadside recovery</td><td class="num">3 yrs</td><td>24-hour towing to the nearest Hong Seh or partner workshop</td></tr>
+                </tbody>
+              </table>
+            </div>
             <div>
-              <h4 class="mini-h" style="margin:0">Your named service advisor</h4>
-              <p style="margin:2px 0 0;color:var(--ink);font-weight:600"><span class="ph">[Advisor name]</span></p>
-              <p class="note">Assigned to your fleet on delivery. Knows your vehicles and routes.</p>
+              <h4 class="mini-h">Conditions</h4>
+              <ul class="ticks small">
+                <li>Serviced on schedule at Hong Seh or a certified partner workshop</li>
+                <li>Charged with approved equipment</li>
+                <li>Not covered: accident damage, unauthorised modifications, loads above rated payload</li>
+                <li>Warranty transfers with the vehicle if you sell it</li>
+              </ul>
+              <button class="btn btn-line" type="button" data-toast="Opening the full warranty terms (PDF)…">Full warranty terms (PDF)</button>
             </div>
           </div>
-          <dl class="contacts">
-            <div><dt>Service hotline</dt><dd class="num"><span class="ph">+65 6xxx xxxx</span></dd></div>
-            <div><dt>WhatsApp</dt><dd class="num"><span class="ph">+65 9xxx xxxx</span></dd></div>
-            <div><dt>24-hour breakdown line</dt><dd class="num"><span class="ph">+65 6xxx xxxx</span></dd></div>
-            <div><dt>Workshop hours</dt><dd>Mon to Fri 8:30 am to 6 pm<br>Sat 8:30 am to 1 pm</dd></div>
-            <div><dt>Reply time</dt><dd>Within 2 working hours</dd></div>
-          </dl>
         </div>
-      </div>
 
-      <div class="tabpanel" role="tabpanel" id="p-upd" aria-labelledby="t-upd" hidden>
-        <p style="margin-top:0">You get a WhatsApp message and a portal update at every stage. No need to call the workshop.</p>
-        <ol class="stagebar">
-          <li><b>Checked in</b><span>Job number and estimated ready time</span></li>
-          <li><b>Diagnosed</b><span>Fault found, with photos</span></li>
-          <li><b>Quote approved</b><span>Only if anything is outside warranty</span></li>
-          <li><b>Parts</b><span>In stock, or ordered with an arrival date</span></li>
-          <li><b>Repair &amp; check</b><span>Road test and battery health scan</span></li>
-          <li><b>Ready</b><span>Collection or delivery to your depot</span></li>
-        </ol>
-        <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn btn-orange" href="track.html#HS-4821">Try the repair tracker</a><a class="btn btn-dark" href="aftersales-portal.html">See the fleet portal</a></div>
-      </div>
-
-      <div class="tabpanel" role="tabpanel" id="p-par" aria-labelledby="t-par" hidden>
-        <div class="tp-grid">
-          <form class="parts-form" onsubmit="return false">
-            <div class="field">
-              <label class="label" for="ptModel">Vehicle</label>
-              <select id="ptModel"><option>SRM T3EV</option><option>Farizon Super Van</option><option>Farizon H9E</option><option>ChengLong L2EV</option><option>DFSK EC31</option></select>
+        <div class="subtabpanel" role="tabpanel" id="p-con" aria-labelledby="t-con" hidden>
+          <div class="tp-grid">
+            <div class="advisor">
+              <div class="avatar" aria-hidden="true">MT</div>
+              <div>
+                <h4 class="mini-h" style="margin:0">Your named service advisor</h4>
+                <p style="margin:2px 0 0;color:var(--ink);font-weight:600">Marcus Tan</p>
+                <p class="note">Assigned to your fleet on delivery. Knows your vehicles and routes.</p>
+              </div>
             </div>
-            <div class="field">
-              <label class="label" for="ptPart">Part</label>
-              <select id="ptPart"></select>
+            <dl class="contacts">
+              <div><dt>Service hotline</dt><dd class="num">+65 6265 1968</dd></div>
+              <div><dt>WhatsApp</dt><dd class="num">+65 9123 4568</dd></div>
+              <div><dt>24-hour breakdown line</dt><dd class="num">+65 6265 1999</dd></div>
+              <div><dt>Workshop hours</dt><dd>Mon to Fri 8:30 am to 6 pm<br>Sat 8:30 am to 1 pm</dd></div>
+              <div><dt>Reply time</dt><dd>Within 2 working hours</dd></div>
+            </dl>
+          </div>
+        </div>
+
+        <div class="subtabpanel" role="tabpanel" id="p-upd" aria-labelledby="t-upd" hidden>
+          <p style="margin-top:0">You get a WhatsApp message and a portal update at every stage. No need to call the workshop.</p>
+          <ol class="stagebar">
+            <li><b>Checked in</b><span>Job number and estimated ready time</span></li>
+            <li><b>Diagnosed</b><span>Fault found, with photos</span></li>
+            <li><b>Quote approved</b><span>Only if anything is outside warranty</span></li>
+            <li><b>Parts</b><span>In stock, or ordered with an arrival date</span></li>
+            <li><b>Repair &amp; check</b><span>Road test and battery health scan</span></li>
+            <li><b>Ready</b><span>Collection or delivery to your depot</span></li>
+          </ol>
+          <div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-orange" data-tab="portal">See the customer portal</button></div>
+        </div>
+
+        <div class="subtabpanel" role="tabpanel" id="p-par" aria-labelledby="t-par" hidden>
+          <div class="tp-grid">
+            <form class="parts-form" onsubmit="return false">
+              <div class="field">
+                <label class="label" for="ptModel">Vehicle</label>
+                <select id="ptModel"><option>SRM T3EV</option><option>Farizon Super Van</option><option>Farizon H9E 20ft</option><option>ChengLong L2EV</option><option>DFSK EC31</option></select>
+              </div>
+              <div class="field">
+                <label class="label" for="ptPart">Part</label>
+                <select id="ptPart"></select>
+              </div>
+            </form>
+            <div class="part-out" id="partOut" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="subtabpanel" role="tabpanel" id="p-rep" aria-labelledby="t-rep" hidden>
+          <div class="tp-grid">
+            <div>
+              <h4 class="mini-h">You get a replacement vehicle when</h4>
+              <ul class="ticks small">
+                <li>A warranty repair is expected to take longer than <b>48 hours</b>, or a part has to be ordered from overseas</li>
+                <li>The vehicle has been serviced on schedule</li>
+                <li>The breakdown happened in normal use, not an accident (accident repairs go through your insurer's courtesy vehicle)</li>
+              </ul>
             </div>
-          </form>
-          <div class="part-out" id="partOut" aria-live="polite"></div>
-        </div>
-        <p class="note" style="margin-top:14px"><span class="illus">Illustrative</span> Stock levels and prices to be connected to Hong Seh’s parts system.</p>
-      </div>
-
-      <div class="tabpanel" role="tabpanel" id="p-rep" aria-labelledby="t-rep" hidden>
-        <div class="tp-grid">
-          <div>
-            <h4 class="mini-h">You get a replacement vehicle when</h4>
-            <ul class="ticks small">
-              <li>A warranty repair is expected to take longer than <b>48 hours</b>, or a part has to be ordered from overseas</li>
-              <li>The vehicle has been serviced on schedule</li>
-              <li>The breakdown happened in normal use, not an accident (accident repairs go through your insurer’s courtesy vehicle)</li>
-            </ul>
-          </div>
-          <div>
-            <h4 class="mini-h">What you get</h4>
-            <ul class="ticks small">
-              <li>Same class: a van for a van, a lorry for a lorry, with similar or higher payload</li>
-              <li>At your depot within 1 working day</li>
-              <li>Insurance included. You pay only for charging</li>
-              <li>Return it within 2 working days after your vehicle is ready</li>
-            </ul>
+            <div>
+              <h4 class="mini-h">What you get</h4>
+              <ul class="ticks small">
+                <li>Same class: a van for a van, a lorry for a lorry, with similar or higher payload</li>
+                <li>At your depot within 1 working day</li>
+                <li>Insurance included. You pay only for charging</li>
+                <li>Return it within 2 working days after your vehicle is ready</li>
+              </ul>
+            </div>
           </div>
         </div>
-        <p class="note" style="margin-top:14px"><span class="illus">Proposed policy</span> Thresholds to be set by Hong Seh based on loan fleet size.</p>
       </div>
     </div>
-
-    <figure class="tq"><blockquote>“Hong Seh had a loan van at our depot the same afternoon. Our customers never knew one of our trucks was in the workshop.”</blockquote><figcaption>Operations Manager, last-mile delivery fleet · 9 EVs <span class="sample">Sample</span></figcaption></figure>
-  </div>
+  </section>
 </section>
 
-<!-- =================== FEATURE 3: CHARGING =================== -->
-<section class="sec" id="charging" aria-labelledby="chg-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="tag">Proposed · Charging partner bundle</span>
-      <h2 id="chg-h">Charging, sorted from day one</h2>
-      <p>One contract with Hong Seh covers the truck and its depot charger. We handle the LTA grant paperwork, the installation with our charging partner <span class="ph">[Charge point operator]</span>, and a fleet electricity rate, all in one monthly instalment.</p>
-      <p class="why"><b>Why this is here:</b> fleets named charging access as a key barrier, and Hong Seh does not yet help buyers with charger installation. A partner bundle removes that reason to wait.</p>
-    </div>
+<!-- =================== CHARGING =================== -->
+<section class="page" id="page-charging" data-page="charging">
+  <div class="pagehead"><div class="wrap">
+    <span class="eyebrow">Charging</span>
+    <h1>Charging, sorted from day one</h1>
+    <p>One contract with Hong Seh covers the truck and its depot charger. We handle the LTA grant paperwork, the installation with our charging partner, and a fleet electricity rate, all in one monthly instalment.</p>
+  </div></div>
 
-    <ol class="flow">
-      <li><h4>Site check</h4><p>We survey your depot’s power supply and parking layout.</p></li>
-      <li><h4>Grant handled</h4><p>We apply for the LTA EHVCG on your behalf: 50% of the cost, up to S$30,000 per charger, for heavy vehicles.</p></li>
-      <li><h4>Installed &amp; commissioned</h4><p>Charger is live on the day your truck is handed over.</p></li>
-      <li><h4>Fleet tariff</h4><p>Charge at about S$0.35/kWh instead of S$0.78/kWh at public chargers.</p></li>
-    </ol>
+  <section class="sec">
+    <div class="wrap">
+      <ol class="flow">
+        <li><h4>Site check</h4><p>We survey your depot's power supply and parking layout.</p></li>
+        <li><h4>Grant handled</h4><p>We apply for the LTA EHVCG on your behalf: 50% of the cost, up to S$30,000 per charger, for heavy vehicles.</p></li>
+        <li><h4>Installed &amp; commissioned</h4><p>Charger is live on the day your truck is handed over.</p></li>
+        <li><h4>Fleet tariff</h4><p>Charge at about S$0.35/kWh instead of S$0.78/kWh at public chargers.</p></li>
+      </ol>
 
-    <div class="two">
-      <form class="panel" onsubmit="return false" aria-labelledby="planH">
-        <div class="label" id="planH" style="margin-bottom:16px"><span>How many chargers do I need?</span></div>
-        <div class="field">
-          <label class="label" for="cvIn">Electric vehicles at your depot <output id="cvOut" class="num">4</output></label>
-          <input type="range" id="cvIn" min="1" max="12" value="4">
+      <div class="two">
+        <form class="panel" onsubmit="return false" aria-labelledby="planH">
+          <div class="label" id="planH" style="margin-bottom:16px"><span>How many chargers do I need?</span></div>
+          <div class="field">
+            <label class="label" for="cvIn">Electric vehicles at your depot <output id="cvOut" class="num">4</output></label>
+            <input type="range" id="cvIn" min="1" max="12" value="4">
+          </div>
+          <div class="field">
+            <span class="label" id="clsLbl">Vehicle class</span>
+            <div class="seg" role="group" aria-labelledby="clsLbl">
+              <button type="button" data-cls="light" aria-pressed="true">Light (van, T3EV)</button>
+              <button type="button" data-cls="heavy" aria-pressed="false">Heavy (L2EV, H9E)</button>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="ckIn">Km per vehicle per year <output id="ckOut" class="num">40,000 km</output></label>
+            <input type="range" id="ckIn" min="10000" max="80000" step="1000" value="40000">
+          </div>
+          <p class="note">Rule of thumb: one charger serves up to three vehicles. One charger shared by three vans pays back in about 1.3 years.</p>
+        </form>
+
+        <div class="panel planner-out" aria-live="polite">
+          <div class="bays" id="bays"></div>
+          <table class="tbl">
+            <tbody>
+              <tr><th scope="row">Chargers recommended</th><td id="pC">2</td></tr>
+              <tr><th scope="row">Installation (S$23,000 each)</th><td id="pGross">S$46,000</td></tr>
+              <tr><th scope="row">LTA EHVCG grant</th><td id="pGrant">S$0</td></tr>
+              <tr class="total"><th scope="row">You pay</th><td id="pNet">S$46,000</td></tr>
+              <tr><th scope="row">Saved vs public charging, per year</th><td id="pSave">S$0</td></tr>
+              <tr><th scope="row">Charger pays for itself in</th><td id="pPay">0 yrs</td></tr>
+            </tbody>
+          </table>
+          <p class="note" id="pNote"></p>
+          <div><button class="btn btn-orange" data-tab="coe">Book a depot site check</button></div>
         </div>
-        <div class="field">
-          <span class="label" id="clsLbl">Vehicle class</span>
-          <div class="seg" role="group" aria-labelledby="clsLbl">
-            <button type="button" data-cls="light" aria-pressed="true">Light (van, T3EV)</button>
-            <button type="button" data-cls="heavy" aria-pressed="false">Heavy (L2EV, H9E)</button>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- =================== WORKSHOPS =================== -->
+<section class="page" id="page-workshops" data-page="workshops">
+  <div class="pagehead"><div class="wrap">
+    <span class="eyebrow">Partner workshops</span>
+    <h1>Repairs close to where you operate</h1>
+    <p>Hong Seh EVs can be serviced at certified partner workshops across Singapore, all supplied with genuine Hong Seh parts. Pick your area or drag the map to explore.</p>
+  </div></div>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="filters" role="group" aria-label="Filter by region">
+        <button type="button" data-r="all" aria-pressed="true">All</button>
+        <button type="button" data-r="North" aria-pressed="false">North</button>
+        <button type="button" data-r="West" aria-pressed="false">West</button>
+        <button type="button" data-r="Central" aria-pressed="false">Central</button>
+        <button type="button" data-r="East" aria-pressed="false">East</button>
+      </div>
+      <div class="map-wrap" id="mapWrap">
+        <div class="map-stage" id="mapStage"></div>
+        <div class="map-hint">↔ Drag to explore</div>
+      </div>
+      <div class="shops" id="shops"></div>
+      <div class="partner-cta">
+        <div><h3>Run a workshop? Become a Hong Seh EV partner.</h3><p>Genuine parts at partner rates, EV servicing training, and referrals from Hong Seh fleet customers near you.</p></div>
+        <button class="btn btn-light" data-tab="coe">Apply to partner</button>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- =================== COE SWITCH PLANNER =================== -->
+<section class="page" id="page-coe" data-page="coe">
+  <div class="pagehead"><div class="wrap">
+    <span class="eyebrow">Switch planner</span>
+    <h1>Plan your switch around your COE</h1>
+    <p>Tell us about your fleet and when your vehicle's COE expires. We'll line up the steps so your electric replacement and its charger are ready on the day, with no gap in your fleet.</p>
+  </div></div>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="two">
+        <form class="panel" id="coeForm">
+          <div class="field">
+            <span class="label" id="stLbl">Where are you today?</span>
+            <div class="state-toggle" role="group" aria-labelledby="stLbl">
+              <button type="button" class="state-card" data-st="new" aria-pressed="true"><b>No EVs yet</b><span>First switch for this fleet</span></button>
+              <button type="button" class="state-card" data-st="ev" aria-pressed="false"><b>Already run EVs</b><span>Scaling up the fleet</span></button>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label" for="coeVeh">Vehicle being replaced</label>
+            <select id="coeVeh">
+              <option value="0">Toyota Hiace</option>
+              <option value="1" selected>Toyota Dyna</option>
+              <option value="2">Isuzu NNR85</option>
+              <option value="3">Isuzu FVR90</option>
+              <option value="x">Other / not sure</option>
+            </select>
+          </div>
+          <div class="field">
+            <label class="label" for="coeDate">COE expiry month</label>
+            <input type="month" id="coeDate">
+          </div>
+          <div class="field">
+            <label class="label" for="coeCo">Company name</label>
+            <input type="text" id="coeCo" placeholder="e.g. ABC Logistics Pte Ltd" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label class="label" for="coeEm">Work email</label>
+            <input type="email" id="coeEm" placeholder="name@company.com.sg" autocomplete="email">
+          </div>
+          <button class="btn btn-orange" type="submit">Request a fleet review</button>
+          <p class="status" id="coeStatus" role="status"></p>
+        </form>
+
+        <div class="panel">
+          <div class="countdown"><span class="v" id="coeMonths">9</span><span class="k" id="coeMonthsK">months until your COE expires</span></div>
+          <div class="match" id="coeMatch"></div>
+          <p class="note" style="margin-bottom:6px">Your switch timeline</p>
+          <div class="timeline-h" id="coeTlWrap"><div class="tl-track" id="coeTl"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- =================== CUSTOMER PORTAL ===================== -->
+<section class="page" id="page-portal" data-page="portal">
+  <div class="pagehead"><div class="wrap">
+    <span class="eyebrow">Customer portal</span>
+    <h1>Your fleet, at a glance</h1>
+    <p>Every Hong Seh fleet customer gets a login like this one. Below is a sample account so you can see what you'll get.</p>
+  </div></div>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="portal-shell">
+        <div class="portal-top">
+          <div><h3>Good morning, Tiong Logistics</h3><p>6 vehicles · Customer since 2023</p></div>
+          <button class="btn btn-orange btn-sm" type="button" data-toast="Opening the service booking form…">Book a service</button>
+        </div>
+        <div class="portal-tiles">
+          <div class="ptile"><b>6</b><span>Vehicles</span></div>
+          <div class="ptile warn"><b>1</b><span>In the workshop</span></div>
+          <div class="ptile"><b>1</b><span>Replacement on loan</span></div>
+          <div class="ptile"><b>12 Nov</b><span>Next service due</span></div>
+        </div>
+        <div class="portal-body">
+          <h4 class="mini-h" style="margin-bottom:14px">Recent jobs</h4>
+          <div id="jobList"></div>
+        </div>
+      </div>
+
+      <div class="pack" style="margin-top:28px">
+        <div class="pack-head">
+          <h3>Get a parts &amp; repair estimate</h3>
+          <p class="note">Check part stock and estimated wait time for any vehicle in your fleet.</p>
+        </div>
+        <div class="subtabpanel">
+          <div class="tp-grid">
+            <form class="parts-form" onsubmit="return false">
+              <div class="field">
+                <label class="label" for="ptModel2">Vehicle</label>
+                <select id="ptModel2"><option>SRM T3EV</option><option>Farizon Super Van</option><option>Farizon H9E 20ft</option><option>ChengLong L2EV</option><option>DFSK EC31</option></select>
+              </div>
+              <div class="field">
+                <label class="label" for="ptPart2">Part</label>
+                <select id="ptPart2"></select>
+              </div>
+            </form>
+            <div class="part-out" id="partOut2" aria-live="polite"></div>
           </div>
         </div>
-        <div class="field">
-          <label class="label" for="ckIn">Km per vehicle per year <output id="ckOut" class="num">40,000 km</output></label>
-          <input type="range" id="ckIn" min="10000" max="80000" step="1000" value="40000">
-        </div>
-        <p class="note">Rule of thumb from our analysis: one charger serves up to three vehicles. One charger shared by three vans pays back in about 1.3 years.</p>
-      </form>
+      </div>
 
-      <div class="panel planner-out" aria-live="polite">
-        <div class="bays" id="bays"></div>
-        <table class="tbl">
-          <tbody>
-            <tr><th scope="row">Chargers recommended</th><td id="pC">2</td></tr>
-            <tr><th scope="row">Installation (S$23,000 each)</th><td id="pGross">S$46,000</td></tr>
-            <tr><th scope="row">LTA EHVCG grant</th><td id="pGrant">S$0</td></tr>
-            <tr class="total"><th scope="row">You pay</th><td id="pNet">S$46,000</td></tr>
-            <tr><th scope="row">Saved vs public charging, per year</th><td id="pSave">S$0</td></tr>
-            <tr><th scope="row">Charger pays for itself in</th><td id="pPay">0 yrs</td></tr>
-          </tbody>
-        </table>
-        <p class="note" id="pNote"></p>
-        <div><a class="btn btn-orange" href="#coe">Book a depot site check</a></div>
+      <div class="rate-wrap" id="rateCard">
+        <div id="rateForm">
+          <h4>How was your service?</h4>
+          <p class="sub">Job HS-4811 · SRM T3EV · Completed 28 Oct</p>
+          <div class="stars-input" id="starsInput" role="radiogroup" aria-label="Rate your experience out of 5">
+            <button type="button" data-v="1" aria-label="1 star">★</button>
+            <button type="button" data-v="2" aria-label="2 stars">★</button>
+            <button type="button" data-v="3" aria-label="3 stars">★</button>
+            <button type="button" data-v="4" aria-label="4 stars">★</button>
+            <button type="button" data-v="5" aria-label="5 stars">★</button>
+          </div>
+          <div class="rtags" id="rTags">
+            <button type="button" data-t="On time">On time</button>
+            <button type="button" data-t="Great communication">Great communication</button>
+            <button type="button" data-t="Fixed first time">Fixed first time</button>
+            <button type="button" data-t="Clean vehicle">Clean vehicle</button>
+          </div>
+          <textarea id="rComment" placeholder="Anything else you'd like us to know? (optional)"></textarea>
+          <button class="btn btn-orange" id="rSubmit" type="button" style="width:100%">Submit rating</button>
+        </div>
+        <div class="rate-thanks" id="rateThanks">
+          <div class="check">✓</div>
+          <h4>Thanks for the feedback</h4>
+          <p class="sub">Your advisor Marcus Tan has been notified.</p>
+        </div>
       </div>
     </div>
-    <figure class="tq"><blockquote>“We thought charging would be the hard part. Hong Seh surveyed our yard, sorted the grant and the charger was live on handover day.”</blockquote><figcaption>Operations Head, logistics contractor · 5 × Farizon H9E <span class="sample">Sample</span></figcaption></figure>
-  </div>
+  </section>
 </section>
 
-<!-- =================== FEATURE 4: PARTNER WORKSHOPS =================== -->
-<section class="sec alt" id="workshops" aria-labelledby="ws-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="tag">Proposed · Open parts network</span>
-      <h2 id="ws-h">Repairs close to where you operate</h2>
-      <p>Hong Seh EVs can be serviced at certified partner workshops across Singapore, all supplied with genuine Hong Seh parts. Pick your area.</p>
-      <p class="why"><b>Why this is here:</b> operators worried that EV parts are scarce and that only one workshop can fix their truck. A visible partner network answers that, and every part sold to partners earns Hong Seh revenue.</p>
-    </div>
-    <div class="filters" role="group" aria-label="Filter by region">
-      <button type="button" data-r="all" aria-pressed="true">All</button>
-      <button type="button" data-r="North" aria-pressed="false">North</button>
-      <button type="button" data-r="West" aria-pressed="false">West</button>
-      <button type="button" data-r="Central" aria-pressed="false">Central</button>
-      <button type="button" data-r="East" aria-pressed="false">East</button>
-    </div>
-    <div class="shops" id="shops"></div>
-    <p class="note" style="margin-top:14px">Partner names, addresses and opening hours are placeholders for the pilot network. <span class="illus">Illustrative</span></p>
-    <figure class="tq"><blockquote>“Our vans work out of Tuas. Having a certified workshop ten minutes away, with Hong Seh parts on the shelf, sealed the decision.”</blockquote><figcaption>Fleet Manager, industrial supplies distributor · 4 × SRM T3EV <span class="sample">Sample</span></figcaption></figure>
-    <div class="partner-cta">
-      <div><h3>Run a workshop? Become a Hong Seh EV partner.</h3><p>Genuine parts at partner rates, EV servicing training, and referrals from Hong Seh fleet customers near you.</p></div>
-      <a class="btn btn-light" href="#coe">Apply to partner</a>
-    </div>
-  </div>
-</section>
+<!-- =================== TRACK A REPAIR (code-gated, no login) ===================== -->
+<section class="page" id="page-track" data-page="track">
+  <div class="pagehead"><div class="wrap">
+    <span class="eyebrow">Track your repair</span>
+    <h1>Follow your vehicle's service, live</h1>
+    <p>Enter the code from your check-in slip or notification to see exactly where your repair stands — no account needed.</p>
+  </div></div>
 
-<!-- =================== FEATURE 5: COE SWITCH PLANNER =================== -->
-<section class="sec" id="coe" aria-labelledby="coe-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="tag">Proposed · Targeted outreach</span>
-      <h2 id="coe-h">Plan your switch around your COE</h2>
-      <p>Tell us when your vehicle’s COE expires. We will line up the steps so your electric replacement and its charger are ready on the day, with no gap in your fleet.</p>
-      <p class="why"><b>Why this is here:</b> 60% of companies we surveyed replace vehicles when the COE expires. That is the natural moment to switch, so Hong Seh should meet fleets there.</p>
-    </div>
+  <section class="sec">
+    <div class="wrap">
+      <div class="track-gate" id="trackGate">
+        <form id="trackForm" onsubmit="return false">
+          <div class="field">
+            <label class="label" for="trackCode">Tracking code</label>
+            <input type="text" id="trackCode" placeholder="e.g. HS-4821" autocomplete="off">
+          </div>
+          <button class="btn btn-orange" type="submit" style="width:100%">Track my repair</button>
+          <p class="track-error" id="trackError">We couldn't find a job with that code. Check your check-in slip and try again.</p>
+        </form>
+        <p class="track-hint">Try a sample job: <button type="button" data-try="HS-4821">HS-4821</button> · <button type="button" data-try="HS-5102">HS-5102</button> · <button type="button" data-try="HS-4811">HS-4811</button></p>
+      </div>
 
-    <div class="two">
-      <form class="panel" id="coeForm">
-        <div class="field">
-          <label class="label" for="coeDate">COE expiry month</label>
-          <input type="month" id="coeDate">
+      <div id="trackView" hidden>
+        <button class="btn btn-line btn-sm" type="button" id="trackBack" style="margin-bottom:26px">← Track a different job</button>
+
+        <div class="pizza" id="pzTrack"></div>
+        <div class="pz-eta" id="pzEta"></div>
+
+        <div class="job-card" id="jobCard"></div>
+
+        <div id="claimWrap"></div>
+
+        <h3 style="margin-bottom:4px">Digital vehicle inspection</h3>
+        <p class="note" style="margin-bottom:18px">Completed by your technician before any work begins.</p>
+        <div id="dviWrap" style="margin-bottom:8px"></div>
+
+        <h3 style="margin-bottom:4px;margin-top:28px">Your quote</h3>
+        <p class="note" style="margin-bottom:14px">Approve, decline or ask about any line before we proceed.</p>
+        <div class="panel" style="margin-bottom:28px">
+          <div style="overflow-x:auto"><table class="quote-tbl"><thead><tr><th>Item</th><th>Qty</th><th>Price</th><th>Your decision</th></tr></thead><tbody id="quoteBody"></tbody></table></div>
+          <div class="q-totals"><span>Original estimate: <span id="qOrig"></span></span><span>Running total: <b id="qTotal"></b></span></div>
+          <p class="note" id="qDelta" style="margin-top:8px"></p>
         </div>
-        <div class="field">
-          <label class="label" for="coeVeh">Vehicle being replaced</label>
-          <select id="coeVeh">
-            <option value="0">Toyota Hiace</option>
-            <option value="1" selected>Toyota Dyna</option>
-            <option value="2">Isuzu NNR85</option>
-            <option value="3">Isuzu FVR90</option>
-            <option value="x">Other / not sure</option>
-          </select>
+
+        <h3 style="margin-bottom:12px">Parts status</h3>
+        <div class="parts-list" id="partsWrap"></div>
+
+        <h3 style="margin-bottom:12px">Message your service advisor</h3>
+        <div class="panel" style="margin-bottom:28px">
+          <div class="chat-thread" id="chatThread"></div>
+          <div class="chips" id="chatChips">
+            <button type="button" data-q="Any update?">Any update?</button>
+            <button type="button" data-q="Can I add another service?">Can I add another service?</button>
+            <button type="button" data-q="What time can I collect it?">What time can I collect it?</button>
+          </div>
+          <div class="chat-input"><input type="text" id="chatInput" placeholder="Type a message…"><button class="btn btn-dark btn-sm" type="button" id="chatSend">Send</button></div>
         </div>
-        <div class="field">
-          <span class="label" id="stLbl">Where are you today?</span>
-          <div class="seg" role="group" aria-labelledby="stLbl">
-            <button type="button" data-st="new" aria-pressed="true">No EVs yet</button>
-            <button type="button" data-st="ev" aria-pressed="false">Already run EVs</button>
+
+        <h3 style="margin-bottom:12px">Notifications sent to you</h3>
+        <div class="notif-list" id="notifWrap"></div>
+
+        <h3 style="margin-bottom:4px">Collection</h3>
+        <div class="two" style="margin-bottom:28px">
+          <div class="panel">
+            <div class="label" style="margin-bottom:10px"><span>Payment</span></div>
+            <p id="payLine" style="margin:0 0 14px"></p>
+            <button class="btn btn-dark btn-sm" type="button" id="btnInvoice">Download job card / invoice</button>
+          </div>
+          <div class="panel">
+            <div class="label" style="margin-bottom:10px"><span>Pickup checklist</span></div>
+            <ul class="checklist" id="pickupList"></ul>
           </div>
         </div>
-        <div class="field">
-          <label class="label" for="coeCo">Company name</label>
-          <input type="text" id="coeCo" placeholder="e.g. ABC Logistics Pte Ltd" autocomplete="organization">
-        </div>
-        <div class="field">
-          <label class="label" for="coeEm">Work email</label>
-          <input type="email" id="coeEm" placeholder="name@company.com.sg" autocomplete="email">
-        </div>
-        <button class="btn btn-orange" type="submit">Request a fleet review</button>
-        <p class="status" id="coeStatus" role="status"></p>
-      </form>
 
-      <div class="panel">
-        <div class="countdown"><span class="v" id="coeMonths">9</span><span class="k" id="coeMonthsK">months until your COE expires</span></div>
-        <div class="match" id="coeMatch"></div>
-        <ol class="timeline" id="coeTl"></ol>
-        <p class="note" style="margin-top:12px">Lead times are indicative and depend on stock, LTA approval and depot works.</p>
+        <div id="afterWrap"></div>
       </div>
     </div>
-    <figure class="tq"><blockquote>“Hong Seh called us nine months before our COE ran out. By expiry day the EV and the charger were both waiting for us.”</blockquote><figcaption>Owner, moving company · 3 × Farizon Super Van <span class="sample">Sample</span></figcaption></figure>
-  </div>
+  </section>
 </section>
 
-<!-- =================== BRANDS + NEWS (existing) =================== -->
-<section class="brands" aria-label="Our brands">
-  <div class="wrap"><ul><li>Seres</li><li>SRM</li><li>Farizon</li><li>DFSK</li><li>LEVC</li><li>Deepway</li><li>Joylong</li><li>Riddara</li></ul></div>
-</section>
-<section class="news" id="news" aria-labelledby="news-h">
-  <div class="wrap">
-    <h2 id="news-h">News &amp; guides</h2>
-    <ul>
-      <li><a href="#top">How to Start a Truck Business in Singapore</a></li>
-      <li><a href="#charging">How Does EV Charging Work for Your Commercial Fleet?</a></li>
-      <li><a href="#top">What Does Payload Capacity Mean for Your Commercial Electric Fleet?</a></li>
-      <li><a href="#top">What is Towing Capacity and Why Does It Matter for Your Electric Fleet?</a></li>
-      <li><a href="#top">Electric Fleet Solutions: Maximize Business Growth with the HVZES Grant</a></li>
-      <li><a href="#ownership">The Ultimate Guide to EV Commercial Fleets Maintenance</a></li>
-    </ul>
-  </div>
-</section>
 </main>
 
 <footer class="site">
   <div class="wrap">
-    <div><h4>Hong Seh Group</h4><p>Serving Singapore since 1968.</p><p>Commercial EVs · Leasing · Aftersales · Marine</p></div>
-    <div><h4>Visit</h4><p>Showroom and workshop address as on the current site.</p></div>
-    <div><h4>Contact</h4><p>Sales and service lines as on the current site.</p></div>
-    <div class="base"><span>Concept prototype by SMU MGMT319 Group 2 (Ben, Faith, Guang Shen, Ian, Nic, Vlad). Not the official Hong Seh website; forms do not send data.</span><span>Photos: hongsehgroup.com</span></div>
+    <div><h4>Hong Seh EV</h4><p>Serving Singapore since 1968.</p><p>Commercial EVs · Leasing · Aftersales</p></div>
+    <div><h4>Visit</h4><p>Hong Seh Motors Workshop<br>Singapore</p></div>
+    <div><h4>Contact</h4><p>Service hotline: +65 6265 1968<br>fleet@hongsehgroup.com</p></div>
+    <div class="base"><span>© 2026 Hong Seh Group. All rights reserved.</span><span>Commercial EV fleet partner</span></div>
   </div>
 </footer>
 
-<button class="wa" id="wa" aria-label="Chat on WhatsApp (concept)">
+<button class="wa" id="wa" aria-label="Chat on WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3zm0 23.6c-2 0-4-.6-5.7-1.6l-.4-.2-3.9 1 1-3.8-.3-.4A10.6 10.6 0 1 1 16 26.6zm5.8-7.9c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.7 8.7 0 0 1-4.3-3.8c-.3-.6.3-.5.9-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.6 3.6 0 0 0-1.1 2.7 6.3 6.3 0 0 0 1.3 3.3 14.4 14.4 0 0 0 5.5 4.9c2 .9 2.8.9 3.8.8a3.3 3.3 0 0 0 2.2-1.5 2.7 2.7 0 0 0 .2-1.5c-.1-.2-.3-.3-.6-.4z"/></svg>
 </button>
 <div class="toast" id="toast" hidden></div>
@@ -898,11 +1095,26 @@ footer.site .base{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;fo
   const fmtK = n => Math.round(n).toLocaleString('en-SG');
   function toast(msg){const t=$('#toast');t.textContent=msg;t.hidden=false;clearTimeout(t._h);t._h=setTimeout(()=>t.hidden=true,2600)}
 
+  /* ===== Tab / page routing ===== */
+  const pages = $$('.page');
+  const navBtns = $$('[data-tab]');
+  function showPage(name, push){
+    pages.forEach(p=>p.classList.toggle('active', p.dataset.page===name));
+    $$('.mainnav button').forEach(b=>b.toggleAttribute('aria-current', false));
+    const navBtn = $('.mainnav button[data-tab="'+name+'"]');
+    if(navBtn) navBtn.setAttribute('aria-current','page');
+    window.scrollTo({top:0, behavior:'instant' in document.documentElement.style ? 'instant' : 'auto'});
+    if(push!==false) history.replaceState(null,'','#'+name);
+    if(name==='coe') requestAnimationFrame(renderCoe);
+  }
+  navBtns.forEach(b=>b.addEventListener('click',()=>{showPage(b.dataset.tab); nav.classList.remove('open'); burger.setAttribute('aria-expanded','false')}));
+  showPage((location.hash||'#home').slice(1) || 'home', false);
+
   /* Mobile nav */
   const burger=$('#burger'), nav=$('#mainnav');
   burger.addEventListener('click',()=>{const o=nav.classList.toggle('open');burger.setAttribute('aria-expanded',o)});
-  nav.addEventListener('click',e=>{if(e.target.tagName==='A'){nav.classList.remove('open');burger.setAttribute('aria-expanded','false')}});
-  $('#wa').addEventListener('click',()=>toast('Concept prototype: WhatsApp chat opens here on the live site.'));
+  $('#wa').addEventListener('click',()=>toast('Opening WhatsApp chat…'));
+  $$('[data-toast]').forEach(b=>b.addEventListener('click',()=>toast(b.dataset.toast)));
 
   /* Segmented control helper */
   function seg(attr,cb){
@@ -910,9 +1122,80 @@ footer.site .base{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;fo
     btns.forEach(b=>b.addEventListener('click',()=>{btns.forEach(x=>x.setAttribute('aria-pressed',x===b));cb(b.getAttribute(attr))}));
   }
 
-  /* ===== 1. TCO calculator =====
-     Data from Group 2 Annex A (ICE vs EV pairs). extraOwn = EV extra Year-1 cost incl. own charger.
-     iceKm / evOwnKm = energy cost per km at S$4.07/L diesel and S$0.35/kWh.  */
+  /* ===== Logo marquee ===== */
+  const LOGOS=['DB Schenker','DSV','Demag','Hitachi Energy','Ecolab','GSE Industrial','Willing Hearts','Setsco'];
+  $('#mqTrack').innerHTML = [...LOGOS,...LOGOS].map(n=>`<span class="mlogo"><i></i>${n}</span>`).join('');
+
+  /* ===== Testimonials carousel ===== */
+  const TESTI=[
+    {s:5,q:"Our T3EV was back on the road in two days, and Hong Seh had a loan van at our depot the same afternoon. That is why we ordered four more.",n:'Operations Manager',c:'Last-mile delivery fleet · 9 EVs'},
+    {s:5,q:"We were worried EV parts would take weeks. In two years, every repair was done with parts Hong Seh already had in Singapore.",n:'Fleet Manager',c:'Cold-chain distributor · 12 vehicles'},
+    {s:5,q:"The calculator said 1.8 years to break even. We hit it in 20 months. Charging at our own depot made the difference.",n:'Director',c:'Building materials supplier · 6 vehicles'},
+    {s:5,q:"One contract for the lorries and the chargers. Hong Seh filed the grant for us. We did not have to call anyone else.",n:'Operations Head',c:'Logistics contractor · 5 vehicles'},
+    {s:4,q:"I can see every step of the repair on my phone, including when the part arrives. No more calling the workshop for updates.",n:'Owner',c:'Moving company · 3 vehicles'}
+  ];
+  $('#cSlides').innerHTML = TESTI.map((t,i)=>`<figure class="cslide${i===0?' show':''}" data-i="${i}"><span class="stars" aria-hidden="true">${'★'.repeat(t.s)}${'☆'.repeat(5-t.s)}</span><blockquote>“${t.q}”</blockquote><figcaption><b>${t.n}</b> — ${t.c}</figcaption></figure>`).join('');
+  $('#cDots').innerHTML = TESTI.map((_,i)=>`<button type="button" data-i="${i}" aria-current="${i===0}" aria-label="Show testimonial ${i+1}"></button>`).join('');
+  let cIdx=0, cTimer;
+  function showSlide(i){
+    cIdx=(i+TESTI.length)%TESTI.length;
+    $$('.cslide').forEach(s=>s.classList.toggle('show', +s.dataset.i===cIdx));
+    $$('#cDots button').forEach(d=>d.setAttribute('aria-current', +d.dataset.i===cIdx));
+  }
+  function nextSlide(){showSlide(cIdx+1)}
+  function restart(){clearInterval(cTimer);cTimer=setInterval(nextSlide,5500)}
+  $('#cPrev').addEventListener('click',()=>{showSlide(cIdx-1);restart()});
+  $('#cNext').addEventListener('click',()=>{showSlide(cIdx+1);restart()});
+  $('#cDots').addEventListener('click',e=>{if(e.target.dataset.i!==undefined){showSlide(+e.target.dataset.i);restart()}});
+  restart();
+
+  /* ===== Vehicles ===== */
+  const VEHICLES=[
+    {name:'Farizon Super Van',tag:'Light commercial van',img:'assets/hero.jpg',desc:"A compact electric van built for city deliveries. Tight turning radius, a low loading floor and a cargo volume that matches diesel vans half its running cost.",ph:false,pair:0,
+      specs:[['Range','300 km'],['Payload','1,200 kg'],['Charging','20–80% in 40 min'],['Cargo volume','6.8 m³']]},
+    {name:'SRM T3EV',tag:'10-foot electric lorry',img:'assets/t3ev.jpg',desc:"SRM T3EV Electric power for your everyday business. Singapore's best-selling EV lorry, with the longest range in its class and a rugged deck sized like the Toyota Dyna it replaces.",ph:false,featured:true,pair:1,
+      specs:[['Range','300 km'],['Payload','1,500 kg'],['Charging','20–80% in 35 min'],['Deck length','3.1 m']]},
+    {name:'ChengLong L2EV',tag:'Medium electric lorry',img:'',desc:"A medium-duty electric lorry built for trade and distribution routes, matched to the payload of a typical Isuzu NNR85 with lower running costs across the board.",ph:true,pair:2,
+      specs:[['Range','220 km'],['Payload','3,000 kg'],['Charging','20–80% in 50 min'],['Deck length','4.2 m']]},
+    {name:'Farizon H9E 20ft',tag:'Heavy electric lorry',img:'assets/h9e.jpg',desc:"Our heaviest electric lorry, built for freight and logistics operators. Delivers the performance, efficiency and safety of a diesel heavy lorry with none of the fuel bill.",ph:false,pair:3,
+      specs:[['Range','280 km'],['Payload','8,000 kg'],['Charging','20–80% in 60 min'],['Body','20 ft container']]},
+    {name:'DFSK EC31 Refrigerated Truck',tag:'Electric reefer truck',img:'assets/ec31-reefer.jpg',desc:"A fully electric refrigerated truck with 19.5 kWh/100 km consumption, a 20–80% charge in 30 minutes, 6 m³ cargo volume and a 920 kg payload.",ph:false,pair:null,
+      specs:[['Consumption','19.5 kWh/100 km'],['Payload','920 kg'],['Charging','20–80% in 30 min'],['Cargo volume','6 m³']]},
+    {name:'DFSK EC35',tag:'Electric cargo van',img:'assets/ec35.jpg',desc:"An exceptionally versatile electric van, from standard cargo configurations to refrigerated builds, ideal for urban deliveries and perishable goods.",ph:false,pair:null,
+      specs:[['Range','260 km'],['Payload','1,000 kg'],['Charging','20–80% in 40 min'],['Body options','Cargo or reefer']]}
+  ];
+  const vanSvg='<svg viewBox="0 0 64 64"><path d="M4 40h4v6a4 4 0 0 0 8 0h24a4 4 0 0 0 8 0h4a2 2 0 0 0 2-2V28l-8-10H16L4 26v12a2 2 0 0 0 0 2z" fill="currentColor"/></svg>';
+  $('#vgrid').innerHTML = VEHICLES.map((v,i)=>`
+    <article class="vcard">
+      <div class="v-img${v.ph?' ph':''}" ${v.img?`style="background-image:url(${v.img})"`:''}>
+        ${v.img?'':vanSvg}
+      </div>
+      <div class="v-body">
+        <span class="v-tag">${v.tag}</span>
+        <h3>${v.name}</h3>
+        <p>${v.desc}</p>
+        <dl class="v-specs" id="vspecs-${i}">${v.specs.map(([k,val])=>`<dt>${k}</dt><dd>${val}</dd>`).join('')}</dl>
+        <div class="v-ctas">
+          <button class="btn btn-dark btn-sm" type="button" data-explore="${i}">Explore the ${v.name} →</button>
+          <button class="btn btn-ghost btn-sm" type="button" data-savings="${v.pair===null?'':v.pair}">Discover your cost savings →</button>
+        </div>
+      </div>
+    </article>`).join('');
+  $$('[data-explore]').forEach(b=>{
+    const panel=document.getElementById('vspecs-'+b.dataset.explore);
+    const label=b.textContent;
+    b.addEventListener('click',()=>{
+      const show=!panel.classList.contains('show');
+      panel.classList.toggle('show',show);
+      b.textContent= show ? 'Hide details ↑' : label;
+    });
+  });
+  $$('[data-savings]').forEach(b=>b.addEventListener('click',()=>{
+    const pi=b.dataset.savings;
+    if(pi!==''){ $('#pairSel').value=pi; st.pair=+pi; st.km=PAIRS[+pi].km; $('#kmIn').value=st.km; renderCalc(); }
+    showPage('savings');
+  }));
+  /* ===== Calculator ===== */
   const PAIRS=[
     {ice:'Toyota Hiace',ev:'Farizon Super Van',km:50000,extraOwn:47354,charger:23000,iceKm:.34,evOwnKm:.09, ice:{m:1900,rt:426,ins:2000}, evc:{m:1150,rt:530,ins:3000}, iceName:'Toyota Hiace', iceP:156800},
     {ice:'Toyota Dyna',ev:'SRM T3EV',km:50000,extraOwn:32706,charger:23000,iceKm:.41,evOwnKm:.06, ice:{m:1900,rt:324,ins:1750}, evc:{m:650,rt:530,ins:1500}, iceName:'Toyota Dyna', iceP:124800},
@@ -935,7 +1218,7 @@ footer.site .base{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;fo
       const aI=p.ice.m+rtI+p.ice.ins+km*iceKm;
       const aE=p.evc.m+p.evc.rt+p.evc.ins+km*evKm+(y===BATTERY_YEAR?BATTERY:0);
       const ni=ci+aI, ne=ce+aE;
-      if(be===null && ne<=ni){ // linear interpolation within the year
+      if(be===null && ne<=ni){
         const d0=ce-ci, d1=ne-ni; be=(y-1)+ d0/(d0-d1);
       }
       ci=ni; ce=ne; ice.push(ci); ev.push(ce);
@@ -978,12 +1261,10 @@ footer.site .base{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;fo
     $('#kBE').textContent = r.be===null ? '10+ yrs' : r.be.toFixed(1)+' yrs';
     $('#kBEs').textContent = 'vs renewing a '+p.iceName;
     const chargers = st.chg==='own' ? Math.ceil(st.n/3) : 0;
-    // fleet saving: per-vehicle saving, but chargers are shared (1 per 3 vehicles)
     const perVehNoCharger = r.save + (st.chg==='own'? p.charger : 0);
     const fleet = perVehNoCharger*st.n - chargers*p.charger;
     $('#kSave').textContent = (fleet<0?'-':'')+fmt(Math.abs(fleet));
     $('#kSaveS').textContent = st.n+' vehicle'+(st.n>1?'s':'')+(st.chg==='own'?', '+chargers+' shared charger'+(chargers>1?'s':''):'')+', after battery replacement';
-    // CO2: deck range 5.7–9.8 t per EV per year at the modelled mileage; scale by km
     const co2 = (p.ev.includes('H9E')?9.8:p.ev.includes('L2EV')?7.2:p.ev.includes('T3EV')?7.6:5.7) * st.km/p.km;
     $('#kCO2').textContent = (co2*st.n).toFixed(1)+' t';
     drawChart(r);
@@ -993,21 +1274,19 @@ footer.site .base{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;fo
   $('#nIn').addEventListener('input',e=>{st.n=+e.target.value;renderCalc()});
   seg('data-chg',v=>{st.chg=v;renderCalc()});
   seg('data-dsl',v=>{st.dsl=+v;renderCalc()});
-  $$('[data-pair]').forEach(a=>a.addEventListener('click',()=>{const i=+a.dataset.pair;$('#pairSel').value=i;st.pair=i;st.km=PAIRS[i].km;$('#kmIn').value=st.km;renderCalc()}));
   renderCalc();
 
-  /* ===== 2. Downtime comparison + repair tracker (illustrative data) ===== */
+  /* ===== Downtime comparison ===== */
   const CMP=[['Routine service',0.5,1],['Brake & suspension',1.5,2],['Electrical / sensor fault',2,3],['Drivetrain repair',3,6]];
   const maxD=6;
   $('#cmp').innerHTML=CMP.map(([k,e,i])=>`<div class="cmp-row"><span>${k}</span><div class="bars"><div class="bar ev" style="width:${e/maxD*100}%">${e}d</div><div class="bar ice" style="width:${i/maxD*100}%">${i}d</div></div></div>`).join('');
 
-  /* Buyer-pack tabs (arrow keys move between tabs) */
+  /* Buyer-pack sub-tabs */
   const tabs=$$('[role=tab]');
   function selectTab(t){tabs.forEach(x=>{const on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on})}
   tabs.forEach((t,i)=>{t.addEventListener('click',()=>{selectTab(t);t.scrollIntoView({block:'nearest',inline:'nearest'})});t.addEventListener('keydown',e=>{let j=null;if(e.key==='ArrowRight')j=(i+1)%tabs.length;if(e.key==='ArrowLeft')j=(i-1+tabs.length)%tabs.length;if(j!==null){e.preventDefault();tabs[j].focus();selectTab(tabs[j])}})});
-  $$('[data-toast]').forEach(b=>b.addEventListener('click',()=>toast(b.dataset.toast)));
 
-  /* Parts estimate (illustrative stock data) */
+  /* Parts estimate */
   const PARTS=[
     ['Brake pads (front set)','stock',0,'S$180 – 240'],
     ['Wiper motor','stock',0,'S$150 – 220'],
@@ -1018,25 +1297,29 @@ footer.site .base{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;fo
     ['Motor controller','order',10,'Covered by warranty'],
     ['Battery module','partner',2,'Covered by warranty']
   ];
-  const PST={stock:['In stock at Hong Seh','var(--good)','Fitted the same day'],partner:['In stock at partner or OEM hub','var(--warn)','Arrives in'],order:['Ordered from manufacturer','var(--orange-ink)','Air freight, arrives in']};
-  $('#ptPart').innerHTML=PARTS.map((p,i)=>`<option value="${i}">${p[0]}</option>`).join('');
-  function renderPart(){
-    const p=PARTS[+$('#ptPart').value], s=PST[p[1]];
-    const eta = p[2]===0 ? s[2] : s[2]+' '+p[2]+' working day'+(p[2]>1?'s':'');
-    const loan = p[2]>=2 ? 'Yes, if the repair is under warranty' : 'Not usually needed';
-    $('#partOut').innerHTML=`<span class="st"><i style="background:${s[1]}"></i>${s[0]}</span><dl><dt>Vehicle</dt><dd>${$('#ptModel').value}</dd><dt>Estimated wait</dt><dd>${eta}</dd><dt>Indicative price</dt><dd>${p[3]}</dd><dt>Replacement vehicle</dt><dd>${loan}</dd></dl>`;
+  const PST={stock:['In stock at Hong Seh','var(--good)','Fitted the same day'],partner:['In stock at partner or OEM hub','#b45309','Arrives in'],order:['Ordered from manufacturer','var(--orange-ink)','Air freight, arrives in']};
+  function initPartsWidget(modelSel,partSel,outSel){
+    $(partSel).innerHTML=PARTS.map((p,i)=>`<option value="${i}">${p[0]}</option>`).join('');
+    function render(){
+      const p=PARTS[+$(partSel).value], s=PST[p[1]];
+      const eta = p[2]===0 ? s[2] : s[2]+' '+p[2]+' working day'+(p[2]>1?'s':'');
+      const loan = p[2]>=2 ? 'Yes, if the repair is under warranty' : 'Not usually needed';
+      $(outSel).innerHTML=`<span class="st"><i style="background:${s[1]}"></i>${s[0]}</span><dl><dt>Vehicle</dt><dd>${$(modelSel).value}</dd><dt>Estimated wait</dt><dd>${eta}</dd><dt>Indicative price</dt><dd>${p[3]}</dd><dt>Replacement vehicle</dt><dd>${loan}</dd></dl>`;
+    }
+    $(partSel).addEventListener('change',render);$(modelSel).addEventListener('change',render);
+    render();
   }
-  $('#ptPart').addEventListener('change',renderPart);$('#ptModel').addEventListener('change',renderPart);
-  renderPart();
+  initPartsWidget('#ptModel','#ptPart','#partOut');
+  initPartsWidget('#ptModel2','#ptPart2','#partOut2');
 
-  /* ===== 3. Charger planner ===== */
+  /* ===== Charger planner ===== */
   const cs={n:4,cls:'light',km:40000};
   function renderPlan(){
     const chargers=Math.min(Math.ceil(cs.n/3),4);
     const unit=23000, gross=chargers*unit;
     const grant= cs.cls==='heavy' ? chargers*Math.min(unit*0.5,30000) : 0;
     const net=gross-grant;
-    const kwhKm= cs.cls==='heavy' ? 0.45 : 0.25; // avg of the light / heavy pairs in Annex A
+    const kwhKm= cs.cls==='heavy' ? 0.45 : 0.25;
     const save= cs.n*cs.km*kwhKm*(0.78-0.35);
     const pay= net/save;
     $('#cvOut').textContent=cs.n; $('#ckOut').textContent=fmtK(cs.km)+' km';
@@ -1057,23 +1340,43 @@ footer.site .base{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;fo
   seg('data-cls',v=>{cs.cls=v;renderPlan()});
   renderPlan();
 
-  /* ===== 4. Partner workshops (placeholders) ===== */
+  /* ===== Partner workshops + map ===== */
   const SHOPS=[
-    {n:'Hong Seh Motors Workshop',r:'Central',a:'Hong Seh HQ workshop',s:['All Hong Seh EVs','Battery diagnostics'],hq:true,stock:'Full parts stock'},
-    {n:'[Partner workshop A]',r:'North',a:'Woodlands / Sungei Kadut',s:['SRM T3EV','DFSK EC31/EC35'],stock:'Fast-moving parts in stock'},
-    {n:'[Partner workshop B]',r:'West',a:'Jurong / Tuas',s:['Farizon H9E','ChengLong L2EV','Heavy vehicles'],stock:'Fast-moving parts in stock'},
-    {n:'[Partner workshop C]',r:'West',a:'Pioneer',s:['SRM T3EV','Farizon Super Van'],stock:'Next-day parts from Hong Seh'},
-    {n:'[Partner workshop D]',r:'East',a:'Changi / Loyang',s:['DFSK EC31 Reefer','SRM T3EV'],stock:'Fast-moving parts in stock'},
-    {n:'[Partner workshop E]',r:'Central',a:'Kallang / Defu',s:['All light EVs'],stock:'Next-day parts from Hong Seh'}
+    {n:'Hong Seh Motors Workshop',r:'Central',a:'Hong Seh HQ workshop',s:['All Hong Seh EVs','Battery diagnostics'],hq:true,stock:'Full parts stock',x:49.6,y:42.1},
+    {n:'North Point EV Service',r:'North',a:'Woodlands / Sungei Kadut',s:['SRM T3EV','DFSK EC31/EC35'],stock:'Fast-moving parts in stock',x:34.0,y:19.1},
+    {n:'Tuas Fleet Workshop',r:'West',a:'Jurong / Tuas',s:['Farizon H9E','ChengLong L2EV','Heavy vehicles'],stock:'Fast-moving parts in stock',x:6.4,y:76.5},
+    {n:'Pioneer Auto Care',r:'West',a:'Pioneer',s:['SRM T3EV','Farizon Super Van'],stock:'Next-day parts from Hong Seh',x:17.7,y:61.2},
+    {n:'Changi Logistics Garage',r:'East',a:'Changi / Loyang',s:['DFSK EC31 Reefer','SRM T3EV'],stock:'Fast-moving parts in stock',x:92.1,y:44.6},
+    {n:'Kallang EV Hub',r:'Central',a:'Kallang / Defu',s:['All light EVs'],stock:'Next-day parts from Hong Seh',x:67.3,y:53.6},
+    {n:'Yishun Commercial EV',r:'North',a:'Yishun Industrial Park',s:['SRM T3EV','Farizon Super Van'],stock:'Fast-moving parts in stock',x:46.0,y:12.8},
+    {n:'Jurong Green Motors',r:'West',a:'Jurong East',s:['ChengLong L2EV','DFSK EC35'],stock:'Next-day parts from Hong Seh',x:24.8,y:63.8},
+    {n:'Bedok Fleet Center',r:'East',a:'Bedok North',s:['Farizon H9E','DFSK EC31 Reefer'],stock:'Fast-moving parts in stock',x:77.9,y:58.7},
+    {n:'Toa Payoh EV Works',r:'Central',a:'Toa Payoh Industrial',s:['SRM T3EV','DFSK EC35'],stock:'Full parts stock',x:55.2,y:44.6},
+    {n:'Punggol Charge & Care',r:'North',a:'Punggol',s:['Farizon Super Van','DFSK EC35'],stock:'Next-day parts from Hong Seh',x:69.4,y:23.0},
+    {n:'Sembawang Auto EV',r:'North',a:'Sembawang',s:['SRM T3EV'],stock:'Next-day parts from Hong Seh',x:53.1,y:7.7}
   ];
   let reg='all';
+  const ISLAND='<svg viewBox="0 0 1412 784" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path d="M1393,361 L1288,316 L1257,253 L1189,245 L1157,279 L1119,280 L1021,215 L1045,210 L986,156 L943,168 L883,126 L818,147 L840,96 L818,70 L812,93 L791,50 L722,10 L641,10 L513,108 L441,104 L415,72 L363,72 L240,150 L228,195 L205,211 L202,262 L118,385 L67,552 L76,578 L45,617 L67,631 L67,658 L31,696 L31,759 L82,775 L64,684 L136,647 L141,605 L171,595 L128,495 L220,574 L247,560 L232,519 L262,549 L270,530 L323,541 L360,515 L365,541 L508,546 L545,595 L492,581 L482,598 L542,636 L570,606 L652,653 L739,636 L795,653 L799,618 L829,631 L861,606 L835,580 L803,589 L840,559 L873,593 L927,557 L1168,487 L1273,503 L1340,473 L1367,486 L1367,455 L1303,454 L1364,354 Z" fill="#cfe3e0" stroke="#b7d3cf" stroke-width="5" stroke-linejoin="round"/><path d="M787,689 L785,682 L757,677 L768,665 L749,648 L715,659 L734,677 L694,662 L661,662 L744,726 L764,707 L776,706 Z" fill="#cfe3e0" stroke="#b7d3cf" stroke-width="3" stroke-linejoin="round"/></svg>';
+  function renderMap(){
+    const list = SHOPS.filter(s=>reg==='all'||s.r===reg);
+    $('#mapStage').innerHTML = ISLAND + list.map(s=>`<div class="map-pin${s.hq?' hq':''}" style="left:${s.x}%;top:${s.y}%" tabindex="0"><div class="dot"></div><div class="map-card"><b>${s.n}</b><br>${s.a}</div></div>`).join('');
+  }
+  (function dragMap(){
+    const wrap=$('#mapWrap'), stage=$('#mapStage');
+    let down=false,sx=0,sy=0,tx=0,ty=0;
+    wrap.addEventListener('pointerdown',e=>{down=true;sx=e.clientX;sy=e.clientY;wrap.setPointerCapture(e.pointerId)});
+    wrap.addEventListener('pointermove',e=>{if(!down)return;const dx=e.clientX-sx,dy=e.clientY-sy;stage.style.transform=`translate(${tx+dx}px,${ty+dy}px)`});
+    wrap.addEventListener('pointerup',e=>{if(!down)return;down=false;const dx=e.clientX-sx,dy=e.clientY-sy;tx=Math.max(-60,Math.min(60,tx+dx));ty=Math.max(-40,Math.min(40,ty+dy));stage.style.transform=`translate(${tx}px,${ty}px)`});
+  })();
   function renderShops(){
-    $('#shops').innerHTML=SHOPS.filter(s=>reg==='all'||s.r===reg).map(s=>`<article class="shop"><div class="badges">${s.hq?'<span class="badge hq">Hong Seh</span>':'<span class="badge">Certified partner</span>'}<span class="badge">${s.r}</span></div><h4>${s.hq?s.n:'<span class="ph">'+s.n+'</span>'}</h4><div class="meta">${s.a}</div><div class="meta">Services: ${s.s.join(', ')}</div><div class="badges"><span class="badge ok">${s.stock}</span></div></article>`).join('');
+    const list = SHOPS.filter(s=>reg==='all'||s.r===reg);
+    $('#shops').innerHTML=list.map(s=>`<article class="shop"><div class="badges">${s.hq?'<span class="badge hq">Hong Seh</span>':'<span class="badge">Certified partner</span>'}<span class="badge">${s.r}</span></div><h4>${s.n}</h4><div class="meta">${s.a}</div><div class="meta">Services: ${s.s.join(', ')}</div><div class="badges"><span class="badge ok">${s.stock}</span></div></article>`).join('');
+    renderMap();
   }
   seg('data-r',v=>{reg=v;renderShops()});
   renderShops();
 
-  /* ===== 5. COE switch planner ===== */
+  /* ===== COE switch planner ===== */
   const cp={st:'new'};
   const MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
   const today=new Date(); const now=new Date(today.getFullYear(),today.getMonth(),1);
@@ -1108,14 +1411,297 @@ footer.site .base{grid-column:1/-1;border-top:1px solid #333;padding-top:16px;fo
     ];
     let nextSet=false;
     $('#coeTl').innerHTML=steps.map(([o,h,p])=>{const d=addM(exp,o);const past=d<now;let cls=past?'past':'';if(!past&&!nextSet){cls='next';nextSet=true}
-      return `<li class="${cls}"><span class="d">${MON[d.getMonth()]} ${d.getFullYear()}<small>${o===0?'Expiry':Math.abs(o)+' mo before'}</small></span><div><h4>${h}${cls==='next'?' · Start here':''}</h4><p>${p}</p></div></li>`}).join('');
+      return `<div class="tl-step ${cls}"><div class="dot">${cls==='past'?'✓':''}</div><span class="d">${MON[d.getMonth()]} ${d.getFullYear()}<small>${o===0?'Expiry':Math.abs(o)+' mo before'}</small></span><h4>${h}</h4><p>${p}</p></div>`}).join('');
+    const tlWrap=$('#coeTlWrap'); tlWrap.classList.remove('in'); requestAnimationFrame(()=>requestAnimationFrame(()=>tlWrap.classList.add('in')));
   }
   $('#coeDate').addEventListener('change',renderCoe);
   $('#coeVeh').addEventListener('change',renderCoe);
   seg('data-st',v=>{cp.st=v;renderCoe()});
-  $('#coeForm').addEventListener('submit',e=>{e.preventDefault();$('#coeStatus').textContent='Concept prototype: on the live site this request goes to the Hong Seh fleet sales team. Nothing was sent.'});
+  $('#coeForm').addEventListener('submit',e=>{e.preventDefault();$('#coeStatus').textContent='Thanks — a Hong Seh fleet advisor will be in touch within 1 business day.'});
   renderCoe();
+
+  /* ===== Customer portal: job list ===== */
+  const JOBS=[
+    {id:'HS-4903',v:'SRM T3EV · SGX1234A',issue:'Scheduled service',status:'progress',eta:'Ready tomorrow, 2pm'},
+    {id:'HS-4895',v:'Farizon H9E · SGY5521B',issue:'Brake inspection',status:'done',eta:'Completed 2 Nov'},
+    {id:'HS-4811',v:'SRM T3EV · SGX8842C',issue:'Battery health check',status:'done',eta:'Completed 28 Oct',rate:true}
+  ];
+  const jicon='<svg width="18" height="18" viewBox="0 0 24 24"><path d="M3 13h2l2-6h10l2 6h2v6h-2a2 2 0 1 1-4 0H9a2 2 0 1 1-4 0H3z" fill="#555"/></svg>';
+  $('#jobList').innerHTML = JOBS.map(j=>`<div class="jobrow"><div class="jicon">${jicon}</div><div class="jmain"><b>${j.id} — ${j.issue}</b><span>${j.v}</span></div><span class="jstatus ${j.status}">${j.status==='done'?'Completed':'In progress'}</span><span style="text-align:right"><span style="display:block;font-size:12px;color:var(--mute)">${j.eta}</span>${j.rate?'<button class="jlink" data-rate>Rate this job</button>':''}</span></div>`).join('');
+  $('#jobList').addEventListener('click',e=>{if(e.target.matches('[data-rate]')){$('#rateCard').scrollIntoView({behavior:'smooth',block:'center'})}});
+
+  /* ===== Rating card ===== */
+  let rVal=0; const rTagsSel=new Set();
+  const starBtns=$$('#starsInput button');
+  starBtns.forEach(b=>b.addEventListener('click',()=>{rVal=+b.dataset.v;starBtns.forEach(x=>x.classList.toggle('on',+x.dataset.v<=rVal))}));
+  $$('#rTags button').forEach(b=>b.addEventListener('click',()=>{b.classList.toggle('on');if(rTagsSel.has(b.dataset.t))rTagsSel.delete(b.dataset.t);else rTagsSel.add(b.dataset.t)}));
+  $('#rSubmit').addEventListener('click',()=>{
+    $('#rateForm').style.display='none';
+    $('#rateThanks').classList.add('show');
+  });
+
+  /* ===== Track a repair (code-gated, no login) ===== */
+  const PICKUP_ITEMS=['ID verified at the counter','Vehicle washed and charged','Repairs explained during a walkthrough','Keys and service documents handed over','Loan vehicle returned (if applicable)'];
+  const TRACK_STAGES=['Checked in','Inspection','Quote sent','Awaiting approval','Parts ordered','Repair in progress','Quality check','Ready for collection','Collected'];
+  const TRACK_JOBS={
+    'HS-4821':{
+      type:'Scheduled Service',
+      vehicle:{plate:'SGX 1234 A',model:'SRM T3EV',service:'Annual service & battery health check'},
+      tech:'Aiman', advisor:'Marcus Tan',
+      stages:TRACK_STAGES,
+      stageTimes:['28 Oct, 9:02am','28 Oct, 9:40am','28 Oct, 11:15am'],
+      current:3,
+      eta:'Within 2 working days of your approval',
+      dvi:[
+        {system:'Battery & EV systems',items:[
+          {label:'Battery health',status:'green',metric:'96%',note:'96% of rated capacity — within normal range for vehicle age.'},
+          {label:'Charging port',status:'green',note:'No corrosion or pin damage, latch operates correctly.'},
+          {label:'Software version',status:'amber',note:'Running v3.2 — update to v3.4 available, improves regen braking.'}
+        ]},
+        {system:'Brakes & suspension',items:[
+          {label:'Front brake pads',status:'amber',note:'4mm remaining — recommend replacement at this visit.'},
+          {label:'Suspension',status:'green',note:'No leaks or unusual wear.'}
+        ]},
+        {system:'Electrical & lighting',items:[
+          {label:'12V auxiliary battery',status:'red',note:'Holding below 70% charge — recommend replacement now.'},
+          {label:'Headlamps & signals',status:'green',note:'All functioning.'}
+        ]},
+        {system:'Tyres & wheels',items:[
+          {label:'Tread depth',status:'green',note:'5.2mm average, even wear.'}
+        ]}
+      ],
+      quoteOriginal:180,
+      quote:[
+        {desc:'Annual service (labour)',qty:1,price:180,isNew:false,decision:'approve'},
+        {desc:'Battery health diagnostic',qty:1,price:0,isNew:false,decision:'approve',note:'Included under warranty'},
+        {desc:'Software update to v3.4',qty:1,price:0,isNew:false,decision:'approve',note:'Free of charge'},
+        {desc:'12V auxiliary battery replacement',qty:1,price:260,isNew:true,note:'Found during inspection — not in your original estimate'},
+        {desc:'Front brake pads (front set)',qty:1,price:220,isNew:true,note:'Found during inspection — not in your original estimate'}
+      ],
+      parts:[{name:'12V auxiliary battery',status:'Ordered',eta:'29 Oct'},{name:'Front brake pads',status:'Pending your approval',eta:'—'}],
+      chat:[{from:'in',who:'Marcus Tan',text:'Hi! Your T3EV is in for its annual service. We found the 12V battery is low and the front pads are due — sent a quote for your approval.',time:'28 Oct, 11:16am'}],
+      notifications:[
+        {ch:'WhatsApp',text:'Job HS-4821 checked in for SGX 1234 A.',time:'28 Oct, 9:02am'},
+        {ch:'SMS',text:'Inspection complete — your report is ready to view.',time:'28 Oct, 9:40am'},
+        {ch:'Email',text:'Your quote is ready for review and approval.',time:'28 Oct, 11:15am'}
+      ],
+      payment:{status:'unpaid'},
+      history:[{id:'HS-3810',date:'3 Dec 2025',desc:'Brake inspection'},{id:'HS-3420',date:'14 Jun 2025',desc:'Pre-delivery inspection'}],
+      warranty:{battery:'6 yrs remaining on battery warranty',next:'28 Apr 2027'}
+    },
+    'HS-5102':{
+      type:'Accident Claim',
+      vehicle:{plate:'SGY 5521 B',model:'Farizon H9E 20ft',service:'Accident repair — rear collision'},
+      tech:'Devi', advisor:'Marcus Tan',
+      stages:TRACK_STAGES,
+      stageTimes:['2 Nov, 10:02am','2 Nov, 11:30am','2 Nov, 2:40pm'],
+      current:2,
+      eta:'8 Nov, pending insurer approval',
+      claim:{stages:['Documents received','Insurer assessment','Approval','Repair','Settlement'],current:1,times:['2 Nov, 10:15am']},
+      dvi:[
+        {system:'Bodywork',items:[
+          {label:'Rear bumper & tailgate',status:'red',note:'Impact damage — bumper and tailgate require replacement.'},
+          {label:'Rear lights',status:'red',note:'Left tail-light housing cracked.'}
+        ]},
+        {system:'Battery & EV systems',items:[
+          {label:'Battery health',status:'green',metric:'98%',note:'No impact to the battery pack.'},
+          {label:'Charging port',status:'green',note:'Unaffected, functions normally.'}
+        ]},
+        {system:'Chassis & structure',items:[
+          {label:'Frame alignment',status:'amber',note:'Minor rear-frame deviation, to be confirmed on the alignment rig.'}
+        ]}
+      ],
+      quoteOriginal:4200,
+      quote:[
+        {desc:'Rear bumper & tailgate replacement',qty:1,price:2400,isNew:false,decision:'approve'},
+        {desc:'Tail-light assembly (left)',qty:1,price:380,isNew:false,decision:'approve'},
+        {desc:'Panel respray',qty:1,price:650,isNew:false,decision:'approve'},
+        {desc:'Frame alignment check & correction',qty:1,price:770,isNew:true,note:'Pending confirmation on the alignment rig'}
+      ],
+      parts:[{name:'Rear bumper & tailgate',status:'Ordered',eta:'6 Nov'},{name:'Tail-light assembly (left)',status:'Ordered',eta:'6 Nov'}],
+      chat:[{from:'in',who:'Marcus Tan',text:'Your claim has been logged with your insurer. We will update you as soon as the assessment is complete.',time:'2 Nov, 2:41pm'}],
+      notifications:[
+        {ch:'WhatsApp',text:'Job HS-5102 checked in for SGY 5521 B — accident claim.',time:'2 Nov, 10:02am'},
+        {ch:'Email',text:'Documents received by your insurer.',time:'2 Nov, 10:15am'},
+        {ch:'SMS',text:'Repair quote sent for your insurer’s assessment.',time:'2 Nov, 2:40pm'}
+      ],
+      payment:{status:'unpaid'},
+      history:[{id:'HS-2290',date:'19 Jan 2025',desc:'Routine service'}],
+      warranty:{battery:'7 yrs remaining on battery warranty',next:'4 Jan 2027'}
+    },
+    'HS-4811':{
+      type:'Scheduled Service',
+      vehicle:{plate:'SGX 8842 C',model:'SRM T3EV',service:'Battery health check'},
+      tech:'Aiman', advisor:'Marcus Tan',
+      stages:TRACK_STAGES,
+      stageTimes:['27 Oct, 9:10am','27 Oct, 9:50am','27 Oct, 10:30am','27 Oct, 10:45am','27 Oct, 10:45am','27 Oct, 1:00pm','28 Oct, 3:40pm','28 Oct, 3:50pm','28 Oct, 5:15pm'],
+      current:8,
+      eta:'Completed',
+      dvi:[
+        {system:'Battery & EV systems',items:[
+          {label:'Battery health',status:'green',metric:'96%',note:'96% of rated capacity after two years in service.'},
+          {label:'Charging port',status:'green',note:'No issues found.'},
+          {label:'Software version',status:'green',note:'Up to date, v3.4.'}
+        ]},
+        {system:'Brakes & suspension',items:[
+          {label:'Brake pads',status:'green',note:'7mm remaining, no action needed.'}
+        ]}
+      ],
+      quoteOriginal:0,
+      quote:[{desc:'Battery health diagnostic',qty:1,price:0,isNew:false,decision:'approve',note:'Included under warranty'}],
+      parts:[{name:'None required',status:'—',eta:'—'}],
+      chat:[{from:'in',who:'Marcus Tan',text:'All done! Battery health report attached — 96%, well within range. See you at collection.',time:'28 Oct, 3:50pm'}],
+      notifications:[
+        {ch:'WhatsApp',text:'Job HS-4811 checked in for SGX 8842 C.',time:'27 Oct, 9:10am'},
+        {ch:'Email',text:'Your battery health report is ready to view.',time:'27 Oct, 10:30am'},
+        {ch:'SMS',text:'Your vehicle is ready for collection.',time:'28 Oct, 3:50pm'}
+      ],
+      payment:{status:'paid'},
+      history:[{id:'HS-3810',date:'3 Dec 2025',desc:'Brake inspection'},{id:'HS-3420',date:'14 Jun 2025',desc:'Pre-delivery inspection'}],
+      warranty:{battery:'6 yrs remaining on battery warranty',next:'28 Apr 2027'}
+    }
+  };
+
+  let trJob=null, trCode=null;
+
+  function pizzaHTML(stages,current,times){
+    return stages.map((s,i)=>{
+      const cls=i<current?'done':(i===current?'now':'');
+      const t=times&&times[i]?times[i]:'';
+      return `<div class="pz-step ${cls}"><div class="ln"></div><div class="dot">${i<current?'✓':(i+1)}</div><div class="lbl">${s}</div>${t?`<div class="ts">${t}</div>`:(cls==='now'?'<div class="ts">In progress</div>':'')}</div>`;
+    }).join('');
+  }
+  function trComputeTotal(items){ return items.reduce((s,it)=>s+(it.decision==='decline'?0:it.price),0); }
+  function trQuoteRows(items){
+    return items.map((it,i)=>`<tr>
+      <td>${it.desc}${it.isNew?'<span class="q-new">New</span>':''}${it.note?`<div class="note" style="margin-top:3px">${it.note}</div>`:''}
+        <div class="q-ask-box" id="askBox-${i}"><input type="text" placeholder="Ask about this item…"><button class="btn btn-dark btn-sm" type="button" data-asksend="${i}">Send</button></div>
+      </td>
+      <td>${it.qty}</td>
+      <td>${it.price?fmt(it.price):'—'}</td>
+      <td><div class="q-actions">
+        <button type="button" class="approve" data-act="approve" data-qi="${i}" aria-pressed="${it.decision==='approve'}">Approve</button>
+        <button type="button" class="decline" data-act="decline" data-qi="${i}" aria-pressed="${it.decision==='decline'}">Decline</button>
+        <button type="button" data-act="ask" data-qi="${i}">Ask</button>
+      </div></td>
+    </tr>`).join('');
+  }
+  function renderTrQuote(){
+    $('#quoteBody').innerHTML=trQuoteRows(trJob.quote);
+    $('#qOrig').textContent=fmt(trJob.quoteOriginal);
+    const total=trComputeTotal(trJob.quote);
+    $('#qTotal').textContent=fmt(total);
+    const delta=total-trJob.quoteOriginal;
+    const reasons=trJob.quote.filter(it=>it.isNew&&it.decision!=='decline').map(it=>it.desc);
+    $('#qDelta').innerHTML= delta>0 ? `+${fmt(delta)} vs your original estimate — ${reasons.join(', ')}.` : (delta<0?`${fmt(delta)} vs your original estimate.`:'Matches your original estimate.');
+  }
+  function trChatHTML(msgs){
+    return msgs.map(m=>`<div class="msg ${m.from}"><span class="who">${m.from==='in'?m.who:'You'} · ${m.time}</span>${m.text}</div>`).join('');
+  }
+  function trNotifHTML(list){
+    return list.map(n=>`<div class="notif"><span class="nch ${n.ch}">${n.ch}</span><div><p>${n.text}</p><time>${n.time}</time></div></div>`).join('');
+  }
+  function trAfterHTML(j,code){
+    const collected = j.current===j.stages.length-1;
+    let out='<h3 style="margin-bottom:4px">After collection</h3>';
+    if(collected){
+      out+=`<div class="rate-wrap" id="trRateCard" style="margin:0 0 28px">
+        <div id="trRateForm">
+          <h4>How was your service?</h4>
+          <p class="sub">Job ${code} · ${j.vehicle.model} · Collected</p>
+          <div class="stars-input" id="trStars">${[1,2,3,4,5].map(v=>`<button type="button" data-v="${v}" aria-label="${v} star${v>1?'s':''}">★</button>`).join('')}</div>
+          <div class="rtags" id="trTags">${['On time','Great communication','Fixed first time','Clean vehicle'].map(t=>`<button type="button" data-t="${t}">${t}</button>`).join('')}</div>
+          <textarea id="trComment" placeholder="Anything else you'd like us to know? (optional)"></textarea>
+          <button class="btn btn-orange" id="trSubmit" type="button" style="width:100%">Submit rating</button>
+        </div>
+        <div class="rate-thanks" id="trThanks"><div class="check">✓</div><h4>Thanks for the feedback</h4><p class="sub">Your advisor ${j.advisor} has been notified.</p></div>
+      </div>`;
+    } else {
+      out+='<p class="note" style="margin-bottom:28px">You\'ll be able to rate this job once your vehicle is collected.</p>';
+    }
+    out+=`<h4 class="mini-h">Service history</h4>
+      <div class="parts-list" style="margin-bottom:18px">${j.history.map(h=>`<div class="prow"><span>${h.id} — ${h.desc}</span><span class="note">${h.date}</span></div>`).join('')}</div>
+      <p class="note">${j.warranty.battery} · Next service due ${j.warranty.next}</p>`;
+    return out;
+  }
+  function trBindAfter(){
+    const sw=document.getElementById('trStars'); if(!sw) return;
+    let rVal=0; const starBtns=[...sw.querySelectorAll('button')];
+    starBtns.forEach(b=>b.addEventListener('click',()=>{rVal=+b.dataset.v;starBtns.forEach(x=>x.classList.toggle('on',+x.dataset.v<=rVal))}));
+    document.querySelectorAll('#trTags button').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('on')));
+    const sb=document.getElementById('trSubmit');
+    if(sb) sb.addEventListener('click',()=>{document.getElementById('trRateForm').style.display='none';document.getElementById('trThanks').classList.add('show')});
+  }
+  function openInvoice(j,code){
+    const total=trComputeTotal(j.quote);
+    const rows=j.quote.map(it=>`<tr><td style="padding:8px;border-bottom:1px solid #ddd">${it.desc}</td><td style="padding:8px;border-bottom:1px solid #ddd;text-align:right">${it.price?fmt(it.price):'—'}</td></tr>`).join('');
+    const html=`<!doctype html><html><head><meta charset="utf-8"><title>Job card ${code}</title><style>body{font-family:Arial,Helvetica,sans-serif;padding:40px;color:#111;max-width:640px;margin:0 auto}h1{font-size:20px;margin-bottom:4px}table{width:100%;border-collapse:collapse;margin-top:20px}tfoot td{font-weight:700;border-top:2px solid #111;padding-top:10px}</style></head><body>
+      <h1>Hong Seh EV — Job Card / Invoice</h1>
+      <p>Job ${code} · ${j.vehicle.plate} · ${j.vehicle.model}</p>
+      <p>Service: ${j.vehicle.service}</p>
+      <table><thead><tr><th style="text-align:left;padding:8px;border-bottom:2px solid #111">Item</th><th style="text-align:right;padding:8px;border-bottom:2px solid #111">Price</th></tr></thead><tbody>${rows}</tbody><tfoot><tr><td style="padding-top:10px">Total</td><td style="text-align:right;padding-top:10px">${fmt(total)}</td></tr></tfoot></table>
+      <p style="margin-top:36px;color:#777;font-size:12px">Generated from the Hong Seh EV customer portal · ${j.payment&&j.payment.status==='paid'?'Paid in full':'Payment due at collection'}</p>
+      <script>window.onload=function(){window.print()}<\/script>
+      </body></html>`;
+    const w=window.open('','_blank');
+    if(w){ w.document.write(html); w.document.close(); } else { toast('Please allow pop-ups to download the job card.'); }
+  }
+  function renderTrack(code){
+    const j=TRACK_JOBS[code];
+    if(!j){ $('#trackError').classList.add('show'); return false; }
+    $('#trackError').classList.remove('show');
+    trJob=j; trCode=code;
+    $('#pzTrack').innerHTML=pizzaHTML(j.stages,j.current,j.stageTimes);
+    $('#pzEta').innerHTML= j.current===j.stages.length-1 ? 'Your vehicle has been collected.' : `Estimated completion: <b>${j.eta}</b>`;
+    $('#jobCard').innerHTML=`
+      <div><span class="jk">Vehicle</span><span class="jv">${j.vehicle.plate}</span></div>
+      <div><span class="jk">Model</span><span class="jv">${j.vehicle.model}</span></div>
+      <div><span class="jk">Service</span><span class="jv">${j.vehicle.service}</span></div>
+      <div><span class="jk">Job</span><span class="jv">${code}${j.type!=='Scheduled Service'?' · '+j.type:''}</span></div>
+      <div><span class="jk">Technician</span><div class="people"><span class="av2">👤</span><span class="jv">${j.tech}</span></div></div>
+      <div><span class="jk">Service advisor</span><div class="people"><span class="av2">👤</span><span class="jv">${j.advisor}</span></div></div>`;
+    $('#claimWrap').innerHTML= j.claim ? `<div class="claim-track"><h3 style="margin-bottom:4px">Accident claim progress</h3><p class="note" style="margin-bottom:6px">This job also follows your insurance claim, tracked separately.</p><div class="pizza">${pizzaHTML(j.claim.stages,j.claim.current,j.claim.times)}</div></div>` : '';
+    $('#dviWrap').innerHTML=j.dvi.map(g=>`<div class="dvi-group"><h4>${g.system}</h4>${g.items.map(it=>`<div class="dvi-item"><span class="tl ${it.status}" title="${it.status==='green'?'OK':it.status==='amber'?'Monitor':'Needs attention'}"></span><div class="dvi-media">Photo</div><div class="dvi-body"><b>${it.label}${it.metric?`<span class="dvi-metric">${it.metric}</span>`:''}</b><p>${it.note}</p></div></div>`).join('')}</div>`).join('');
+    renderTrQuote();
+    $('#partsWrap').innerHTML=j.parts.map(p=>`<div class="prow"><span>${p.name}</span><span style="text-align:right"><b style="color:var(--ink)">${p.status}</b>${p.eta!=='—'?`<br><span class="note">Expected ${p.eta}</span>`:''}</span></div>`).join('');
+    $('#chatThread').innerHTML=trChatHTML(j.chat);
+    $('#notifWrap').innerHTML=trNotifHTML(j.notifications);
+    const collected=j.current===j.stages.length-1;
+    const paid=j.payment.status==='paid';
+    $('#payLine').innerHTML= collected
+      ? `<span class="jstatus ${paid?'done':'progress'}">${paid?'Paid':'Unpaid'}</span> <span style="margin-left:8px;font-weight:600">${fmt(trComputeTotal(j.quote))}</span>`
+      : `<span class="jstatus progress">Due at collection</span> <span style="margin-left:8px;font-weight:600">Estimated ${fmt(trComputeTotal(j.quote))}</span>`;
+    $('#pickupList').innerHTML=PICKUP_ITEMS.map(t=>`<li><input type="checkbox">${t}</li>`).join('');
+    $('#afterWrap').innerHTML=trAfterHTML(j,code);
+    trBindAfter();
+    $('#trackGate').hidden=true; $('#trackView').hidden=false;
+    return true;
+  }
+  $('#trackForm').addEventListener('submit',e=>{e.preventDefault();renderTrack($('#trackCode').value.trim().toUpperCase())});
+  $('#trackGate').addEventListener('click',e=>{const b=e.target.closest('[data-try]');if(!b)return;$('#trackCode').value=b.dataset.try;renderTrack(b.dataset.try)});
+  $('#trackBack').addEventListener('click',()=>{$('#trackView').hidden=true;$('#trackGate').hidden=false;$('#trackCode').value='';$('#trackError').classList.remove('show')});
+  $('#quoteBody').addEventListener('click',e=>{
+    const ask=e.target.closest('[data-asksend]');
+    if(ask){ const i=+ask.dataset.asksend; const input=ask.previousElementSibling; if(input&&input.value.trim()){trJob.chat.push({from:'out',text:input.value.trim(),time:'Just now'});$('#chatThread').innerHTML=trChatHTML(trJob.chat);toast('Question sent to your advisor.')} const box=document.getElementById('askBox-'+i); if(box)box.classList.remove('show'); return; }
+    const btn=e.target.closest('[data-act]'); if(!btn) return;
+    const i=+btn.dataset.qi, act=btn.dataset.act;
+    if(act==='approve'||act==='decline'){ trJob.quote[i].decision=act; renderTrQuote(); }
+    else if(act==='ask'){ const box=document.getElementById('askBox-'+i); if(box) box.classList.toggle('show'); }
+  });
+  function trSendChat(){
+    const inp=$('#chatInput'); const v=inp.value.trim(); if(!v||!trJob) return;
+    trJob.chat.push({from:'out',text:v,time:'Just now'});
+    $('#chatThread').innerHTML=trChatHTML(trJob.chat);
+    $('#chatThread').scrollTop=$('#chatThread').scrollHeight;
+    inp.value='';
+  }
+  $('#chatSend').addEventListener('click',trSendChat);
+  $('#chatInput').addEventListener('keydown',e=>{if(e.key==='Enter')trSendChat()});
+  $('#chatChips').addEventListener('click',e=>{const b=e.target.closest('[data-q]');if(!b)return;$('#chatInput').value=b.dataset.q;trSendChat()});
+  $('#btnInvoice').addEventListener('click',()=>{if(trJob)openInvoice(trJob,trCode)});
 })();
 </script>
+
+</body></html>
 
 </body></html>
